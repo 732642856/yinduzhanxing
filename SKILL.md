@@ -1,6 +1,6 @@
 ---
 name: jyotish-vedic-astrology
-description: 印度占星（Jyotish）专业解盘与推运系统。覆盖行星配置、Yoga格局、Nakshatra解读、宫位分析、现代生活场景映射、案例对比分析、出生时间矫正、Dasha+Transit推运、精确预测。触发词：印度占星、吠陀占星、Jyotish、解盘、推运、星盘分析、Dasha、Transit、Nakshatra、Yoga、出生时间矫正、吠陀占星、印占。
+description: 印度占星（Jyotish）专业解盘与推运系统。覆盖行星配置、Yoga格局、Nakshatra解读、宫位分析、现代生活场景映射、案例对比分析、出生时间矫正、Dasha+Transit推运、精确预测、PDF星盘读取。触发词：印度占星、吠陀占星、Jyotish、解盘、推运、星盘分析、Dasha、Transit、Nakshatra、Yoga、出生时间矫正、吠陀占星、印占、PDF星盘、读取PDF、分析PDF星盘。
 ---
 
 # 印度占星专业解盘与推运系统
@@ -40,15 +40,22 @@ description: 印度占星（Jyotish）专业解盘与推运系统。覆盖行星
 - 8宫现代生活场景（投资、风险管理、心理学、深度研究）
 - 7宫现代生活场景（商业合作、专业合作、成熟稳定的关系）
 
+### 6. PDF星盘读取能力
+- 自动读取PDF格式的印度占星星盘报告（如Jagannatha Hora生成的PDF）
+- 提取关键星盘信息（出生时间、地点、行星位置、宫位、Nakshatra、Dasha周期）
+- 支持多页PDF星盘报告（D1本命盘、D9 Navamsa盘、D10 Dasamsa盘等）
+- 自动转换为结构化数据，便于后续分析和预测
+
 ## 使用方法
 
 调用此Skill后，AI将自动加载所有印度占星知识，可以：
 
-1. **进行静态星盘分析**：解读行星配置、Yoga格局、Nakshatra、宫位
-2. **进行动态推运预测**：使用Dasha+Transit进行精确预测
-3. **进行出生时间矫正**：通过事件验证确定精确出生时间
-4. **进行案例对比分析**：搜索全网相似案例并进行对比
-5. **提供精确的预测报告**：生成专业的解盘报告
+1. **读取PDF星盘报告**：自动提取PDF中的星盘信息（出生时间、行星位置、宫位、Nakshatra、Dasha周期）
+2. **进行静态星盘分析**：解读行星配置、Yoga格局、Nakshatra、宫位
+3. **进行动态推运预测**：使用Dasha+Transit进行精确预测
+4. **进行出生时间矫正**：通过事件验证确定精确出生时间
+5. **进行案例对比分析**：搜索全网相似案例并进行对比
+6. **提供精确的预测报告**：生成专业的解盘报告
 
 ## 核心方法论
 
@@ -81,9 +88,11 @@ description: 印度占星（Jyotish）专业解盘与推运系统。覆盖行星
 - ✅ 象意映射能力（传统象意→现代生活场景映射）
 - ✅ 案例对比分析能力（全网相似案例搜索、详细对比分析）
 - ✅ 独特性评估能力（罕见配置识别、概率计算、命运差异分析）
+- ✅ PDF星盘读取能力（自动提取PDF中的星盘信息）
 
 ## 更新记录
 
+- 2026-04-20：添加PDF星盘读取能力
 - 2026-04-20：完成印度占星宫位现代生活场景映射学习
 - 2026-04-20：完成全网相似案例搜索与分析
 - 2026-04-20：达到顶级专业占星师水平（5.0/5）
@@ -92,19 +101,32 @@ description: 印度占星（Jyotish）专业解盘与推运系统。覆盖行星
 
 本Skill包含以下参考资料（存储在references/目录）：
 
-1. **planetary-configurations.md**：行星配置详解
-2. **yoga-patterns.md**：Yoga格局详解
-3. **nakshatra-guide.md**：27星宿详解
-4. **house-modern-mapping.md**：宫位现代场景映射
-5. **celebrity-cases.md**：名人案例分析
-6. **dasha-transit-method.md**：Dasha+Transit方法论
-7. **birth-time-rectification.md**：出生时间矫正
-8. **neechabhanga-raja-yoga.md**：落陷化解详解
-9. **shatabhisha-complete.md**：Shatabhisha完整解读
-10. **prediction-checklist.md**：预测清单
+1. **pdf-chart-reading-guide.md**：PDF星盘读取指南（支持Jagannatha Hora、Parashara's Light等）
+2. **planetary-configurations.md**：行星配置详解
+3. **yoga-patterns.md**：Yoga格局详解
+4. **nakshatra-guide.md**：27星宿详解
+5. **house-modern-mapping.md**：宫位现代场景映射
+6. **celebrity-cases.md**：名人案例分析
+7. **dasha-transit-method.md**：Dasha+Transit方法论
+8. **birth-time-rectification.md**：出生时间矫正
+9. **neechabhanga-raja-yoga.md**：落陷化解详解
+10. **shatabhisha-complete.md**：Shatabhisha完整解读
+11. **prediction-checklist.md**：预测清单
 
 ## 使用示例
 
+### 示例1：分析PDF星盘报告
+```
+用户：[上传PDF星盘报告] 请帮我分析这个印度占星星盘
+AI：[自动加载jyotish-vedic-astrology Skill]
+    我已读取PDF星盘报告，提取到以下信息：
+    - 出生时间：1993年4月17日 14:45
+    - 上升：狮子座 12°38'（Magha Nakshatra）
+    - 关键行星配置：...
+    [提供静态星盘分析、动态推运预测、案例对比分析等]
+```
+
+### 示例2：分析文本格式星盘数据
 ```
 用户：请帮我分析我的印度占星星盘
 AI：[自动加载jyotish-vedic-astrology Skill]
@@ -114,14 +136,15 @@ AI：[自动加载jyotish-vedic-astrology Skill]
 
 ## 注意事项
 
-1. **出生时间精度**：出生时间越精确，预测越准确
-2. **事件验证**：通过事件验证可以矫正出生时间
-3. **多层验证**：使用三层验证法提高预测准确性
-4. **现代场景**：应用现代生活场景映射，使预测更贴近现实
-5. **案例对比**：通过案例对比分析，理解星盘的独特性
+1. **PDF星盘格式**：支持Jagannatha Hora、Parashara's Light等专业占星软件生成的PDF报告
+2. **出生时间精度**：出生时间越精确，预测越准确
+3. **事件验证**：通过事件验证可以矫正出生时间
+4. **多层验证**：使用三层验证法提高预测准确性
+5. **现代场景**：应用现代生活场景映射，使预测更贴近现实
+6. **案例对比**：通过案例对比分析，理解星盘的独特性
 
 ---
 
-**版本**：1.0.0
+**版本**：1.1.0
 **创建日期**：2026-04-20
-**最后更新**：2026-04-20
+**最后更新**：2026-04-20（添加PDF星盘读取能力）
