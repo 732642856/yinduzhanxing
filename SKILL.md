@@ -173,16 +173,17 @@ description: 印度占星（Jyotish）专业解盘与推运系统。覆盖行星
 2. **modern-language-guide.md**：现代生活措辞指南（传统术语→现代措辞映射）⭐⭐⭐⭐⭐
 3. **birth-time-rectification-advanced.md**：出生时间矫正高级方法论（八大矫正方法+自动化矫正流程）⭐⭐⭐⭐⭐
 4. **pdf-chart-reading-guide.md**：PDF星盘读取指南（支持Jagannatha Hora、Parashara's Light等）
-5. **planetary-configurations.md**：行星配置详解
-6. **yoga-patterns.md**：Yoga格局详解
-7. **nakshatra-guide.md**：27星宿详解
-8. **house-modern-mapping.md**：宫位现代场景映射
-9. **celebrity-cases.md**：名人案例分析
-10. **dasha-transit-method.md**：Dasha+Transit方法论
-11. **birth-time-rectification.md**：出生时间矫正基础方法
-12. **neechabhanga-raja-yoga.md**：落陷化解详解
-13. **shatabhisha-complete.md**：Shatabhisha完整解读
-14. **prediction-checklist.md**：预测清单
+5. **famous-case-library.md**：名人案例库（周杰伦、比尔盖茨等完整分析）⭐⭐⭐⭐⭐
+6. **planetary-configurations.md**：行星配置详解
+7. **yoga-patterns.md**：Yoga格局详解
+8. **nakshatra-guide.md**：27星宿详解
+9. **house-modern-mapping.md**：宫位现代场景映射
+10. **celebrity-cases.md**：名人案例分析
+11. **dasha-transit-method.md**：Dasha+Transit方法论
+12. **birth-time-rectification.md**：出生时间矫正基础方法
+13. **neechabhanga-raja-yoga.md**：落陷化解详解
+14. **shatabhisha-complete.md**：Shatabhisha完整解读
+15. **prediction-checklist.md**：预测清单
 
 ## 模板文件
 
