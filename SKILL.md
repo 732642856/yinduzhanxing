@@ -174,7 +174,8 @@ description: 印度占星（Jyotish）专业解盘与推运系统。覆盖行星
 3. **birth-time-rectification-advanced.md**：出生时间矫正高级方法论（八大矫正方法+自动化矫正流程）⭐⭐⭐⭐⭐
 4. **pdf-chart-reading-guide.md**：PDF星盘读取指南（支持Jagannatha Hora、Parashara's Light等）
 5. **famous-case-library.md**：名人案例库（周杰伦、比尔盖茨等完整分析）⭐⭐⭐⭐⭐
-6. **planetary-configurations.md**：行星配置详解
+6. **consultation-case-library.md**：普通人咨询案例库（医疗占星、咨询服务框架、伴侣特质分析、印占科普系列）⭐⭐⭐⭐⭐
+7. **planetary-configurations.md**：行星配置详解
 7. **yoga-patterns.md**：Yoga格局详解
 8. **nakshatra-guide.md**：27星宿详解
 9. **house-modern-mapping.md**：宫位现代场景映射
