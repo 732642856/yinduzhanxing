@@ -1,6 +1,6 @@
 ---
 name: jyotish-vedic-astrology
-description: 印度占星（Jyotish）专业解盘与推运系统。覆盖行星配置、Yoga格局、Nakshatra解读、宫位分析、现代生活场景映射、现代措辞解读、案例对比分析、自动出生时间矫正、Dasha+Transit推运、精确预测、PDF星盘读取。触发词：印度占星、吠陀占星、Jyotish、解盘、推运、星盘分析、Dasha、Transit、Nakshatra、Yoga、出生时间矫正、吠陀占星、印占、PDF星盘、读取PDF、分析PDF星盘、矫正出生时间、出生时间验证、生时矫正、现代解读、现代措辞。
+description: 印度占星（Jyotish）专业解盘与推运系统。覆盖行星配置、Yoga格局、Nakshatra解读、宫位分析、现代生活场景映射、现代措辞解读、案例对比分析、自动出生时间矫正、常见误判纠错、Dasha+Transit推运、精确预测、PDF星盘读取。触发词：印度占星、吠陀占星、Jyotish、解盘、推运、星盘分析、Dasha、Transit、Nakshatra、Yoga、出生时间矫正、吠陀占星、印占、PDF星盘、读取PDF、分析PDF星盘、矫正出生时间、出生时间验证、生时矫正、现代解读、现代措辞、误判纠错、错题本。
 ---
 
 # 印度占星专业解盘与推运系统
@@ -80,16 +80,44 @@ description: 印度占星（Jyotish）专业解盘与推运系统。覆盖行星
 - 支持多页PDF星盘报告（D1本命盘、D9 Navamsa盘、D10 Dasamsa盘等）
 - 自动转换为结构化数据，便于后续分析和预测
 
+### 8. 常见误判纠错能力（错题本）
+- **全网常见误判记录**：
+  - 宫位解读误判（8宫是"死亡宫"、12宫是"监狱宫"、7宫是"婚姻宫"等）
+  - 行星状态误判（火星落陷一定是坏事、土星在7宫表示婚姻延迟等）
+  - Yoga格局误判（Neechabhanga Raja Yoga一定形成、Raja Yoga一定成功等）
+  - Dasha周期误判（大运一定决定人生阶段、Transit可以单独预测等）
+  - 出生时间矫正误判（一个事件验证就足够、D9上升不重要等）
+  - 现代生活场景误判（传统解读适用于现代生活等）
+  - 不同流派误判（Parashara系统和Jaimini系统冲突等）
+- **问题根源分析**：
+  - 传统解读局限（过于强调字面含义）
+  - 现代生活场景变化（传统解读不适用）
+  - 不同流派冲突（解读方法不同）
+  - 时间精度问题（出生时间不准确）
+- **修正后的正确信息**：
+  - 现代生活场景映射（传统解读→现代生活场景）
+  - 多层验证方法（三层验证法）
+  - 结合多个系统（Parashara系统 + Jaimini系统）
+  - 精确时间矫正（八大矫正方法）
+  - 现代措辞解读（传统术语→现代措辞）
+- **避免误判的原则**：
+  - 现代生活优先
+  - 多层验证
+  - 结合多个系统
+  - 精确时间
+  - 现代措辞
+
 ## 使用方法
 
 调用此Skill后，AI将自动加载所有印度占星知识，可以：
 
 1. **读取PDF星盘报告**：自动提取PDF中的星盘信息（出生时间、行星位置、宫位、Nakshatra、Dasha周期）
 2. **自动矫正出生时间**：通过八大矫正方法自动验证和矫正出生时间（核心能力）
-3. **进行静态星盘分析**：解读行星配置、Yoga格局、Nakshatra、宫位（使用现代措辞）
-4. **进行动态推运预测**：使用Dasha+Transit进行精确预测（使用现代措辞）
+3. **进行静态星盘分析**：解读行星配置、Yoga格局、Nakshatra、宫位（使用现代措辞，避免常见误判）
+4. **进行动态推运预测**：使用Dasha+Transit进行精确预测（使用现代措辞，避免常见误判）
 5. **进行案例对比分析**：搜索全网相似案例并进行对比
-6. **提供精确的预测报告**：生成专业的解盘报告（使用现代措辞，符合现代生活）
+6. **提供精确的预测报告**：生成专业的解盘报告（使用现代措辞，符合现代生活，避免常见误判）
+7. **纠错常见误判**：自动识别和纠错全网常见误判（错题本）
 
 ## 核心方法论
 
@@ -122,12 +150,14 @@ description: 印度占星（Jyotish）专业解盘与推运系统。覆盖行星
 - ✅ 生时校正能力（BPHS流年法+界行向运法+运限与星曜过宫）
 - ✅ 象意映射能力（传统象意→现代生活场景映射）
 - ✅ 现代措辞解读能力（传统术语→现代措辞映射）⭐⭐⭐⭐⭐
+- ✅ 常见误判纠错能力（全网常见误判记录+问题根源分析+修正后的正确信息）⭐⭐⭐⭐⭐
 - ✅ 案例对比分析能力（全网相似案例搜索、详细对比分析）
 - ✅ 独特性评估能力（罕见配置识别、概率计算、命运差异分析）
 - ✅ PDF星盘读取能力（自动提取PDF中的星盘信息）
 
 ## 更新记录
 
+- 2026-04-20：添加常见误判纠错能力（错题本：全网常见误判记录+问题根源分析+修正后的正确信息）
 - 2026-04-20：添加现代措辞解读能力（传统术语→现代措辞映射）
 - 2026-04-20：增强自动出生时间矫正能力（八大矫正方法+自动化矫正流程+验证报告生成）
 - 2026-04-20：添加PDF星盘读取能力
@@ -139,19 +169,20 @@ description: 印度占星（Jyotish）专业解盘与推运系统。覆盖行星
 
 本Skill包含以下参考资料（存储在references/目录）：
 
-1. **modern-language-guide.md**：现代生活措辞指南（传统术语→现代措辞映射）⭐⭐⭐⭐⭐
-2. **birth-time-rectification-advanced.md**：出生时间矫正高级方法论（八大矫正方法+自动化矫正流程）⭐⭐⭐⭐⭐
-3. **pdf-chart-reading-guide.md**：PDF星盘读取指南（支持Jagannatha Hora、Parashara's Light等）
-4. **planetary-configurations.md**：行星配置详解
-5. **yoga-patterns.md**：Yoga格局详解
-6. **nakshatra-guide.md**：27星宿详解
-7. **house-modern-mapping.md**：宫位现代场景映射
-8. **celebrity-cases.md**：名人案例分析
-9. **dasha-transit-method.md**：Dasha+Transit方法论
-10. **birth-time-rectification.md**：出生时间矫正基础方法
-11. **neechabhanga-raja-yoga.md**：落陷化解详解
-12. **shatabhisha-complete.md**：Shatabhisha完整解读
-13. **prediction-checklist.md**：预测清单
+1. **common-misconceptions.md**：印度占星常见误判与冲突问题集（错题本）⭐⭐⭐⭐⭐
+2. **modern-language-guide.md**：现代生活措辞指南（传统术语→现代措辞映射）⭐⭐⭐⭐⭐
+3. **birth-time-rectification-advanced.md**：出生时间矫正高级方法论（八大矫正方法+自动化矫正流程）⭐⭐⭐⭐⭐
+4. **pdf-chart-reading-guide.md**：PDF星盘读取指南（支持Jagannatha Hora、Parashara's Light等）
+5. **planetary-configurations.md**：行星配置详解
+6. **yoga-patterns.md**：Yoga格局详解
+7. **nakshatra-guide.md**：27星宿详解
+8. **house-modern-mapping.md**：宫位现代场景映射
+9. **celebrity-cases.md**：名人案例分析
+10. **dasha-transit-method.md**：Dasha+Transit方法论
+11. **birth-time-rectification.md**：出生时间矫正基础方法
+12. **neechabhanga-raja-yoga.md**：落陷化解详解
+13. **shatabhisha-complete.md**：Shatabhisha完整解读
+14. **prediction-checklist.md**：预测清单
 
 ## 模板文件
 
@@ -222,6 +253,6 @@ AI：[自动加载jyotish-vedic-astrology Skill]
 
 ---
 
-**版本**：1.3.0
+**版本**：1.4.0
 **创建日期**：2026-04-20
-**最后更新**：2026-04-20（添加现代措辞解读能力）
+**最后更新**：2026-04-20（添加常见误判纠错能力）
