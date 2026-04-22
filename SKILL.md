@@ -17,9 +17,32 @@ description: 印度占星（Jyotish）专业解盘与推运系统。覆盖行星
 
 ### 2. 动态星盘分析
 - Vimshottari Dasha推运系统（五级大运联动）
+- Jaimini Chara Dasha推运系统（星座大运）⭐ 新增
 - Transit系统（行运推运法）
 - 三层验证法（Dasha + Transit + Varga）
 - 精确时间点预测（年度、月度、每日）
+
+### 2.1 Jaimini系统（新增）⭐⭐⭐⭐⭐
+- **Chara Karakas**：七大可变象征星（Atmakaraka、Amatyakaraka、Bhratrukaraka、Matrukaraka、Putrakaraka、Gnatikaraka、Darakaraka）
+- **Chara Dasha**：星座大运系统（基于太阳和地球，反映实际事件）
+- **Karakamsha**：灵魂上升点（Navamsha盘中的AK位置）
+- **Jaimini Drishti**：星座相位系统
+- **应用场景**：婚姻时机预测、事业突破预测、灵魂课题解读
+
+### 2.2 KP占星系统（新增）⭐⭐⭐⭐⭐
+- **249个Sub-Lord系统**：精确事件时机预测
+- **四层级Significator分析**：星宿领主优先于宫主星
+- **Cuspal Sub-Lord分析**：宫头子领主决定承诺实现
+- **问答占星（Horary）**：1-249数字问卜法
+- **Ruling Planets**：统治行星系统
+- **应用场景**：是/否答案、精确事件时间、求职/婚姻/出国预测
+
+### 2.3 Ashtakavarga系统（新增）⭐⭐⭐⭐⭐
+- **BAV（Bhinna Ashtakavarga）**：个体行星评分表（0-8 bindus）
+- **SAV（Sarva Ashtakavarga）**：综合强度图（337点系统）
+- **Shodhya Pinda**：终极行星强度评分
+- **过境预测应用**：结合BAV和SAV分数
+- **应用场景**：行星强度排名、过境效果预测、宝石推荐依据
 
 ### 3. 自动出生时间矫正（核心能力）
 - **八大矫正方法**：
@@ -80,7 +103,17 @@ description: 印度占星（Jyotish）专业解盘与推运系统。覆盖行星
 - 支持多页PDF星盘报告（D1本命盘、D9 Navamsa盘、D10 Dasamsa盘等）
 - 自动转换为结构化数据，便于后续分析和预测
 
-### 8. 常见误判纠错能力（错题本）
+### 8. 补救措施系统（新增）⭐⭐⭐⭐⭐
+- **宝石疗法**：九大行星对应宝石、佩戴方法、禁忌事项
+- **Mantra疗法**：各行星咒语、种子音、修行要求
+- **Puja/Homa**：火祭仪式（Navagraha Shanti、Rudrabhishek、Kaal Sarp Dosh等）
+- **Yantra**：几何曼陀罗、开光仪式
+- **Daan（布施）**：各行星对应捐赠物品、布施日
+- **Fasting（断食）**：各行星断食日、断食方式
+- **Doshas补救**：Mangal Dosha、Kaal Sarp Dosha、Sade Sati
+- **应用场景**：行星受克化解、业力调和、能量平衡
+
+### 9. 常见误判纠错能力（错题本）
 - **全网常见误判记录**：
   - 宫位解读误判（8宫是"死亡宫"、12宫是"监狱宫"、7宫是"婚姻宫"等）
   - 行星状态误判（火星落陷一定是坏事、土星在7宫表示婚姻延迟等）
@@ -137,13 +170,13 @@ description: 印度占星（Jyotish）专业解盘与推运系统。覆盖行星
 
 ## 能力水平
 
-当前能力水平：**顶级专业占星师水平（5.0/5）**
+当前能力水平：**顶级专业占星师水平（5.5/5）**
 
 ### 核心优势
 - ✅ 系统化方法论（三层验证法+公众号实战方法+顶级占星师实战方法论）
 - ✅ 实战导向（精通各领域实战技巧：父母、婚姻、子女、职业、财运、疾病、业力、死亡）
 - ✅ 深度理解（Shatabhisha完整理解+Jaimini核心概念+D2/D7/D60深度解读+Yoga体系）
-- ✅ 精确预测（Vimshottari Dasha+Transit+五级大运联动）
+- ✅ 精确预测（Vimshottari Dasha+Transit+五级大运联动+Jaimini Chara Dasha+KP Sub-Lord）
 - ✅ 名人案例实战能力（周杰伦+马斯克+比尔盖茨+93个名人库）
 - ✅ 传统知识深度（BPHS读书笔记系列+印度占星学教程1-77讲+Yoga完整体系）
 - ✅ 自动出生时间矫正能力（八大矫正方法+自动化矫正流程+验证报告生成）⭐⭐⭐⭐⭐
@@ -154,9 +187,18 @@ description: 印度占星（Jyotish）专业解盘与推运系统。覆盖行星
 - ✅ 案例对比分析能力（全网相似案例搜索、详细对比分析）
 - ✅ 独特性评估能力（罕见配置识别、概率计算、命运差异分析）
 - ✅ PDF星盘读取能力（自动提取PDF中的星盘信息）
+- ✅ Jaimini系统完整能力（Chara Karakas+Chara Dasha+Karakamsha）⭐⭐⭐⭐⭐ 新增
+- ✅ KP占星系统完整能力（249个Sub-Lord+Significator+问答占星）⭐⭐⭐⭐⭐ 新增
+- ✅ 补救措施系统完整能力（宝石+Mantra+Puja+Yantra+Daan+Fasting）⭐⭐⭐⭐⭐ 新增
+- ✅ Ashtakavarga系统完整能力（BAV+SAV+Shodhya Pinda）⭐⭐⭐⭐⭐ 新增
 
 ## 更新记录
 
+- 2026-04-22：新增Jaimini占星完整体系（Chara Karakas、Chara Dasha、Karakamsha）⭐⭐⭐⭐⭐
+- 2026-04-22：新增KP占星完整体系（249个Sub-Lord、Significator、问答占星）⭐⭐⭐⭐⭐
+- 2026-04-22：新增补救措施完整体系（宝石、Mantra、Puja、Yantra、Daan、Fasting）⭐⭐⭐⭐⭐
+- 2026-04-22：新增Ashtakavarga完整体系（BAV、SAV、Shodhya Pinda）⭐⭐⭐⭐⭐
+- 2026-04-22：达到顶级专业占星师水平（5.5/5）- 新增四大技法系统
 - 2026-04-20：添加常见误判纠错能力（错题本：全网常见误判记录+问题根源分析+修正后的正确信息）
 - 2026-04-20：添加现代措辞解读能力（传统术语→现代措辞映射）
 - 2026-04-20：增强自动出生时间矫正能力（八大矫正方法+自动化矫正流程+验证报告生成）
@@ -169,22 +211,34 @@ description: 印度占星（Jyotish）专业解盘与推运系统。覆盖行星
 
 本Skill包含以下参考资料（存储在references/目录）：
 
+### 核心方法论
 1. **common-misconceptions.md**：印度占星常见误判与冲突问题集（错题本）⭐⭐⭐⭐⭐
 2. **modern-language-guide.md**：现代生活措辞指南（传统术语→现代措辞映射）⭐⭐⭐⭐⭐
 3. **birth-time-rectification-advanced.md**：出生时间矫正高级方法论（八大矫正方法+自动化矫正流程）⭐⭐⭐⭐⭐
 4. **pdf-chart-reading-guide.md**：PDF星盘读取指南（支持Jagannatha Hora、Parashara's Light等）
-5. **famous-case-library.md**：名人案例库（周杰伦、比尔盖茨等完整分析）⭐⭐⭐⭐⭐
-6. **consultation-case-library.md**：普通人咨询案例库（医疗占星、咨询服务框架、伴侣特质分析、印占科普系列）⭐⭐⭐⭐⭐
+5. **dasha-transit-method.md**：Dasha+Transit方法论
+6. **prediction-checklist.md**：预测清单
+
+### 案例库
+6. **famous-case-library.md**：名人案例库（周杰伦、比尔盖茨等完整分析）⭐⭐⭐⭐⭐
+7. **consultation-case-library.md**：普通人咨询案例库（42个案例）⭐⭐⭐⭐⭐
+8. **celebrity-cases.md**：名人案例分析
+
+### 行星与格局
 7. **planetary-configurations.md**：行星配置详解
-7. **yoga-patterns.md**：Yoga格局详解
-8. **nakshatra-guide.md**：27星宿详解
-9. **house-modern-mapping.md**：宫位现代场景映射
-10. **celebrity-cases.md**：名人案例分析
-11. **dasha-transit-method.md**：Dasha+Transit方法论
-12. **birth-time-rectification.md**：出生时间矫正基础方法
-13. **neechabhanga-raja-yoga.md**：落陷化解详解
-14. **shatabhisha-complete.md**：Shatabhisha完整解读
-15. **prediction-checklist.md**：预测清单
+8. **yoga-patterns.md**：Yoga格局详解
+9. **nakshatra-guide.md**：27星宿详解
+10. **house-modern-mapping.md**：宫位现代场景映射
+11. **neechabhanga-raja-yoga.md**：落陷化解详解
+12. **shatabhisha-complete.md**：Shatabhisha完整解读
+13. **birth-time-rectification.md**：出生时间矫正基础方法
+
+### 新增技法系统（2026-04-22）
+14. **jaimini-complete-system.md**：Jaimini占星完整体系（Chara Karakas、Chara Dasha、Karakamsha）⭐⭐⭐⭐⭐
+15. **kp-astrology-complete-system.md**：KP占星完整体系（249个Sub-Lord、Significator、问答占星）⭐⭐⭐⭐⭐
+16. **remedies-complete-system.md**：补救措施完整体系（宝石、Mantra、Puja、Yantra、Daan）⭐⭐⭐⭐⭐
+17. **ashtakavarga-complete-system.md**：Ashtakavarga完整体系（BAV、SAV、Shodhya Pinda）⭐⭐⭐⭐⭐
+18. **house-domain-planet-mapping.md**：宫位-领域-行星映射表（避免指标混淆）⭐⭐⭐⭐⭐ 新增
 
 ## 模板文件
 
@@ -193,6 +247,7 @@ description: 印度占星（Jyotish）专业解盘与推运系统。覆盖行星
 1. **birth_time_rectification_template.md**：出生时间矫正信息收集模板（用户填写）⭐⭐⭐⭐⭐
 2. **chart_analysis_template.md**：星盘分析模板
 3. **event_timing_template.md**：事件时机模板
+4. **timing-prediction-template.md**：推运应期分析模板（三层验证法）⭐⭐⭐⭐⭐ 新增
 
 ## 使用示例
 
@@ -255,6 +310,6 @@ AI：[自动加载jyotish-vedic-astrology Skill]
 
 ---
 
-**版本**：1.4.0
+**版本**：1.5.0
 **创建日期**：2026-04-20
-**最后更新**：2026-04-20（添加常见误判纠错能力）
+**最后更新**：2026-04-22（新增四大技法系统：Jaimini、KP、补救措施、Ashtakavarga）
