@@ -1,5 +1,43 @@
 # 印度占星 Skill 更新日志
 
+## v3.7.4（2026-04-25）— P0: Ayanamsa模式修复 + 度数精度修正
+
+### 核心修复
+
+- **P0 #4**：`jyotish_engine.py` — **从未设置Lahiri Ayanamsa模式**
+  - 根因：`import swisseph` 后没有调用 `swe.set_sid_mode(swe.SIDM_LAHIRI)`
+  - Swiss Ephemeris默认使用非Lahiri模式，导致所有恒星黄道度数偏差约**0.88°**
+  - 修复：在import后立即调用 `swe.set_sid_mode(swe.SIDM_LAHIRI)`
+  - 影响：所有行星度数、Karaka度数、Transit匹配精度、Pushkara判断等均受影响
+  - **Karaka排序不受影响**（排序顺序相同，但度数精度显著提升）
+
+### 一楠星盘修正前后度数对比（1993-04-17 14:45 UTC+8）
+
+| 行星 | v3.7.3b（非Lahiri） | v3.7.4（Lahiri） | PDF数据 | 偏差修正 |
+|------|-------------------|-----------------|---------|---------|
+| Mars | Cancer 0.43° | Cancer **1.32°** | 1°19'≈1.33° | +0.89° → ✅ |
+| Sun | Aries 2.62° | Aries **3.51°** | 3°31'≈3.52° | +0.89° → ✅ |
+| Jupiter | Virgo 12.94° | Virgo **13.82°** | — | +0.88° |
+| Venus | Pisces 9.66° | Pisces **10.54°** | — | +0.88° |
+| Moon | Aquarius 10.89° | Aquarius **11.78°** | — | +0.89° |
+| Mercury | Pisces 7.65° | Pisces **8.53°** | — | +0.88° |
+| Saturn | Aquarius 3.40° | Aquarius **4.29°** | — | +0.89° |
+| Rahu | Scorpio 20.15° | Scorpio **21.03°** | — | +0.88° |
+
+### 参考文档同步更新
+
+- `marriage-timing-validation-methodology.md`：一楠对比表AK/DK度数修正为Lahiri精确值
+- `darakaraka-complete-guide.md`：Sun入庙→入旺术语修正
+
+### Karaka验证（v3.7.4 Lahiri修正后）
+
+| 角色 | 7星 | 8星(S.Rath) | 度数 | PDF匹配 |
+|------|-----|-------------|------|---------|
+| AK | Jupiter | Jupiter | 13.82° | ✅ |
+| DK | **Mars** | **Sun** | 1.32°/3.51° | ✅ Mars |
+
+---
+
 ## v3.7.3b（2026-04-25）— Python引擎P0 Bug修复 + 参考文档4处数据修正
 
 ### Python计算引擎修复（scripts/）
@@ -21,15 +59,15 @@
 3. `marriage-timing-comprehensive-techniques.md`：UL 计算公式重写，从混淆的模运算改为清晰的星座索引推导
 4. `planets.md`：燃烧表补充逆行变体注释
 
-### 验证
+### 验证（v3.7.3b，仍使用非Lahiri Ayanamsa）
 
-一楠星盘修复前后对比：
+一楠星盘修复前后对比（注意：此版本度数仍有~0.88°偏差，已在v3.7.4修正）：
 
-| Karaka | 修复前 | 修复后 | PDF验证 |
-|--------|--------|--------|---------|
-| AK | Jupiter ❌ | Sun (27.6°) ✅ | Sun |
-| DK 7星 | Mars ❌ | Venus (7.7°) ✅ | Venus |
-| DK 8星 | Mars ❌ | Venus (7.7°) ✅ | Venus |
+| Karaka | 修复前(0-360排序) | 修复后(degree_in_sign) | PDF |
+|--------|-------------------|----------------------|-----|
+| AK | Venus(339.66°)❌ | Jupiter(12.94°)✅ | Jupiter |
+| DK 7星 | Sun(2.62°)❌ | Mars(0.43°)✅ | Mars |
+| DK 8星 | Sun(2.62°)✅ | Sun(2.62°)✅ | Sun |
 
 ### 其他更新
 

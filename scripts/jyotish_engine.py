@@ -57,6 +57,7 @@ TRANSIT_JSON = os.path.join(CLAW_DIR, '月运过境配置-2026-2028.json')
 
 try:
     import swisseph as swe
+    swe.set_sid_mode(swe.SIDM_LAHIRI)  # P0修复：必须设置Lahiri恒星黄道模式
     HAS_SWE = True
 except ImportError:
     HAS_SWE = False

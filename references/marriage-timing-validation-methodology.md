@@ -106,12 +106,12 @@ print(f"DK(7星): {dk_7}@{signs[int(planets_7[dk_7]/30)]}")
 print(f"DK(8星): {dk_8}@{signs[int(planets[dk_8]/30)]}")
 ```
 
-**一楠的对比**：
-| 项目 | 7星系统（JH PDF） | 8星系统 |
+**一楠的对比**（v3.7.3b Lahiri修正后数据）：
+| 项目 | 7星系统（K.N. Rao & JH PDF） | 8星系统（Sanjay Rath） |
 |------|-----------------|---------|
-| DK | Mars@Cancer 19°51' | Sun@Aries 3°02' |
-| AK | Sun@Aries | Jupiter@Aries |
-| 配偶征象 | 火星特质（行动/保护/军事） | 太阳特质（领导/权威/自信） |
+| DK | Mars@Cancer 1°19'（落陷，但极轻） | Sun@Aries 3°31'（入旺） |
+| AK | Jupiter@Virgo 13°49'（两系统一致） | Jupiter@Virgo 13°49' |
+| 配偶征象 | 火星特质（行动/战士/激情） | 太阳特质（领导/权威/自信） |
 
 ### 修正2：出生时间必须转UT（世界时）
 
