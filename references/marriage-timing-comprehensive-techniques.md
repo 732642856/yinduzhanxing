@@ -129,7 +129,8 @@
 - **教训**：必须逐一验证每个行星的相位是否真正照射目标宫位，不能想当然
 
 ### UL 计算距离
-- Cancer → Aquarius = 7步（不是8步！）
-  - Cancer(1)→Leo(2)→Virgo(3)→Libra(4)→Scorpio(5)→Sag(6)→Cap(7)→Aqu(8)
-  - 但用模运算：`(10 - 3) % 12 = 7`，如果 distance=0 则 distance=12
-  - 实际：从Aquarius再数7步 → Leo ✓
+- Cancer(12宫) → 12宫主=Moon，Moon在Aquarius
+- UL计算：从12宫(Cancer, 第4星座)数到12宫主所在星座(Aquarius, 第11星座) = 距离 = 11 - 4 = 7步
+- 再从Aquarius向前数7步：Aquarius(11)→Pisces(12)→Aries(1)→Taurus(2)→Gemini(3)→Cancer(4)→Leo(5) → **UL = Leo** ✓
+- 例外1：若12宫主在12宫本宫 → UL = 第10宫
+- 例外2：若12宫主在12宫的第7宫 → UL = 第4宫

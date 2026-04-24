@@ -145,7 +145,7 @@ def compute_chart_data(year, month, day, hour, minute, lat, lon, tz):
             retro = spd < 0
             house = ((si - asc_idx) % 12) + 1
             status = "中性"
-            if EXALTATION.get(pname) == sign: status = "入庙(Exalted)"
+            if EXALTATION.get(pname) == sign: status = "入旺(Exalted)"
             elif DEBILITATION.get(pname) == sign: status = "落陷(Debilitated)"
             elif SIGN_LORDS.get(sign) == pname: status = "入庙(Own Sign)"
             ni = int(lon_p / nak_span); pada = int((lon_p % nak_span) / (nak_span / 4)) + 1
@@ -1112,23 +1112,25 @@ def cmd_jaimini(args):
         return {"error": f"jaimini模块导入失败: {e}"}
     planets = chart.get('planets', {})
     planet_lons = {}
+    planet_degs = {}  # 星座内度数(0-30)，用于Jaimini Karaka计算
     for pn, pd in planets.items():
         if isinstance(pd, dict) and 'degree' in pd:
             planet_lons[pn] = pd['degree']
+            planet_degs[pn] = pd.get('degree_in_sign', pd['degree'] % 30)
     asc_deg = chart.get('ascendant', {}).get('degree', 0)
 
     result = {}
-    # Chara Karaka
+    # Chara Karaka（必须传星座内度数0-30，不是完整经度0-360）
     mode = args.mode or 'all'
     if mode in ('all', 'karaka'):
-        result['chara_karaka_7'] = calc_chara_karaka_7(planet_lons)
-        result['chara_karaka_8'] = calc_chara_karaka_8(planet_lons)
+        result['chara_karaka_7'] = calc_chara_karaka_7(planet_degs)
+        result['chara_karaka_8'] = calc_chara_karaka_8(planet_degs)
     if mode in ('all', 'dasha'):
         result['chara_dasha'] = calc_chara_dasha(asc_idx, planet_lons, args.year, args.month)
     if mode in ('all', 'karakamsha'):
-        # DK的D9位置
-        ck7 = calc_chara_karaka_7(planet_lons)
-        dk_name = ck7.get('DK', {}).get('planet', 'Moon')
+        # DK的D9位置（用planet_degs计算Karaka，用planet_lons计算Navamsa）
+        ck7 = calc_chara_karaka_7(planet_degs)
+        dk_name = ck7['karaka_table']['Darakaraka']['planet']
         dk_lon = planet_lons.get(dk_name, 0)
         dk_d9 = calc_varga(dk_lon, 9)
         result['karakamsha'] = calc_karakamsha(dk_d9.get('sign', 'Aries'), dk_d9.get('degree_in_sign', 0))
@@ -1298,6 +1300,7 @@ def cmd_full_reading(args):
     asc_deg = chart.get('ascendant', {}).get('degree', 0)
     asc_sign = chart.get('ascendant', {}).get('sign', 'Unknown')
     planet_lons = {pn: pd['degree'] for pn, pd in planets.items() if isinstance(pd, dict) and 'degree' in pd}
+    planet_degs = {pn: pd.get('degree_in_sign', pd['degree'] % 30) for pn, pd in planets.items() if isinstance(pd, dict) and 'degree' in pd}
     planet_sign_indices = {}
     for pn, pd in planets.items():
         if isinstance(pd, dict) and 'sign' in pd:
@@ -1359,13 +1362,13 @@ def cmd_full_reading(args):
         from varga import calc_varga
 
         jaimini_result = {}
-        jaimini_result['chara_karaka_7'] = calc_chara_karaka_7(planet_lons)
-        jaimini_result['chara_karaka_8'] = calc_chara_karaka_8(planet_lons)
+        jaimini_result['chara_karaka_7'] = calc_chara_karaka_7(planet_degs)
+        jaimini_result['chara_karaka_8'] = calc_chara_karaka_8(planet_degs)
         jaimini_result['chara_dasha'] = calc_chara_dasha(asc_idx, planet_lons, args.year, args.month)
 
-        # Karakamsha
+        # Karakamsha（用planet_degs计算Karaka，用planet_lons计算Navamsa）
         ck7 = jaimini_result['chara_karaka_7']
-        dk_name = ck7.get('DK', {}).get('planet', 'Moon')
+        dk_name = ck7['karaka_table']['Darakaraka']['planet']
         dk_lon = planet_lons.get(dk_name, 0)
         dk_d9 = calc_varga(dk_lon, 9)
         jaimini_result['karakamsha'] = calc_karakamsha(

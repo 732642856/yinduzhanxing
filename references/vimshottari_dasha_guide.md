@@ -97,12 +97,15 @@ Vimshottari Dasha 的顺序是固定的,从 Ketu 开始,以 Mercury 结束:
 - **第一个 Mahadasha 是 Ketu,持续 7 年**
 
 **举例 2**:
-- 月亮在 15° Aries (Ashwini 星宿)
-- 15° 在第 5 个 Pada (即第 2 个星宿 Bharani 的第 1 Pada)
+- 月亮在 15° Aries
+- ⚠️ 注意：Ashwini = 0°00' - 13°20'，Bharani = 13°20' - 26°40'
+- **15° Aries 已进入 Bharani 星宿**（不是 Ashwini！）
+- 15° 在 Bharani 的第 1 个 Pada (13°20' - 16°40')
 - Bharani 对应 Venus (20 年)
 - 每个 Pada = 20/4 = 5 年
-- 剩余年数 = 20 - (1-1) × 5 = 20 年
-- **第一个 Mahadasha 是 Venus,持续 20 年**
+- 已走过 = (15° - 13°20') / (13°20') × 5 ≈ 0.67 年
+- 剩余年数 ≈ 20 - 0.67 = 19.33 年
+- **第一个 Mahadasha 是 Venus,持续约 19.3 年**
 
 ---
 
