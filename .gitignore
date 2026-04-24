@@ -1,40 +1,10 @@
-# Python
 __pycache__/
-*.py[cod]
-*$py.class
-*.so
+*.pyc
+*.pyo
+*.db
+*.sqlite
+hermes_memory.db/
 *.egg-info/
 dist/
 build/
-*.egg
-
-# 数据库文件
-*.db
-*.db-journal
-*.db-wal
-*.sqlite3
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# macOS
 .DS_Store
-.AppleDouble
-.LSOverride
-
-# 环境变量
-.env
-.venv
-env/
-venv/
-
-# 日志
-*.log
-
-# 临时文件
-*.tmp
-*.bak

@@ -486,43 +486,44 @@ $PYTHON $SCRIPT full-reading --year YYYY --month MM --day DD --hour HH --minute 
 46. **relationship-astrology-guide.md**：关系占星/合盘分析指南（Koota 36分制+D9伴侣+Mangal Dosha+DK分析）⭐⭐⭐⭐⭐
 47. **spouse-multi-layer-methodology.md**：配偶多层综合分析方法论（6层交叉确认：DK+7宫主+金星+木星/月亮+昼夜区分+Rahu辅助，标准六步流程，置信度评估，非传统关系适配）⭐⭐⭐⭐⭐ v3.7.2 新增
 48. **planetary-dignity-complete-reference.md**：行星尊严与度数完整参考手册（精确旺衰度数+Moolatrikona+行星生命阶段+燃烧阈值+Neecha Bhanga落陷取消+Sect昼夜区分+丈夫征象星木星vs火星+Pushkara Navamsha+Vargottama+DK分析协议+D9婚姻8步算法）⭐⭐⭐⭐⭐ v3.7.3 新增
+49. **marriage-timing-comprehensive-techniques.md**：婚姻应期技法综合手册（KN Rao Double Transit精确规则+VP Goel功能征象星+Jaimini DK木星过境激活法+Upapada Lagna完整体系+Ketu期感情特征+木星入庙Cancer 2026影响）⭐⭐⭐⭐⭐ v3.7.3 新增
 
 ### 综合分析框架（5个）
-49. **comprehensive-reading-workflow.md**：综合解盘工作流（三级深度+10领域路由+质量检查清单）⭐⭐⭐⭐⭐
-50. **tri-system-analysis-template.md**：Jaimini+KP+Parashara三系统协同分析模板 ⭐⭐⭐⭐⭐
-51. **yoga-phala-timing-guide.md**：Yoga Phala Timing精确预测（五大方法+标准化流程+一楠案例实战）⭐⭐⭐⭐⭐ v2.1
-52. **tajika-yoga-complete-guide.md**：Tajika Yoga完整审计指南（10种Yoga+Orb速查+审计流程+一楠案例）⭐⭐⭐⭐⭐ v2.0
-53. **promise-assessment-templates.md**：承诺判定模板（10领域Promise检查+承诺等级量化+Promise vs Activation两步分析法）⭐⭐⭐⭐⭐ v3.2 新增
+50. **comprehensive-reading-workflow.md**：综合解盘工作流（三级深度+10领域路由+质量检查清单）⭐⭐⭐⭐⭐
+51. **tri-system-analysis-template.md**：Jaimini+KP+Parashara三系统协同分析模板 ⭐⭐⭐⭐⭐
+52. **yoga-phala-timing-guide.md**：Yoga Phala Timing精确预测（五大方法+标准化流程+一楠案例实战）⭐⭐⭐⭐⭐ v2.1
+53. **tajika-yoga-complete-guide.md**：Tajika Yoga完整审计指南（10种Yoga+Orb速查+审计流程+一楠案例）⭐⭐⭐⭐⭐ v2.0
+54. **promise-assessment-templates.md**：承诺判定模板（10领域Promise检查+承诺等级量化+Promise vs Activation两步分析法）⭐⭐⭐⭐⭐ v3.2 新增
 
 ### 静态解读最后一环（3个）
-54. **retrograde-combustion-war-guide.md**：逆行/燃烧/行星战争深度指南（5星逆行12宫+6星燃烧含义+5对战争+三重叠加）⭐⭐⭐⭐⭐ v2.1
-55. **ketu-dual-nature-guide.md**：Ketu双重属性解读框架（放手+突破+12宫位双解读+判断矩阵）⭐⭐⭐⭐⭐ v2.0
-56. **argala-complete-guide.md**：Argala行星干预体系完整指南（四类型Argala+Virodha反干预+12宫速查+10领域模板+PAC-DARES整合）⭐⭐⭐⭐⭐ v3.2 新增
+55. **retrograde-combustion-war-guide.md**：逆行/燃烧/行星战争深度指南（5星逆行12宫+6星燃烧含义+5对战争+三重叠加）⭐⭐⭐⭐⭐ v2.1
+56. **ketu-dual-nature-guide.md**：Ketu双重属性解读框架（放手+突破+12宫位双解读+判断矩阵）⭐⭐⭐⭐⭐ v2.0
+57. **argala-complete-guide.md**：Argala行星干预体系完整指南（四类型Argala+Virodha反干预+12宫速查+10领域模板+PAC-DARES整合）⭐⭐⭐⭐⭐ v3.2 新增
 
 ### 案例库（13个）
-57. **famous-case-library.md**：名人案例库统一入口（24个案例索引+验证等级分类+6大核心验证结论）⭐⭐⭐⭐⭐ v2.0 整合版
-58. **consultation-case-library.md**：普通人咨询案例库（42个案例）⭐⭐⭐⭐⭐
-59. **celebrity-cases.md**：名人案例分析
-60. **case-study-collection-2026-04-22.md**：案例研究合集（2026-04-22整理）
-61. **shatabhisha-complete.md**：Shatabhisha星宿完整解读（一楠案例深度剖析）
-62. **verified-celebrity-cases.md**：名人验证案例集（核心验证）
-63. **verified-celebrity-cases-summary.md**：名人验证案例总结
-64. **verified-celebrity-cases-part2-elvis.md**：验证案例：猫王（Elvis Presley）
-65. **verified-celebrity-cases-part2-trump.md**：验证案例：特朗普（Donald Trump）
-66. **verified-celebrity-cases-part3-marilyn-monroe.md**：验证案例：玛丽莲·梦露
-67. **verified-celebrity-cases-part3-michael-jackson.md**：验证案例：迈克尔·杰克逊
-68. **verified-celebrity-cases-part3-summary.md**：验证案例Part3总结
-69. **verified-celebrity-cases-part4-leonardo-dicaprio.md**：验证案例：莱昂纳多·迪卡普里奥
+58. **famous-case-library.md**：名人案例库统一入口（24个案例索引+验证等级分类+6大核心验证结论）⭐⭐⭐⭐⭐ v2.0 整合版
+59. **consultation-case-library.md**：普通人咨询案例库（42个案例）⭐⭐⭐⭐⭐
+60. **celebrity-cases.md**：名人案例分析
+61. **case-study-collection-2026-04-22.md**：案例研究合集（2026-04-22整理）
+62. **shatabhisha-complete.md**：Shatabhisha星宿完整解读（一楠案例深度剖析）
+63. **verified-celebrity-cases.md**：名人验证案例集（核心验证）
+64. **verified-celebrity-cases-summary.md**：名人验证案例总结
+65. **verified-celebrity-cases-part2-elvis.md**：验证案例：猫王（Elvis Presley）
+66. **verified-celebrity-cases-part2-trump.md**：验证案例：特朗普（Donald Trump）
+67. **verified-celebrity-cases-part3-marilyn-monroe.md**：验证案例：玛丽莲·梦露
+68. **verified-celebrity-cases-part3-michael-jackson.md**：验证案例：迈克尔·杰克逊
+69. **verified-celebrity-cases-part3-summary.md**：验证案例Part3总结
+70. **verified-celebrity-cases-part4-leonardo-dicaprio.md**：验证案例：莱昂纳多·迪卡普里奥
 
 ### 高级技法与全球方法论（4个）
-70. **advanced-techniques.md**：高级技法合集（综合进阶技法）
-71. **global-astrologer-practical-methodology.md**：全球占星师实战方法论（顶级占星师经验汇总）⭐⭐⭐⭐⭐
-72. **global-astrologer-reflections.md**：全球占星师反思笔记（方法论迭代记录）
-73. **qin_ruisheng_system.md**：秦瑞生占星体系（华人占星师方法论）
+71. **advanced-techniques.md**：高级技法合集（综合进阶技法）
+72. **global-astrologer-practical-methodology.md**：全球占星师实战方法论（顶级占星师经验汇总）⭐⭐⭐⭐⭐
+73. **global-astrologer-reflections.md**：全球占星师反思笔记（方法论迭代记录）
+74. **qin_ruisheng_system.md**：秦瑞生占星体系（华人占星师方法论）
 
 ### 古典文献与专业发展（2个）⭐ v3.3 新增
-74. **classical-texts-translation-guide.md**：古典梵语文献与翻译版本指南（核心文献层级+BPHS翻译版本对比+当代8位诠释者+数字资源路径+文献引用置信度评级）⭐⭐⭐⭐ v3.3 新增
-75. **professional-development-guide.md**：专业占星师发展路径与学习资源指南（6大认证体系+分级书单+多媒体资源+咨询实践三阶段+伦理守则+东西方整合）⭐⭐⭐⭐ v3.3 新增
+75. **classical-texts-translation-guide.md**：古典梵语文献与翻译版本指南（核心文献层级+BPHS翻译版本对比+当代8位诠释者+数字资源路径+文献引用置信度评级）⭐⭐⭐⭐ v3.3 新增
+76. **professional-development-guide.md**：专业占星师发展路径与学习资源指南（6大认证体系+分级书单+多媒体资源+咨询实践三阶段+伦理守则+东西方整合）⭐⭐⭐⭐ v3.3 新增
 
 ## 模板文件
 
