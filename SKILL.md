@@ -1,7 +1,7 @@
 ---
 name: jyotish-vedic-astrology
-version: 3.7.4
-description: 印度占星（Jyotish）专业解盘与推运系统。核心能力：PDF星盘输入→严谨解盘→精确推运应期输出。覆盖行星配置、Yoga格局、Nakshatra解读、宫位分析、现代生活场景映射、现代措辞解读、案例对比分析、自动出生时间矫正、常见误判纠错、Dasha+Transit推运、精确预测、PDF星盘读取、Swiss Ephemeris计算引擎、星盘计算、分盘计算、名人案例查询、Shadbala六重力量、Ashtakavarga八分法（BPHS完整表SAV=337）、Hermes记忆系统、事件预测、R1-R10数学验证（含R2b BAV列→SAV列校验）、P1-P12行星审计（含P3仓库耦合+P8年龄状态+冲突仲裁3条规则）、验前事、MD→HTML报告生成（羊皮纸主题）、BPHS十六分盘精确计算（D2-D60）、度数精确相位系统（Drishti）、Jaimini完整系统（Chara Karaka 7/8+Chara Dasha+Karakamsha）、高级Nakshatra分析（Tara Bala+Sub-Lord KP系统）、Argala门闩系统（Virodha反干预）、Tajika年运盘（Muntha+YearLord+Mudda Dasha+Tri-Pataka三旗）、合盘分析（Ashta Koota 36分制+Mangal Dosha+Papasamya+Dasha兼容性）、配偶多层综合分析（DK+7宫主+金星+木星+昼夜区分+Rahu辅助六层交叉确认）、行星度数精确旺衰判定（精确度数+渐变效应+Moolatrikona区间+行星生命阶段+Sandhi交界点）、燃烧阈值、落陷取消Neecha Bhanga、Sect昼夜区分法、Pushkara Navamsha、Vargottama。触发词：印度占星、吠陀占星、Jyotish、解盘、推运、星盘分析、Dasha、Transit、Nakshatra、Yoga、出生时间矫正、吠陀占星、印占、PDF星盘、读取PDF、分析PDF星盘、矫正出生时间、出生时间验证、生时矫正、现代解读、现代措辞、误判纠错、错题本、Varga分盘、全球占星师方法论、三合盘、综合分析、过境分析、Double Transit、Sade Sati、合盘、婚姻匹配、关系分析、Koota、Mangal Dosha、年运盘、Varshaphala、太阳返照、Tajika、星宿速查、综合解盘工作流、应期预测、推运应期、事件时机、什么时候结婚、什么时候升职、什么时候发财、Argala、门闩、行星干预、Dasa收敛、Yogini大运、Chara Dasha、AI解盘、算星盘、排盘、计算星盘、查名人、Shadbala、六重力量、Ashtakavarga、八分法、行星力量、记忆系统、事件预测、验证、校验、审计、验前事、R1-R10、P1-P12、仓库耦合、冲突仲裁、报告生成、HTML报告、精确相位、Drishti、Jaimini、Chara Karaka、Atmakaraka、Darakaraka、Karakamsha、Tara Bala、Sub-Lord、KP系统、Navamsa、D9、D60、Shashtyamsa、十六分盘、门闩分析、Muntha、年主星、三旗系统、合盘评分、Nadi Koota、Gana、Yoni、Papasamya、Dasha兼容、配偶分析、配偶星、配偶征象、婚姻分析、配偶画像、DK配偶星、多层配偶、昼夜区分、旺衰度数、行星燃烧、落陷取消、Neecha Bhanga、Sect昼夜、Pushkara、Vargottama、行星尊严、Moolatrikona、行星生命阶段、Avastha。
+version: 3.8.0
+description: 印度占星（Jyotish）专业解盘与推运系统。核心能力：PDF星盘输入→严谨解盘→精确推运应期输出。覆盖行星配置、Yoga格局、Nakshatra解读、宫位分析、现代生活场景映射、现代措辞解读、案例对比分析、自动出生时间矫正、常见误判纠错、Dasha+Transit推运、精确预测、PDF星盘读取、Swiss Ephemeris计算引擎、星盘计算、分盘计算、名人案例查询、Shadbala六重力量、Ashtakavarga八分法（BPHS完整表SAV=337）、Hermes记忆系统、事件预测、R1-R10数学验证（含R2b BAV列→SAV列校验）、P1-P12行星审计（含P3仓库耦合+P8年龄状态+冲突仲裁3条规则）、验前事、MD→HTML报告生成（羊皮纸主题）、BPHS十六分盘精确计算（D2-D60）、度数精确相位系统（Drishti）、Jaimini完整系统（Chara Karaka 7/8+Chara Dasha+Karakamsha）、高级Nakshatra分析（Tara Bala+Sub-Lord KP系统）、Argala门闩系统（Virodha反干预）、Tajika年运盘（Muntha+YearLord+Mudda Dasha+Tri-Pataka三旗）、合盘分析（Ashta Koota 36分制+Mangal Dosha+Papasamya+Dasha兼容性）、配偶多层综合分析（DK+7宫主+金星+木星+昼夜区分+Rahu辅助六层交叉确认）、行星度数精确旺衰判定（精确度数+渐变效应+Moolatrikona区间+行星生命阶段+Sandhi交界点）、燃烧阈值、落陷取消Neecha Bhanga、Sect昼夜区分法、Pushkara Navamsha、Vargottama。触发词：印度占星、吠陀占星、Jyotish、解盘、推运、星盘分析、Dasha、Transit、Nakshatra、Yoga、出生时间矫正、吠陀占星、印占、PDF星盘、读取PDF、分析PDF星盘、矫正出生时间、出生时间验证、生时矫正、现代解读、现代措辞、误判纠错、错题本、Varga分盘、全球占星师方法论、三合盘、综合分析、过境分析、Double Transit、Sade Sati、合盘、婚姻匹配、关系分析、Koota、Mangal Dosha、年运盘、Varshaphala、太阳返照、Tajika、星宿速查、综合解盘工作流、应期预测、推运应期、事件时机、什么时候结婚、什么时候升职、什么时候发财、Argala、门闩、行星干预、Dasa收敛、Yogini大运、Chara Dasha、AI解盘、算星盘、排盘、计算星盘、查名人、Shadbala、六重力量、Ashtakavarga、八分法、行星力量、记忆系统、事件预测、验证、校验、审计、验前事、R1-R10、P1-P12、仓库耦合、冲突仲裁、报告生成、HTML报告、精确相位、Drishti、Jaimini、Chara Karaka、Atmakaraka、Darakaraka、Karakamsha、Tara Bala、Sub-Lord、KP系统、Navamsa、D9、D60、Shashtyamsa、十六分盘、门闩分析、Muntha、年主星、三旗系统、合盘评分、Nadi Koota、Gana、Yoni、Papasamya、Dasha兼容、配偶分析、配偶星、配偶征象、婚姻分析、配偶画像、DK配偶星、多层配偶、昼夜区分、旺衰度数、行星燃烧、落陷取消、Neecha Bhanga、Sect昼夜、Pushkara、Vargottama、行星尊严、Moolatrikona、行星生命阶段、Avastha、深度解盘、全面分析、星盘深度阅读、频率分析、收敛验证、婚姻深层分析、配偶画像、综合深度分析。
 ---
 
 # 印度占星专业解盘与推运系统
@@ -200,6 +200,13 @@ description: 印度占星（Jyotish）专业解盘与推运系统。核心能力
   - 不同流派误判（Parashara系统和Jaimini系统冲突等）
 - → 详见 `references/common-misconceptions.md`
 - **高级技法与全球方法论**：→ 详见 `references/advanced-techniques.md`、`references/global-astrologer-practical-methodology.md`、`references/global-astrologer-reflections.md`、`references/qin_ruisheng_system.md`
+
+### 12.5 深度分析方法论 ⭐ v3.8.0 新增
+- **Shadbala实战解读**：五力量组合模式库（全面型/位置依赖型/关系依赖型/时间敏感型/运动受限型）+Avastha联合诊断矩阵（外强内壮/外强内伤/外弱内壮/外弱内伤）+Bhava Bala实战解读+Vimsopaka解读+行星力量综合排名法 → 详见 `references/shadbala-interpretation-methodology.md`
+- **多Dasha六系统收敛**：Vimshottari+Ashtottari+Yogini+Moola+Narayana+Kalachakra六系统交叉验证（Level 0-4量化）+收敛冲突三种场景处理+PDF数据源提取指南+实战输出模板 → 详见 `references/multi-dasha-convergence-protocol.md`
+- **Navamsa婚姻深度分析**：D9婚姻五维分析法（上升/DK/Venus/7宫/合相）+Vargottama婚姻意义+19分盘频率分析+Pushkara Navamsa婚姻解读+D9婚姻8步旗标算法实操版+D1与D9矛盾处理原则 → 详见 `references/navamsa-marriage-deep-analysis.md`
+- **分盘深度阅读**：19分盘系统化三级方法论（Level 1-3）+行星频率分析核心技法（≥40%=核心主题）+Vargottama检测矩阵+分盘组合阅读模式（三角/生命线/财富链/关系链）+Swiss Ephemeris交叉验证 → 详见 `references/divisional-chart-deep-reading.md`
+- **综合深度分析工作流**：12模块完整工作流（D1→特殊Lagna→Karaka→Shadbala→Avastha→Bhava Bala→Vimsopaka→19分盘→AV→Dasha收敛→D9婚姻→综合结论）+PDF 11页提取最佳实践+引擎调用流程+报告生成+质量检查清单 → 详见 `references/deep-analysis-complete-workflow.md`
 
 ### 13. 计算引擎集成（Swiss Ephemeris + 数据库）⭐ v3.4.0
 
@@ -414,11 +421,11 @@ $PYTHON $SCRIPT full-reading --year YYYY --month MM --day DD --hour HH --minute 
 
 ## 更新记录
 
-详见 `CHANGELOG.md`。当前版本：v3.7.0。
+详见 `CHANGELOG.md`。当前版本：v3.8.0。
 
 ## 参考资料
 
-本Skill包含以下参考资料（存储在references/目录），共75个文件：
+本Skill包含以下参考资料（存储在references/目录），共81个文件：
 
 ### AI解盘工作流（1个）⭐ v3.2 新增
 0. **ai-reading-workflow-prompt.md**：AI解盘工作流Prompt工程（7阶段完整执行引擎：PDF提取→意图路由→静态分析10步→动态推运7步→应期输出→补救→现代措辞包装）⭐⭐⭐⭐⭐
@@ -525,6 +532,13 @@ $PYTHON $SCRIPT full-reading --year YYYY --month MM --day DD --hour HH --minute 
 75. **classical-texts-translation-guide.md**：古典梵语文献与翻译版本指南（核心文献层级+BPHS翻译版本对比+当代8位诠释者+数字资源路径+文献引用置信度评级）⭐⭐⭐⭐ v3.3 新增
 76. **professional-development-guide.md**：专业占星师发展路径与学习资源指南（6大认证体系+分级书单+多媒体资源+咨询实践三阶段+伦理守则+东西方整合）⭐⭐⭐⭐ v3.3 新增
 
+### 深度分析方法论（5个）⭐ v3.8.0 新增
+77. **shadbala-interpretation-methodology.md**：Shadbala六重力量实战解读方法论（五力量组合模式库+Avastha联合诊断矩阵+Bhava Bala实战解读+Vimsopaka分盘综合评分+行星力量综合排名法+快速诊断口诀）⭐⭐⭐⭐⭐ v3.8.0 新增
+78. **multi-dasha-convergence-protocol.md**：多Dasha收敛协议（六系统交叉验证方法论：Vimshottari+Ashtottari+Yogini+Moola+Narayana+Kalachakra+PDF数据源提取指南+收敛冲突处理+实战输出模板）⭐⭐⭐⭐⭐ v3.8.0 新增
+79. **navamsa-marriage-deep-analysis.md**：Navamsa婚姻深度分析协议（D9婚姻五维分析法+Vargottama婚姻意义+19分盘频率分析+Pushkara Navamsa婚姻解读+D9婚姻8步旗标算法实操版+D9与D1矛盾处理）⭐⭐⭐⭐⭐ v3.8.0 新增
+80. **divisional-chart-deep-reading.md**：分盘深度阅读工作流（19分盘系统化分析法：三级方法论+行星频率分析核心技法+Vargottama检测矩阵+分盘组合阅读模式+Swiss Ephemeris交叉验证）⭐⭐⭐⭐⭐ v3.8.0 新增
+81. **deep-analysis-complete-workflow.md**：综合深度分析完整工作流（12模块系统化方法：D1基础→特殊Lagna→Jaimini Karaka→Shadbala→Avastha→Bhava Bala→Vimsopaka→19分盘→Ashtakavarga→多Dasha收敛→Navamsa婚姻→综合结论+PDF提取最佳实践+引擎调用流程+报告生成+质量检查清单）⭐⭐⭐⭐⭐ v3.8.0 新增
+
 ## 模板文件
 
 本Skill包含以下模板文件（存储在assets/目录）：
@@ -552,6 +566,6 @@ $PYTHON $SCRIPT full-reading --year YYYY --month MM --day DD --hour HH --minute 
 
 ---
 
-**版本**：3.7.3
+**版本**：3.8.0
 **创建日期**：2026-04-20
-**最后更新**：2026-04-25（v3.7.3 新增行星尊严与度数完整参考手册——精确旺衰度数+Moolatrikona区间+行星生命阶段+燃烧阈值+Neecha Bhanga落陷取消规则+Sect昼夜区分完整规则+丈夫征象星木星vs火星论证+Pushkara Navamsha精确度数+Vargottama婚姻意义+DK完整8步分析协议+D9婚姻8步旗标算法；v3.7.2 新增配偶多层综合分析方法论+6层交叉确认法+昼夜区分法+标准六步流程；v3.7.1 新增 full-reading 全自动综合解盘子命令 + 三条入口路径路由 + 工作流v3.0；v3.7.0 新增7大计算模块：BPHS十六分盘精确计算+度数精确相位+Jaimini完整系统+高级Nakshatra分析+Argala门闩+Tajika年运盘+合盘分析，引擎子命令21→22）
+**最后更新**：2026-04-25（v3.8.0 新增深度分析方法论5篇——Shadbala实战解读方法论（五力量组合模式库+Avastha联合诊断+Bhava Bala实战解读+Vimsopaka解读+行星力量排名法）+多Dasha收敛协议（六系统交叉验证+PDF提取指南+收敛冲突处理）+Navamsa婚姻深度分析协议（D9五维分析法+Vargottama婚姻+频率分析+Pushkara+8步旗标实操）+分盘深度阅读工作流（19分盘系统化+频率分析核心技法+Vargottama检测+Swiss Ephemeris验证）+综合深度分析完整工作流（12模块方法+PDF提取最佳实践+引擎调用+报告生成+质量清单）；v3.7.4 Ayanamsa修复；v3.7.3 行星尊严与度数完整参考手册；v3.7.2 配偶多层综合分析方法论；v3.7.1 full-reading全自动综合解盘+三路径路由；v3.7.0 7大新计算模块）
