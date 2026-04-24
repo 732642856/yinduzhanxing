@@ -1,8 +1,65 @@
-# 印度占星名人案例库
+# 印度占星名人案例库（统一入口）
 
 **创建日期**：2026-04-20
-**更新日期**：2026-04-20
-**案例数量**：1个（周杰伦）
+**更新日期**：2026-04-24（v2.0 整合版）
+**案例数量**：24个（含AA级验证12个、来源验证12个）
+**详细文件**：各案例详细分析见对应 `verified-celebrity-cases-*.md` 文件
+
+---
+
+## 案例索引（按验证等级排序）
+
+### A级：AA级数据+三层验证法完整验证（吻合度90%+）
+
+| 序号 | 姓名 | 出生数据 | 数据等级 | 验证事件数 | 吻合度 | 详细文件 |
+|------|------|---------|---------|-----------|--------|---------|
+| 1 | Barack Obama | 1961-08-04 19:24 | AA | 20 | 95% | verified-celebrity-cases.md |
+| 2 | Elvis Presley | 1935-01-08 04:35 | AA | 20 | 93% | verified-celebrity-cases-part2-elvis.md |
+| 3 | Donald Trump | 1946-06-14 10:54 | AA | 18 | 94% | verified-celebrity-cases-part2-trump.md |
+| 4 | Michael Jackson | 1958-08-29 ⚠️待确认 | AA | 18 | 91% | verified-celebrity-cases-part3-michael-jackson.md |
+| 5 | Leonardo DiCaprio | 1974-11-11 02:47 | AA | 20 | **100%** | verified-celebrity-cases-part4-leonardo-dicaprio.md |
+| 6 | Albert Einstein | 1879-03-14 11:30 | AA | 15 | 92% | verified-celebrity-cases-summary.md |
+| 7 | Steve Jobs | 1955-02-24 19:15 | AA | 16 | 93% | verified-celebrity-cases-summary.md |
+| 8 | Elon Musk | 1971-06-28 07:00 | A | 14 | 91% | verified-celebrity-cases-summary.md |
+| 9 | Marie Curie | 1867-11-07 12:00 | A | 15 | 94% | verified-celebrity-cases-summary.md |
+| 10 | Pablo Picasso | 1881-10-25 23:15 | AA | 16 | 93% | verified-celebrity-cases-summary.md |
+| 11 | Justin Bieber | 1994-03-01 00:56 | AA | 12 | 90% | verified-celebrity-cases-summary.md |
+
+### B级：来源验证但数据可靠性中等
+
+| 序号 | 姓名 | 出生数据 | 数据等级 | 验证事件数 | 吻合度 | 详细文件 |
+|------|------|---------|---------|-----------|--------|---------|
+| 12 | Marilyn Monroe | 1926-06-01 09:30 | **B级⚠️** | 15 | 88% | verified-celebrity-cases-part3-marilyn-monroe.md |
+
+### C级：星盘比对/来源引用（非完整三层验证）
+
+| 序号 | 姓名 | 比对维度 | 相似度 | 详细文件 |
+|------|------|---------|--------|---------|
+| 13 | 周杰伦 | D1+D9+D10+Dasha完整 | 来源引用 | 本文件下方 |
+| 14 | 圣雄甘地 | Shatabhisha Moon比对 | 88/100 | celebrity-cases.md |
+| 15 | 比尔·盖茨 | Shatabhisha Moon比对 | 75/100 | celebrity-cases.md |
+| 16 | 马克·扎克伯格 | Shatabhisha Moon比对 | 70/100 | celebrity-cases.md |
+| 17 | 艾萨克·牛顿 | Shatabhisha Moon比对 | 57/100 | celebrity-cases.md |
+| 18 | 迈克尔·杰克逊 | Shatabhisha Moon比对 | 42/100 | celebrity-cases.md |
+| 19 | 拉玛克里希纳 | Shatabhisha Moon比对 | 66/100 | celebrity-cases.md |
+| 20 | 萨蒂亚·赛巴巴 | Shatabhisha Moon比对 | 50/100 | celebrity-cases.md |
+| 21 | Steve Jobs | 全球相似盘搜索 | 45% | 一楠案例附录 |
+| 22 | Pablo Picasso | 全球相似盘搜索 | 40% | 一楠案例附录 |
+| 23 | Robin Williams | 全球相似盘搜索 | 35% | 一楠案例附录 |
+| 24 | George Harrison | 全球相似盘搜索 | 30% | 一楠案例附录 |
+
+### 验证结论（A级案例总结）
+
+| 核心规律 | 支持率 | 说明 |
+|---------|--------|------|
+| 落陷行星≠失败 | 100% | Obama/Trump/Picasso/Elvis全部证实 |
+| Rahu=非传统突破 | 100% | Obama/Trump/Musk/Jobs/Bieber全部证实 |
+| 12宫≠纯负面 | 100% | Curie/Jobs/Trump全部证实 |
+| Dasha决定时机 | 100% | Obama/Trump/Elvis/Curie全部证实 |
+| Transit触发事件 | 100% | Obama/Trump/Elvis/Musk全部证实 |
+| 整体星盘>单一位置 | 100% | 所有案例全部证实 |
+
+**平均吻合度**：93%（A级案例）
 
 ---
 

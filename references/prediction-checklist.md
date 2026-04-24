@@ -48,16 +48,24 @@
 ### 第三层：过境触发
 
 - [ ] **Jupiter过境**
-  - [ ] Jupiter过境相关宫位
+  - [ ] Jupiter过境相关宫位（从Lagna看）
+  - [ ] Jupiter过境相关宫位（从Chandra Lagna看）⚠️ 强制
   - [ ] Jupiter触发婚姻的时间
 
 - [ ] **Saturn过境**
-  - [ ] Saturn过境相关宫位
+  - [ ] Saturn过境相关宫位（从Lagna看）
+  - [ ] Saturn过境相关宫位（从Chandra Lagna看）⚠️ 强制
   - [ ] Saturn触发婚姻的时间
 
 - [ ] **Rahu/Ketu过境**
-  - [ ] Rahu/Ketu过境相关宫位
+  - [ ] Rahu/Ketu过境相关宫位（从Lagna看）
+  - [ ] Rahu/Ketu过境相关宫位（从Chandra Lagna看）⚠️ 强制
   - [ ] Rahu/Ketu触发婚姻的时间
+
+- [ ] **⚠️ 多参考点综合**
+  - [ ] 四参考点是否一致？
+  - [ ] 如有矛盾，是否记录并解释？
+  - [ ] （详见 `transit-multi-reference-guide.md`）
 
 ---
 
@@ -111,12 +119,20 @@
 ### 第三层：过境触发
 
 - [ ] **Jupiter过境**
-  - [ ] Jupiter过境相关宫位
+  - [ ] Jupiter过境相关宫位（从Lagna看）
+  - [ ] Jupiter过境相关宫位（从Chandra Lagna看）⚠️ 强制
+  - [ ] ⚠️ 从Chandra看6宫=新工作/职业变动（教科书级信号，不可遗漏）
   - [ ] Jupiter触发职业机会的时间
 
 - [ ] **Saturn过境**
-  - [ ] Saturn过境相关宫位
+  - [ ] Saturn过境相关宫位（从Lagna看）
+  - [ ] Saturn过境相关宫位（从Chandra Lagna看）⚠️ 强制
   - [ ] Saturn触发职业考验的时间
+
+- [ ] **⚠️ 多参考点综合**
+  - [ ] Lagna和Chandra Lagna是否给出不同信号？
+  - [ ] 如"从Lagna看12宫（隐退）+从Chandra看6宫（新工作）"= 复合信号
+  - [ ] （详见 `transit-multi-reference-guide.md`）
 
 ---
 
@@ -171,12 +187,17 @@
 ### 第三层：过境触发
 
 - [ ] **Jupiter过境**
-  - [ ] Jupiter过境财富宫位
+  - [ ] Jupiter过境财富宫位（从Lagna看）
+  - [ ] Jupiter过境财富宫位（从Chandra Lagna看）⚠️ 强制
   - [ ] Jupiter触发财富机会的时间
 
 - [ ] **Saturn过境**
-  - [ ] Saturn过境财富宫位
+  - [ ] Saturn过境财富宫位（从Lagna看）
+  - [ ] Saturn过境财富宫位（从Chandra Lagna看）⚠️ 强制
   - [ ] Saturn触发财富考验的时间
+
+- [ ] **⚠️ 多参考点综合**
+  - [ ] （详见 `transit-multi-reference-guide.md`）
 
 ---
 
@@ -261,5 +282,6 @@
 
 ---
 
-**更新日期**：2026-04-20
+**更新日期**：2026-04-23（新增多参考点强制检查项）
 **来源**：查悦占星 + 知乎公众号 + Vedicmarga + 梦想课堂
+**配套文件**：`transit-multi-reference-guide.md`（多参考点强制规范）⭐

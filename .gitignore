@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.pyo
+*.db
+*.sqlite
+hermes_memory.db/
+*.egg-info/
+dist/
+build/
+.DS_Store
