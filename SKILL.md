@@ -1,7 +1,7 @@
 ---
 name: jyotish-vedic-astrology
-version: 3.7.1
-description: 印度占星（Jyotish）专业解盘与推运系统。核心能力：PDF星盘输入→严谨解盘→精确推运应期输出。覆盖行星配置、Yoga格局、Nakshatra解读、宫位分析、现代生活场景映射、现代措辞解读、案例对比分析、自动出生时间矫正、常见误判纠错、Dasha+Transit推运、精确预测、PDF星盘读取、Swiss Ephemeris计算引擎、星盘计算、分盘计算、名人案例查询、Shadbala六重力量、Ashtakavarga八分法（BPHS完整表SAV=337）、Hermes记忆系统、事件预测、R1-R10数学验证（含R2b BAV列→SAV列校验）、P1-P12行星审计（含P3仓库耦合+P8年龄状态+冲突仲裁3条规则）、验前事、MD→HTML报告生成（羊皮纸主题）、BPHS十六分盘精确计算（D2-D60）、度数精确相位系统（Drishti）、Jaimini完整系统（Chara Karaka 7/8+Chara Dasha+Karakamsha）、高级Nakshatra分析（Tara Bala+Sub-Lord KP系统）、Argala门闩系统（Virodha反干预）、Tajika年运盘（Muntha+YearLord+Mudda Dasha+Tri-Pataka三旗）、合盘分析（Ashta Koota 36分制+Mangal Dosha+Papasamya+Dasha兼容性）。触发词：印度占星、吠陀占星、Jyotish、解盘、推运、星盘分析、Dasha、Transit、Nakshatra、Yoga、出生时间矫正、吠陀占星、印占、PDF星盘、读取PDF、分析PDF星盘、矫正出生时间、出生时间验证、生时矫正、现代解读、现代措辞、误判纠错、错题本、Varga分盘、全球占星师方法论、三合盘、综合分析、过境分析、Double Transit、Sade Sati、合盘、婚姻匹配、关系分析、Koota、Mangal Dosha、年运盘、Varshaphala、太阳返照、Tajika、星宿速查、综合解盘工作流、应期预测、推运应期、事件时机、什么时候结婚、什么时候升职、什么时候发财、Argala、门闩、行星干预、Dasa收敛、Yogini大运、Chara Dasha、AI解盘、算星盘、排盘、计算星盘、查名人、Shadbala、六重力量、Ashtakavarga、八分法、行星力量、记忆系统、事件预测、验证、校验、审计、验前事、R1-R10、P1-P12、仓库耦合、冲突仲裁、报告生成、HTML报告、精确相位、Drishti、Jaimini、Chara Karaka、Atmakaraka、Darakaraka、Karakamsha、Tara Bala、Sub-Lord、KP系统、Navamsa、D9、D60、Shashtyamsa、十六分盘、门闩分析、Muntha、年主星、三旗系统、合盘评分、Nadi Koota、Gana、Yoni、Papasamya、Dasha兼容。
+version: 3.7.2
+description: 印度占星（Jyotish）专业解盘与推运系统。核心能力：PDF星盘输入→严谨解盘→精确推运应期输出。覆盖行星配置、Yoga格局、Nakshatra解读、宫位分析、现代生活场景映射、现代措辞解读、案例对比分析、自动出生时间矫正、常见误判纠错、Dasha+Transit推运、精确预测、PDF星盘读取、Swiss Ephemeris计算引擎、星盘计算、分盘计算、名人案例查询、Shadbala六重力量、Ashtakavarga八分法（BPHS完整表SAV=337）、Hermes记忆系统、事件预测、R1-R10数学验证（含R2b BAV列→SAV列校验）、P1-P12行星审计（含P3仓库耦合+P8年龄状态+冲突仲裁3条规则）、验前事、MD→HTML报告生成（羊皮纸主题）、BPHS十六分盘精确计算（D2-D60）、度数精确相位系统（Drishti）、Jaimini完整系统（Chara Karaka 7/8+Chara Dasha+Karakamsha）、高级Nakshatra分析（Tara Bala+Sub-Lord KP系统）、Argala门闩系统（Virodha反干预）、Tajika年运盘（Muntha+YearLord+Mudda Dasha+Tri-Pataka三旗）、合盘分析（Ashta Koota 36分制+Mangal Dosha+Papasamya+Dasha兼容性）、配偶多层综合分析（DK+7宫主+金星+木星+昼夜区分+Rahu辅助六层交叉确认）。触发词：印度占星、吠陀占星、Jyotish、解盘、推运、星盘分析、Dasha、Transit、Nakshatra、Yoga、出生时间矫正、吠陀占星、印占、PDF星盘、读取PDF、分析PDF星盘、矫正出生时间、出生时间验证、生时矫正、现代解读、现代措辞、误判纠错、错题本、Varga分盘、全球占星师方法论、三合盘、综合分析、过境分析、Double Transit、Sade Sati、合盘、婚姻匹配、关系分析、Koota、Mangal Dosha、年运盘、Varshaphala、太阳返照、Tajika、星宿速查、综合解盘工作流、应期预测、推运应期、事件时机、什么时候结婚、什么时候升职、什么时候发财、Argala、门闩、行星干预、Dasa收敛、Yogini大运、Chara Dasha、AI解盘、算星盘、排盘、计算星盘、查名人、Shadbala、六重力量、Ashtakavarga、八分法、行星力量、记忆系统、事件预测、验证、校验、审计、验前事、R1-R10、P1-P12、仓库耦合、冲突仲裁、报告生成、HTML报告、精确相位、Drishti、Jaimini、Chara Karaka、Atmakaraka、Darakaraka、Karakamsha、Tara Bala、Sub-Lord、KP系统、Navamsa、D9、D60、Shashtyamsa、十六分盘、门闩分析、Muntha、年主星、三旗系统、合盘评分、Nadi Koota、Gana、Yoni、Papasamya、Dasha兼容、配偶分析、配偶星、配偶征象、婚姻分析、配偶画像、DK配偶星、多层配偶、昼夜区分。
 ---
 
 # 印度占星专业解盘与推运系统
@@ -90,8 +90,9 @@ description: 印度占星（Jyotish）专业解盘与推运系统。核心能力
 - **Mangal Dosha配对**：火星煞的形成、分级与取消条件
 - **Jaimini关系分析**：Darakaraka（DK）配偶象征星+DK在12宫位的含义
 - **现代关系形态**：同居/商业合作/灵性伴侣/跨文化关系的宫位映射
-- **应用场景**：婚姻匹配、关系预测、伴侣特质分析、关系时机判断
-- → 详见 `references/relationship-astrology-guide.md`、`references/navamsa-d9-interpretation-template.md`
+- **⭐ 配偶多层综合分析**（v3.7.2 新增）：6层交叉确认法——DK（性别中立）+7宫主+金星（天然征象）+木星/月亮（传统）+昼夜区分法+Rahu辅助。禁止"男命金星女命木星"单一判据。标准六步分析流程+置信度评估。
+- **应用场景**：婚姻匹配、关系预测、伴侣特质分析、关系时机判断、配偶画像
+- → 详见 `references/relationship-astrology-guide.md`、`references/navamsa-d9-interpretation-template.md`、**`references/spouse-multi-layer-methodology.md`** ⭐ v3.7.2 新增
 
 ### 4. Varshaphala年运盘系统
 - **Tajika体系**：太阳返照年运盘（生日到生日的年度运势）
@@ -417,7 +418,7 @@ $PYTHON $SCRIPT full-reading --year YYYY --month MM --day DD --hour HH --minute 
 
 ## 参考资料
 
-本Skill包含以下参考资料（存储在references/目录），共74个文件：
+本Skill包含以下参考资料（存储在references/目录），共75个文件：
 
 ### AI解盘工作流（1个）⭐ v3.2 新增
 0. **ai-reading-workflow-prompt.md**：AI解盘工作流Prompt工程（7阶段完整执行引擎：PDF提取→意图路由→静态分析10步→动态推运7步→应期输出→补救→现代措辞包装）⭐⭐⭐⭐⭐
@@ -481,45 +482,46 @@ $PYTHON $SCRIPT full-reading --year YYYY --month MM --day DD --hour HH --minute 
 44. **alternative-dasha-systems.md**：替代推运系统完全指南（Ashtottari 108年+Yogini 36年八女神+Kalachakra 144年双模式+Prashna问卜占星+五步整合法）⭐⭐⭐⭐⭐ v3.3 新增
 45. **condition-dasha-complete.md**：条件Dasha系统完全指南（8大条件Dasha适用条件+周期+条件判定流程图+与非条件Dasha对照+软件支持）⭐⭐⭐⭐ v3.3 新增
 
-### 关系占星（1个）
+### 关系占星（2个）
 46. **relationship-astrology-guide.md**：关系占星/合盘分析指南（Koota 36分制+D9伴侣+Mangal Dosha+DK分析）⭐⭐⭐⭐⭐
+47. **spouse-multi-layer-methodology.md**：配偶多层综合分析方法论（6层交叉确认：DK+7宫主+金星+木星/月亮+昼夜区分+Rahu辅助，标准六步流程，置信度评估，非传统关系适配）⭐⭐⭐⭐⭐ v3.7.2 新增
 
 ### 综合分析框架（5个）
-47. **comprehensive-reading-workflow.md**：综合解盘工作流（三级深度+10领域路由+质量检查清单）⭐⭐⭐⭐⭐
-48. **tri-system-analysis-template.md**：Jaimini+KP+Parashara三系统协同分析模板 ⭐⭐⭐⭐⭐
-49. **yoga-phala-timing-guide.md**：Yoga Phala Timing精确预测（五大方法+标准化流程+一楠案例实战）⭐⭐⭐⭐⭐ v2.1
-50. **tajika-yoga-complete-guide.md**：Tajika Yoga完整审计指南（10种Yoga+Orb速查+审计流程+一楠案例）⭐⭐⭐⭐⭐ v2.0
-51. **promise-assessment-templates.md**：承诺判定模板（10领域Promise检查+承诺等级量化+Promise vs Activation两步分析法）⭐⭐⭐⭐⭐ v3.2 新增
+48. **comprehensive-reading-workflow.md**：综合解盘工作流（三级深度+10领域路由+质量检查清单）⭐⭐⭐⭐⭐
+49. **tri-system-analysis-template.md**：Jaimini+KP+Parashara三系统协同分析模板 ⭐⭐⭐⭐⭐
+50. **yoga-phala-timing-guide.md**：Yoga Phala Timing精确预测（五大方法+标准化流程+一楠案例实战）⭐⭐⭐⭐⭐ v2.1
+51. **tajika-yoga-complete-guide.md**：Tajika Yoga完整审计指南（10种Yoga+Orb速查+审计流程+一楠案例）⭐⭐⭐⭐⭐ v2.0
+52. **promise-assessment-templates.md**：承诺判定模板（10领域Promise检查+承诺等级量化+Promise vs Activation两步分析法）⭐⭐⭐⭐⭐ v3.2 新增
 
 ### 静态解读最后一环（3个）
-52. **retrograde-combustion-war-guide.md**：逆行/燃烧/行星战争深度指南（5星逆行12宫+6星燃烧含义+5对战争+三重叠加）⭐⭐⭐⭐⭐ v2.1
-53. **ketu-dual-nature-guide.md**：Ketu双重属性解读框架（放手+突破+12宫位双解读+判断矩阵）⭐⭐⭐⭐⭐ v2.0
-54. **argala-complete-guide.md**：Argala行星干预体系完整指南（四类型Argala+Virodha反干预+12宫速查+10领域模板+PAC-DARES整合）⭐⭐⭐⭐⭐ v3.2 新增
+53. **retrograde-combustion-war-guide.md**：逆行/燃烧/行星战争深度指南（5星逆行12宫+6星燃烧含义+5对战争+三重叠加）⭐⭐⭐⭐⭐ v2.1
+54. **ketu-dual-nature-guide.md**：Ketu双重属性解读框架（放手+突破+12宫位双解读+判断矩阵）⭐⭐⭐⭐⭐ v2.0
+55. **argala-complete-guide.md**：Argala行星干预体系完整指南（四类型Argala+Virodha反干预+12宫速查+10领域模板+PAC-DARES整合）⭐⭐⭐⭐⭐ v3.2 新增
 
 ### 案例库（13个）
-55. **famous-case-library.md**：名人案例库统一入口（24个案例索引+验证等级分类+6大核心验证结论）⭐⭐⭐⭐⭐ v2.0 整合版
-56. **consultation-case-library.md**：普通人咨询案例库（42个案例）⭐⭐⭐⭐⭐
-57. **celebrity-cases.md**：名人案例分析
-58. **case-study-collection-2026-04-22.md**：案例研究合集（2026-04-22整理）
-59. **shatabhisha-complete.md**：Shatabhisha星宿完整解读（一楠案例深度剖析）
-60. **verified-celebrity-cases.md**：名人验证案例集（核心验证）
-61. **verified-celebrity-cases-summary.md**：名人验证案例总结
-62. **verified-celebrity-cases-part2-elvis.md**：验证案例：猫王（Elvis Presley）
-63. **verified-celebrity-cases-part2-trump.md**：验证案例：特朗普（Donald Trump）
-64. **verified-celebrity-cases-part3-marilyn-monroe.md**：验证案例：玛丽莲·梦露
-65. **verified-celebrity-cases-part3-michael-jackson.md**：验证案例：迈克尔·杰克逊
-66. **verified-celebrity-cases-part3-summary.md**：验证案例Part3总结
-67. **verified-celebrity-cases-part4-leonardo-dicaprio.md**：验证案例：莱昂纳多·迪卡普里奥
+56. **famous-case-library.md**：名人案例库统一入口（24个案例索引+验证等级分类+6大核心验证结论）⭐⭐⭐⭐⭐ v2.0 整合版
+57. **consultation-case-library.md**：普通人咨询案例库（42个案例）⭐⭐⭐⭐⭐
+58. **celebrity-cases.md**：名人案例分析
+59. **case-study-collection-2026-04-22.md**：案例研究合集（2026-04-22整理）
+60. **shatabhisha-complete.md**：Shatabhisha星宿完整解读（一楠案例深度剖析）
+61. **verified-celebrity-cases.md**：名人验证案例集（核心验证）
+62. **verified-celebrity-cases-summary.md**：名人验证案例总结
+63. **verified-celebrity-cases-part2-elvis.md**：验证案例：猫王（Elvis Presley）
+64. **verified-celebrity-cases-part2-trump.md**：验证案例：特朗普（Donald Trump）
+65. **verified-celebrity-cases-part3-marilyn-monroe.md**：验证案例：玛丽莲·梦露
+66. **verified-celebrity-cases-part3-michael-jackson.md**：验证案例：迈克尔·杰克逊
+67. **verified-celebrity-cases-part3-summary.md**：验证案例Part3总结
+68. **verified-celebrity-cases-part4-leonardo-dicaprio.md**：验证案例：莱昂纳多·迪卡普里奥
 
 ### 高级技法与全球方法论（4个）
-68. **advanced-techniques.md**：高级技法合集（综合进阶技法）
-69. **global-astrologer-practical-methodology.md**：全球占星师实战方法论（顶级占星师经验汇总）⭐⭐⭐⭐⭐
-70. **global-astrologer-reflections.md**：全球占星师反思笔记（方法论迭代记录）
-71. **qin_ruisheng_system.md**：秦瑞生占星体系（华人占星师方法论）
+69. **advanced-techniques.md**：高级技法合集（综合进阶技法）
+70. **global-astrologer-practical-methodology.md**：全球占星师实战方法论（顶级占星师经验汇总）⭐⭐⭐⭐⭐
+71. **global-astrologer-reflections.md**：全球占星师反思笔记（方法论迭代记录）
+72. **qin_ruisheng_system.md**：秦瑞生占星体系（华人占星师方法论）
 
 ### 古典文献与专业发展（2个）⭐ v3.3 新增
-72. **classical-texts-translation-guide.md**：古典梵语文献与翻译版本指南（核心文献层级+BPHS翻译版本对比+当代8位诠释者+数字资源路径+文献引用置信度评级）⭐⭐⭐⭐ v3.3 新增
-73. **professional-development-guide.md**：专业占星师发展路径与学习资源指南（6大认证体系+分级书单+多媒体资源+咨询实践三阶段+伦理守则+东西方整合）⭐⭐⭐⭐ v3.3 新增
+73. **classical-texts-translation-guide.md**：古典梵语文献与翻译版本指南（核心文献层级+BPHS翻译版本对比+当代8位诠释者+数字资源路径+文献引用置信度评级）⭐⭐⭐⭐ v3.3 新增
+74. **professional-development-guide.md**：专业占星师发展路径与学习资源指南（6大认证体系+分级书单+多媒体资源+咨询实践三阶段+伦理守则+东西方整合）⭐⭐⭐⭐ v3.3 新增
 
 ## 模板文件
 
@@ -548,6 +550,6 @@ $PYTHON $SCRIPT full-reading --year YYYY --month MM --day DD --hour HH --minute 
 
 ---
 
-**版本**：3.7.1
+**版本**：3.7.2
 **创建日期**：2026-04-20
-**最后更新**：2026-04-25（v3.7.1 新增 full-reading 全自动综合解盘子命令 + 三条入口路径路由 + 工作流v3.0；v3.7.0 新增7大计算模块：BPHS十六分盘精确计算+度数精确相位+Jaimini完整系统+高级Nakshatra分析+Argala门闩+Tajika年运盘+合盘分析，引擎子命令21→22）
+**最后更新**：2026-04-25（v3.7.2 新增配偶多层综合分析方法论+6层交叉确认法+昼夜区分法+标准六步流程；v3.7.1 新增 full-reading 全自动综合解盘子命令 + 三条入口路径路由 + 工作流v3.0；v3.7.0 新增7大计算模块：BPHS十六分盘精确计算+度数精确相位+Jaimini完整系统+高级Nakshatra分析+Argala门闩+Tajika年运盘+合盘分析，引擎子命令21→22）
