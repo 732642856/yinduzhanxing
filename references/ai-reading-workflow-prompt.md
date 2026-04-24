@@ -1,9 +1,10 @@
 # AI解盘工作流Prompt工程（AI Reading Workflow）
 
-> **适用场景**：AI收到PDF星盘后，如何一步步执行完整的解盘+推运分析
-> **版本**：v1.0.0 | **创建日期**：2026-04-24
+> **适用场景**：AI收到出生信息、PDF星盘或文字星盘后，如何一步步执行完整的解盘+推运分析
+> **版本**：v3.0.0 | **更新日期**：2026-04-25
 > **优先级**：⭐⭐⭐⭐⭐（AI解盘质量的决定性文件）
-> **定位**：本文件是AI在收到PDF后的**执行引擎**，将Skill中所有参考资料串联成可执行的工作流
+> **定位**：本文件是AI解盘的**执行引擎**，将Skill中所有参考资料串联成可执行的工作流
+> **v3.0重大变更**：三条入口路径明确分流，引擎全自动计算无需用户逐模块触发
 
 ---
 
@@ -13,31 +14,120 @@
 2. **不猜测**：数据缺失时标注"缺失"，不编造数据
 3. **不锚定**：先输出星盘推导，再等用户反馈，不先知道用户生活再"找依据"
 4. **必标注**：每个结论标注来源系统、置信度、精度边界
+5. **全自动优先**：引擎有能力自动完成的计算，绝不要求用户手动触发
+6. **尊重用户数据**：用户提供的PDF/文字星盘数据即为事实来源，优先使用而非重新计算
 
 ---
 
-## 阶段一：PDF数据提取（→ `pdf-chart-reading-guide.md`）
+## 🔴 阶段零：入口路由（三条路径）
 
-### 1.1 执行指令
-
-收到PDF/图片后，AI必须：
+### 用户消息到达后，AI立即判断走哪条路径：
 
 ```
-1. 识别PDF来源软件（JH / Parashara's Light / 其他）
-2. 按内容类型逐页提取（不依赖页码顺序）
-3. 填充完整JSON Schema（见pdf-chart-reading-guide.md 第三节）
-4. 执行数据完整性门（Quality Gate，见第四节）
-5. 执行交叉校验（见第五节）
-6. 输出提取报告（见第六节）
+用户消息到达
+  │
+  ├─→ 【路径A】用户提供了精准出生信息（日期+时间+地点）
+  │     → 直接调用 full-reading 引擎全链路计算
+  │     → 跳到阶段二
+  │
+  ├─→ 【路径B】用户提供了PDF/图片星盘 或 丰富的文字星盘描述
+  │     → 提取文档中的所有星象数据（落宫、度数、Dasha等）
+  │     → 直接基于提取的数据进行推算分析
+  │     → 跳到阶段二
+  │
+  └─→ 【路径C】用户出生时间不明确 或 仅知道大概时间
+        → 启动互动式出生时间矫正
+        → 矫正完成后走路径A
 ```
 
-### 1.2 输出模板（阶段一必输出）
+---
+
+### 路径A：精准出生信息 → full-reading 全自动计算
+
+**触发条件**：用户提供了明确的出生日期+时间+地点（三者齐全）
+
+**示例输入**：
+- "1993年4月17日 14:45 邯郸"
+- "我出生于 1990-08-15 早上6:30 北京"
+- "April 17, 1993, 2:45 PM, Handan, China (36.6N, 114.5E)"
+
+**执行指令**（一条命令搞定所有计算）：
+
+```bash
+python3 scripts/jyotish_engine.py full-reading \
+  --year YYYY --month MM --day DD --hour HH --minute MM \
+  --lat XX.XX --lon XX.XX --tz X
+```
+
+**此命令自动执行13个计算步骤**：
+1. chart — 核心星盘（上升、行星位置、宫位）
+2. dasha — Vimshottari大运时间线
+3. yoga — Yoga格局识别
+4. varga_full — BPHS十六分盘（D2-D60）
+5. aspects — 度数精确相位系统
+6. jaimini — Chara Karaka + Chara Dasha + Karakamsha
+7. nakshatra_adv — Tara Bala + Sub-Lord
+8. argala — Argala门闩系统
+9. tajika — Tajika年运盘
+10. shadbala — 六重力量
+11. ashtakavarga — 八分法
+12. validation — R1-R10数学验证
+13. audit — P1-P12行星审计
+
+**输出结构**：
+- `chart`：完整星盘数据
+- `modules`：12个模块各自的结果
+- `summary`：计算耗时、模块数、错误数
+- `errors`/`warnings`：异常信息
+
+**数据质量门**：
+
+| 字段 | 检查项 | 判定 |
+|------|--------|------|
+| `summary.errors` | 是否为空 | 空则继续，非空需评估 |
+| `summary.modules_computed` | 是否≥10 | ≥10正常，<10说明多模块失败 |
+| `chart.ascendant` | 是否有上升星座 | 无则计算失败，需排查 |
+
+**完成后**：直接跳到阶段二（意图识别）
+
+---
+
+### 路径B：PDF/文字星盘 → 数据提取 + 直接推算
+
+**触发条件**：用户上传了PDF星盘、截图，或提供了详细的文字星盘描述
+
+**示例输入**：
+- 上传11页JhoroWatch PDF
+- 上传Parashara's Light截图
+- 文字描述："我的上升是狮子座，太阳在白羊座9宫，月亮在水瓶座7宫..."
+
+**⚠️ 核心原则：用文档的数据，不重新排盘**
+
+用户提供的PDF/文字星盘中的数据就是**事实来源**。AI不需要从出生时间重新计算星盘，而是直接使用文档中已有的：
+- 行星落宫落座
+- Dasha时间线
+- Shadbala分数
+- Ashtakavarga点数
+- Yoga列表
+- 分盘数据
+
+**执行步骤**：
+
+```
+1. 识别来源（JH / Parashara's Light / 其他软件）
+2. 逐页/逐段提取所有星象数据
+3. 填充标准JSON Schema（见下方模板）
+4. 执行数据完整性门（Quality Gate）
+5. 如有出生时间+地点，额外调用 full-reading 补充计算
+6. 输出提取报告
+```
+
+**数据提取模板**：
 
 ```markdown
-## 📋 PDF数据提取报告
+## 📋 星盘数据提取报告
 
-**来源**：[JH / PL / 其他] | **页数**：[N]页
-**完整度**：[XX%] | **分析级别**：[Level 1/2/3]
+**来源**：[JH / PL / 文字描述] | **完整度**：[XX%]
 
 ### 基本信息
 - 出生：[YYYY-MM-DD HH:MM] [地点] [性别]
@@ -74,14 +164,9 @@
 
 ### Yoga清单
 - [Yoga1]：[行星]在[X宫]
-- [Yoga2]：...
-
-### 数据完整性
-- ✅ P0全部齐全（N/11）或 ❌ 缺失：[列出]
-- ⚠️ P1缺失：[列出]
 ```
 
-### 1.3 质量门判定规则
+**数据完整性门**：
 
 | 完整度 | 判定 | 允许的分析 |
 |--------|------|-----------|
@@ -89,7 +174,113 @@
 | 70-89%（P0大部分） | ⚠️ Limited | Level 2，标注限制 |
 | <70%（P0缺关键项） | ❌ Fail | Level 1快速概览，要求用户补全 |
 
-**如果Quality Gate未通过**：停止在阶段一，告知用户缺失哪些数据、为什么影响分析。
+**补充计算**（条件触发）：
+
+如果PDF中包含了出生日期+时间+地点信息，AI **应当额外调用** `full-reading` 来补充PDF中可能缺失的计算（如精确相位、Argala、Tajika等v3.7新增模块），将引擎计算结果与PDF提取数据合并，以引擎结果为补充、PDF数据为基准。
+
+**完成后**：直接跳到阶段二（意图识别）
+
+---
+
+### 路径C：时间不明确 → 互动式出生时间矫正
+
+**触发条件**：
+- 用户说"不知道出生时间" / "大概下午吧" / "不清楚几点"
+- 用户只知道日期不知道时间
+- 用户提供的出生证明时间与实际有出入
+
+**⚠️ 核心理念：不猜时间，通过互动逐步锁定**
+
+AI不应该凭空假设一个时间，而应该通过结构化互动帮助用户锁定精确时间。
+
+**矫正流程**（→ `birth-time-rectification-advanced.md`）：
+
+#### C1. 初始信息收集（第一轮互动）
+
+**AI必须收集的基础信息**（只问一轮，最多5个问题）：
+
+```
+"为了帮你精准确定出生时间，我需要了解一些信息：
+
+1. 你目前知道的出生时间范围是什么？（比如'下午2点到5点'、'上午'、'完全不知道'）
+2. 出生地点是哪里？（城市即可）
+3. 你的体型偏瘦/中等/偏壮？脸型偏圆/长/方？
+4. 容易出现健康问题的部位是？（比如经常头痛/肠胃不好/腰痛等）
+5. 有没有明显的胎记或疤痕？在身体什么位置？"
+```
+
+#### C2. 外表体质初筛（AI自动分析）
+
+根据用户回答，确定上升星座范围：
+- 体型+脸型+健康倾向 → 缩小到2-3个候选上升星座
+- 胎记/疤痕位置 → 进一步缩小范围
+- 参照 `birth-time-rectification-advanced.md` 中的外表体质对应表
+
+#### C3. 生活事件验证（第二轮互动）
+
+**AI请求用户提供人生重要事件**：
+
+```
+"初步判断你的上升可能在[星座A]或[星座B]。
+为了进一步确认，请告诉我你人生中的一些重要转折事件，
+大概5-10个就行，包括大概的时间和事件类型。比如：
+- 搬家、转学、毕业
+- 工作/事业的重要变化
+- 开始或结束一段感情
+- 亲人离世或重病
+- 获奖或重大成就
+- 生病或手术"
+```
+
+**AI对每个事件做Dasha+Transit验证**：
+- 用候选时间分别排盘
+- 检查事件时间点的Dasha周期是否激活相关宫位
+- 检查Transit是否支持该事件
+- 计算每个候选时间的吻合率
+
+#### C4. D9/D10精确校正（第三轮互动，可选）
+
+如果需要更精确（精确到±5分钟以内）：
+
+```
+"时间范围已经缩小到[XX:XX-XX:XX]。
+为了进一步精确，请告诉我：
+1. 你的感情模式是怎样的？（主动/被动、深刻/轻松、重视精神连接/重视现实基础）
+2. 你的工作风格是怎样的？（管理型/创意型/研究型/服务型）"
+```
+
+- 感情模式 → 判定D9上升 → 缩小时间
+- 工作风格 → 判定D10上升 → 缩小时间
+
+#### C5. 矫正结果输出
+
+```markdown
+## 🔧 出生时间矫正报告
+
+### 信息收集
+- 已知时间范围：[描述]
+- 外表体质：[描述]
+- 事件验证：[N]个事件
+
+### 矫正过程
+- 上升候选：[星座A] / [星座B] → 判定：[星座X]
+- Dasha吻合率：[XX%]
+- Transit吻合率：[XX%]
+- D9上升判定：[星座]（基于感情特质）
+- D10上升判定：[星座]（基于事业特质）
+
+### 矫正结果
+- **矫正后出生时间**：[HH:MM]
+- **置信度**：[高/中/低]（[XX%]事件吻合）
+- **精度范围**：±[X]分钟
+
+### ⚠️ 声明
+出生时间矫正是基于事件反向推导的概率性方法。
+矫正后的时间不能100%保证精确，但基于[X]个事件的验证，
+吻合率达到[XX%]，可作为有效参考。
+```
+
+**矫正完成后**：使用矫正后的时间走路径A，调用 `full-reading` 全链路计算。
 
 ---
 
@@ -107,17 +298,19 @@
 | 教育/学业 | 4宫+9宫 | — | §6 |
 | 出国/迁移 | 9宫+12宫 | — | §7 |
 | 灵性/修行 | 9宫+12宫 | — | §8 |
+| 合盘/关系匹配 | 7宫 | `synastry` + `relationship-astrology-guide.md` | §1 |
 | 综合解盘（全盘） | 全部 | `comprehensive-reading-workflow.md` | 全部 |
 
 **（承诺模板→ `promise-assessment-templates.md`）**
 
 ### 2.2 用户未明确意图时的默认流程
 
-如果用户只上传了PDF没有说具体问什么：
+如果用户没有说具体问什么（比如只给了出生信息或上传了PDF）：
 1. 执行**综合解盘工作流Level 2**（`comprehensive-reading-workflow.md`）
 2. 先输出10宫位快速扫描
 3. 识别最强和最弱的领域
 4. 重点展开当前Dasha激活的领域
+5. 主动提示用户可以深入询问任何领域
 
 ---
 
@@ -140,7 +333,7 @@ Step 3.3  Yoga格局识别
           → references/yoga-strength-scoring-system.md
 
 Step 3.4  Argala检查（目标宫的2/4/5/8/11宫）
-          → references/argala-complete-guide.md ⭐ 新增
+          → references/argala-complete-guide.md
           → 输出：目标宫是否被"开门"或"锁门"
 
 Step 3.5  逆行/燃烧/行星战争检查
@@ -223,7 +416,7 @@ Step 4.1  Dasha激活评估
           → 当前Maha/Antar/Pratyantar与目标领域的关系
 
 Step 4.2  Dasa Convergence（轻量三系统法）
-          → references/dasa-convergence-methodology.md §七 ⭐ 升级
+          → references/dasa-convergence-methodology.md §七
           → Vimsottari + Yogini + Chara 三系统交叉验证
           → 输出：Convergence等级（Level 0-3）
 
@@ -389,19 +582,22 @@ Step 4.7  Varshaphala年运盘确认（如需要）
 ## 快速参考：完整工作流一页纸
 
 ```
-收到PDF
+用户消息到达
   │
-  ├─→ 阶段一：数据提取（pdf-chart-reading-guide.md）
-  │     └─→ Quality Gate → Pass/Limited/Fail
+  ├─ 路径判断
+  │   ├─→ 【路径A】精准出生信息 → full-reading 全自动计算
+  │   ├─→ 【路径B】PDF/文字星盘 → 提取数据 + 直接推算
+  │   └─→ 【路径C】时间不明确 → 互动矫正 → 走路径A
   │
   ├─→ 阶段二：意图路由
   │     └─→ 用户问什么 → 目标宫位 → 对应承诺模板
+  │         （无明确意图 → 综合解盘Level 2）
   │
   ├─→ 阶段三：静态分析（10步）
   │     ├─→ 宫位-行星基础
-  │     ├─→ 承诺评估（promise-assessment-templates.md）
+  │     ├─→ 承诺评估
   │     ├─→ Yoga识别
-  │     ├─→ Argala检查（argala-complete-guide.md）⭐
+  │     ├─→ Argala检查
   │     ├─→ 逆行/燃烧/战争
   │     ├─→ Nakshatra深度
   │     ├─→ Shadbala
@@ -411,7 +607,7 @@ Step 4.7  Varshaphala年运盘确认（如需要）
   │
   ├─→ 阶段四：动态推运（7步）
   │     ├─→ Dasha激活
-  │     ├─→ Dasa Convergence轻量三系统法 ⭐
+  │     ├─→ Dasa Convergence三系统法
   │     ├─→ Transit四参考点
   │     ├─→ Double Transit
   │     ├─→ Jaimini确认
@@ -420,16 +616,14 @@ Step 4.7  Varshaphala年运盘确认（如需要）
   │
   ├─→ 阶段五：应期输出
   │     └─→ 严格遵循prediction-output-protocol.md
-  │         禁用措辞 + 强制标注 + 精度声明
   │
   ├─→ 阶段六：补救措施（可选）
   │
   └─→ 阶段七：现代措辞包装
-        └─→ modern-language-guide.md + misconceptions check
 ```
 
 ---
 
-**版本**：1.0.0
-**创建日期**：2026-04-24
-**配套文件**：`pdf-chart-reading-guide.md`（数据提取）、`timing-prediction-template.md`（应期模板）、`prediction-output-protocol.md`（输出规范）、`comprehensive-reading-workflow.md`（综合流程）、`promise-assessment-templates.md`（承诺模板）、`argala-complete-guide.md`（Argala检查）、`dasa-convergence-methodology.md`（Dasa Convergence）
+**版本**：3.0.0
+**更新日期**：2026-04-25
+**配套文件**：`pdf-chart-reading-guide.md`（PDF提取）、`birth-time-rectification-advanced.md`（出生时间矫正）、`timing-prediction-template.md`（应期模板）、`prediction-output-protocol.md`（输出规范）、`comprehensive-reading-workflow.md`（综合流程）、`promise-assessment-templates.md`（承诺模板）、`argala-complete-guide.md`（Argala检查）、`dasa-convergence-methodology.md`（Dasa Convergence）

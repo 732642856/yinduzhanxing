@@ -17,6 +17,7 @@
   argala       Argala门闩系统（v3.7新增）
   tajika       Tajika/Varshaphala年运盘（v3.7新增）
   synastry     合盘分析（Ashta Koota 36分制+Mangal Dosha）（v3.7新增）
+  full-reading 全自动综合解盘（出生信息→全链路计算→完整报告）（v3.7.1新增）
   celebrity    名人案例查询（15,807条数据+SQLite验证库）
   db-stats     验证数据库统计
   transit      行星过境查询
@@ -1260,6 +1261,216 @@ def cmd_synastry(args):
 
 
 # ============================================================================
+# 22. 全自动综合解盘 full-reading（v3.7.1新增）
+# ============================================================================
+def cmd_full_reading(args):
+    """
+    用户只需提供出生信息，引擎自动串起全链路分析：
+    chart → dasha → yoga → varga-full → aspects → jaimini → nakshatra-adv
+    → argala → tajika → shadbala → ashtakavarga → validate → audit
+    → 综合报告输出
+    """
+    import time
+    t0 = time.time()
+
+    report = {
+        'version': '3.7.1-full-reading',
+        'birth_info': {
+            'date': f"{args.year}-{args.month:02d}-{args.day:02d}",
+            'time': f"{args.hour:02d}:{args.minute:02d}",
+            'lat': args.lat, 'lon': args.lon,
+            'tz': f"UTC{'+' if args.tz >= 0 else ''}{args.tz}",
+        },
+        'modules': {},
+        'errors': [],
+        'warnings': [],
+    }
+
+    # ── Step 1: 核心星盘 ──
+    chart, asc_idx, jd, ayanamsa = compute_chart_data(
+        args.year, args.month, args.day, args.hour, args.minute,
+        args.lat, args.lon, args.tz)
+    if chart is None:
+        return {"error": "swisseph未安装，无法计算星盘"}
+
+    report['chart'] = chart
+    planets = chart.get('planets', {})
+    asc_deg = chart.get('ascendant', {}).get('degree', 0)
+    asc_sign = chart.get('ascendant', {}).get('sign', 'Unknown')
+    planet_lons = {pn: pd['degree'] for pn, pd in planets.items() if isinstance(pd, dict) and 'degree' in pd}
+    planet_sign_indices = {}
+    for pn, pd in planets.items():
+        if isinstance(pd, dict) and 'sign' in pd:
+            planet_sign_indices[pn] = SIGNS.index(pd['sign']) if pd['sign'] in SIGNS else 0
+
+    # ── Step 2: Vimshottari Dasha ──
+    try:
+        moon_data = planets.get('Moon', {})
+        moon_lon = moon_data.get('degree', 0)
+        nak_idx = int(moon_lon / (360 / 27)) % 27
+        nak_name = NAKSHATRA_LIST[nak_idx][0]
+        nak_lord = NAKSHATRA_LIST[nak_idx][1]
+        pada = int((moon_lon % (360/27)) / (360/108)) + 1
+
+        birthdate = f"{args.year}-{args.month:02d}-{args.day:02d}"
+        today_str = datetime.now().strftime('%Y-%m-%d')
+        dasha_result = cmd_dasha(type('Args', (), {
+            'nakshatra': nak_name, 'pada': pada,
+            'moon_lon': moon_lon, 'birthdate': birthdate, 'today': today_str
+        })())
+        report['modules']['dasha'] = dasha_result
+    except Exception as e:
+        report['errors'].append(f"dasha: {e}")
+
+    # ── Step 3: Yoga格局 ──
+    try:
+        yoga_planets = {}
+        for pn, pd in planets.items():
+            if isinstance(pd, dict) and 'sign' in pd and 'house' in pd:
+                yoga_planets[pn] = {'sign': pd['sign'], 'house': pd['house']}
+        yoga_result = cmd_yoga(type('Args', (), {
+            'ascendant': asc_sign,
+            'planets': ','.join([f"{k}:{v['sign']}:{v['house']}" for k, v in yoga_planets.items()])
+        })())
+        report['modules']['yoga'] = yoga_result
+    except Exception as e:
+        report['errors'].append(f"yoga: {e}")
+
+    # ── Step 4: BPHS十六分盘 ──
+    try:
+        sys.path.insert(0, SCRIPT_DIR)
+        from varga import calc_all_vargas
+        varga_result = calc_all_vargas(planet_lons, asc_deg, None)  # None = 全部分盘
+        report['modules']['varga_full'] = varga_result
+    except Exception as e:
+        report['errors'].append(f"varga-full: {e}")
+
+    # ── Step 5: 精确相位 ──
+    try:
+        from aspects import calc_all_aspects
+        aspects_result = calc_all_aspects(planet_lons, asc_deg)
+        report['modules']['aspects'] = aspects_result
+    except Exception as e:
+        report['errors'].append(f"aspects: {e}")
+
+    # ── Step 6: Jaimini系统 ──
+    try:
+        from jaimini import calc_chara_karaka_7, calc_chara_karaka_8, calc_chara_dasha, calc_karakamsha
+        from varga import calc_varga
+
+        jaimini_result = {}
+        jaimini_result['chara_karaka_7'] = calc_chara_karaka_7(planet_lons)
+        jaimini_result['chara_karaka_8'] = calc_chara_karaka_8(planet_lons)
+        jaimini_result['chara_dasha'] = calc_chara_dasha(asc_idx, planet_lons, args.year, args.month)
+
+        # Karakamsha
+        ck7 = jaimini_result['chara_karaka_7']
+        dk_name = ck7.get('DK', {}).get('planet', 'Moon')
+        dk_lon = planet_lons.get(dk_name, 0)
+        dk_d9 = calc_varga(dk_lon, 9)
+        jaimini_result['karakamsha'] = calc_karakamsha(
+            dk_d9.get('sign', 'Aries'), dk_d9.get('degree_in_sign', 0))
+        report['modules']['jaimini'] = jaimini_result
+    except Exception as e:
+        report['errors'].append(f"jaimini: {e}")
+
+    # ── Step 7: 高级Nakshatra ──
+    try:
+        from nakshatra_advanced import find_nakshatra, calc_all_tara_balas, calc_sub_lord
+
+        nak_result = {'planets': {}}
+        for pn, lon in planet_lons.items():
+            nak_result['planets'][pn] = find_nakshatra(lon)
+        moon_nak_idx = int(planet_lons.get('Moon', 0) / (360/27)) % 27
+        nak_result['tara_bala'] = calc_all_tara_balas(moon_nak_idx, planet_lons)
+        nak_result['sub_lords'] = {pn: calc_sub_lord(lon) for pn, lon in planet_lons.items()}
+        report['modules']['nakshatra_advanced'] = nak_result
+    except Exception as e:
+        report['errors'].append(f"nakshatra-adv: {e}")
+
+    # ── Step 8: Argala门闩 ──
+    try:
+        from argala import calc_argala
+        report['modules']['argala'] = calc_argala(planet_sign_indices, asc_idx)
+    except Exception as e:
+        report['errors'].append(f"argala: {e}")
+
+    # ── Step 9: Tajika年运盘（需要年龄） ──
+    age = args.age
+    if age is None:
+        # 自动计算年龄
+        try:
+            birth_date = datetime(args.year, args.month, args.day)
+            age = (datetime.now() - birth_date).days // 365
+            report['warnings'].append(f"未提供年龄，自动计算为 {age} 岁")
+        except:
+            age = None
+
+    if age is not None:
+        try:
+            from tajika import calc_muntha, calc_year_lord, calc_mudda_dasha, calc_tri_pataka
+            asc_si = int(asc_deg / 30) % 12
+            tajika_result = {}
+            tajika_result['muntha'] = calc_muntha(asc_si, age)
+            yl = calc_year_lord(asc_si, age)
+            tajika_result['year_lord'] = yl
+            varsha_lord = yl.get('year_lord', 'Jupiter')
+            tajika_result['mudda_dasha'] = calc_mudda_dasha(asc_si, varsha_lord, args.month)
+            muntha_si = (asc_si + age) % 12
+            tajika_result['tri_pataka'] = calc_tri_pataka(planet_lons, varsha_lord, muntha_si)
+            report['modules']['tajika'] = tajika_result
+        except Exception as e:
+            report['errors'].append(f"tajika: {e}")
+
+    # ── Step 10: Shadbala六重力量 ──
+    try:
+        from shadbala import calc_shadbala
+        birth_hour = args.hour + args.minute / 60.0
+        sun_lon = planet_lons.get('Sun', 0)
+        moon_lon = planet_lons.get('Moon', 0)
+        report['modules']['shadbala'] = calc_shadbala(planets, asc_sign, birth_hour, sun_lon, moon_lon)
+    except Exception as e:
+        report['errors'].append(f"shadbala: {e}")
+
+    # ── Step 11: Ashtakavarga八分法 ──
+    asht_data = None
+    try:
+        from ashtakavarga import calc_ashtakavarga
+        asht_data = calc_ashtakavarga(planets, asc_idx)
+        report['modules']['ashtakavarga'] = asht_data
+    except Exception as e:
+        report['errors'].append(f"ashtakavarga: {e}")
+
+    # ── Step 12: R1-R10数学验证 ──
+    try:
+        from validate import validate_chart
+        report['modules']['validation'] = validate_chart(chart, asht_data)
+    except Exception as e:
+        report['errors'].append(f"validate: {e}")
+
+    # ── Step 13: P1-P12行星审计 ──
+    try:
+        audit_result = cmd_audit(args)
+        report['modules']['audit'] = audit_result
+    except Exception as e:
+        report['errors'].append(f"audit: {e}")
+
+    # ── 汇总 ──
+    elapsed = round(time.time() - t0, 2)
+    module_count = len(report['modules'])
+    error_count = len(report['errors'])
+    report['summary'] = {
+        'elapsed_seconds': elapsed,
+        'modules_computed': module_count,
+        'errors': error_count,
+        'status': 'complete' if error_count == 0 else f'{error_count} errors',
+        'next_step': 'AI可直接基于此数据执行阶段二（意图路由）→阶段三（静态分析）→阶段四（动态推运）→阶段五（应期输出）',
+    }
+
+    return report
+
+
+# ============================================================================
 # CLI入口
 # ============================================================================
 def main():
@@ -1388,6 +1599,11 @@ def main():
     p.add_argument('--gender1', default='M', help='Person1性别')
     p.add_argument('--gender2', default='F', help='Person2性别')
 
+    # 22. full-reading (v3.7.1新增)
+    p = sub.add_parser('full-reading', help='全自动综合解盘（出生信息→全链路→完整报告）')
+    _add_chart_args(p)
+    p.add_argument('--age', type=int, default=None, help='当前年龄（不提供则自动计算）')
+
     args = parser.parse_args()
     if not args.command:
         parser.print_help(); sys.exit(1)
@@ -1398,7 +1614,7 @@ def main():
             'validate': cmd_validate, 'audit': cmd_audit, 'report': cmd_report,
             'varga-full': cmd_varga_full, 'aspects': cmd_aspects, 'jaimini': cmd_jaimini,
             'nakshatra-adv': cmd_nakshatra_adv, 'argala': cmd_argala, 'tajika': cmd_tajika,
-            'synastry': cmd_synastry}
+            'synastry': cmd_synastry, 'full-reading': cmd_full_reading}
     result = cmds[args.command](args)
     output_json(result)
 

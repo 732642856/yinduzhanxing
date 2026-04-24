@@ -1,6 +1,6 @@
 ---
 name: jyotish-vedic-astrology
-version: 3.7.0
+version: 3.7.1
 description: 印度占星（Jyotish）专业解盘与推运系统。核心能力：PDF星盘输入→严谨解盘→精确推运应期输出。覆盖行星配置、Yoga格局、Nakshatra解读、宫位分析、现代生活场景映射、现代措辞解读、案例对比分析、自动出生时间矫正、常见误判纠错、Dasha+Transit推运、精确预测、PDF星盘读取、Swiss Ephemeris计算引擎、星盘计算、分盘计算、名人案例查询、Shadbala六重力量、Ashtakavarga八分法（BPHS完整表SAV=337）、Hermes记忆系统、事件预测、R1-R10数学验证（含R2b BAV列→SAV列校验）、P1-P12行星审计（含P3仓库耦合+P8年龄状态+冲突仲裁3条规则）、验前事、MD→HTML报告生成（羊皮纸主题）、BPHS十六分盘精确计算（D2-D60）、度数精确相位系统（Drishti）、Jaimini完整系统（Chara Karaka 7/8+Chara Dasha+Karakamsha）、高级Nakshatra分析（Tara Bala+Sub-Lord KP系统）、Argala门闩系统（Virodha反干预）、Tajika年运盘（Muntha+YearLord+Mudda Dasha+Tri-Pataka三旗）、合盘分析（Ashta Koota 36分制+Mangal Dosha+Papasamya+Dasha兼容性）。触发词：印度占星、吠陀占星、Jyotish、解盘、推运、星盘分析、Dasha、Transit、Nakshatra、Yoga、出生时间矫正、吠陀占星、印占、PDF星盘、读取PDF、分析PDF星盘、矫正出生时间、出生时间验证、生时矫正、现代解读、现代措辞、误判纠错、错题本、Varga分盘、全球占星师方法论、三合盘、综合分析、过境分析、Double Transit、Sade Sati、合盘、婚姻匹配、关系分析、Koota、Mangal Dosha、年运盘、Varshaphala、太阳返照、Tajika、星宿速查、综合解盘工作流、应期预测、推运应期、事件时机、什么时候结婚、什么时候升职、什么时候发财、Argala、门闩、行星干预、Dasa收敛、Yogini大运、Chara Dasha、AI解盘、算星盘、排盘、计算星盘、查名人、Shadbala、六重力量、Ashtakavarga、八分法、行星力量、记忆系统、事件预测、验证、校验、审计、验前事、R1-R10、P1-P12、仓库耦合、冲突仲裁、报告生成、HTML报告、精确相位、Drishti、Jaimini、Chara Karaka、Atmakaraka、Darakaraka、Karakamsha、Tara Bala、Sub-Lord、KP系统、Navamsa、D9、D60、Shashtyamsa、十六分盘、门闩分析、Muntha、年主星、三旗系统、合盘评分、Nadi Koota、Gana、Yoni、Papasamya、Dasha兼容。
 ---
 
@@ -8,18 +8,27 @@ description: 印度占星（Jyotish）专业解盘与推运系统。核心能力
 
 ## ⚠️ 核心定位
 
-**PDF输入 → 严谨解盘 → 精确推运应期输出**
+**三种输入 → 严谨解盘 → 精确推运应期输出**
 
-本Skill是一个**解读引擎**，不负责排盘计算。使命是：根据用户提供的PDF星盘数据，进行准确、严谨的星盘解读和推运应期预测。
+本Skill支持三种输入方式，AI自动识别并路由：
 
-**强制工作流**（→ 完整规范见 `references/ai-reading-workflow-prompt.md`）：
-1. 阶段一：PDF/图片输入 → 提取数据 + Quality Gate（→ `references/pdf-chart-reading-guide.md`）
-2. 阶段二：用户意图识别 → 路由到目标宫位（→ `references/promise-assessment-templates.md`）
-3. 阶段三：静态分析10步（宫位→承诺→Yoga→**Argala**→逆行→NK→Shadbala→AV→Ketu→分盘）
-4. 阶段四：动态推运7步（Dasha→**Dasa Convergence轻量三系统**→Transit→Double Transit→Jaimini→KP→Varshaphala）
-5. 阶段五：应期输出（五层验证法→精确时间窗口，→ `assets/timing-prediction-template.md`）
-6. 阶段六：补救措施（可选）
-7. 阶段七：现代措辞包装
+### 三条入口路径（自动判断，无需用户触发）
+
+| 路径 | 用户输入 | AI行为 |
+|------|---------|--------|
+| **路径A：精准出生信息** | 出生日期+时间+地点 | 直接调用 `full-reading` 引擎全链路计算（13模块一键出） |
+| **路径B：PDF/文字星盘** | 上传PDF星盘 或 详细的文字星盘描述 | 提取文档中的星象数据（落宫、度数、Dasha等），直接基于文档数据推算 |
+| **路径C：时间不明确** | "不知道几点出生" / "大概下午" | 启动互动式出生时间矫正（外表体质→事件验证→D9/D10校正）→ 确认后走路径A |
+
+**强制工作流**（→ 完整规范见 `references/ai-reading-workflow-prompt.md` v3.0）：
+1. **阶段零**：入口路由（路径A/B/C自动判断）
+2. **阶段一**（仅路径B）：PDF/图片输入 → 提取数据 + Quality Gate（→ `references/pdf-chart-reading-guide.md`）
+3. **阶段二**：用户意图识别 → 路由到目标宫位（无明确意图→综合解盘Level 2）
+4. **阶段三**：静态分析10步（宫位→承诺→Yoga→Argala→逆行→NK→Shadbala→AV→Ketu→分盘）
+5. **阶段四**：动态推运7步（Dasha→Dasa Convergence轻量三系统→Transit→Double Transit→Jaimini→KP→Varshaphala）
+6. **阶段五**：应期输出（五层验证法→精确时间窗口）
+7. **阶段六**：补救措施（可选）
+8. **阶段七**：现代措辞包装
 
 ---
 
@@ -193,7 +202,7 @@ description: 印度占星（Jyotish）专业解盘与推运系统。核心能力
 
 ### 13. 计算引擎集成（Swiss Ephemeris + 数据库）⭐ v3.4.0
 
-**统一引擎入口**：`scripts/jyotish_engine.py` v3.7.0（基于 Swiss Ephemeris 天文计算库）
+**统一引擎入口**：`scripts/jyotish_engine.py` v3.7.1（基于 Swiss Ephemeris 天文计算库）
 
 **调用方式**：AI 通过 `execute_command` 调用以下子命令（所有输出为 JSON）：
 
@@ -204,10 +213,11 @@ SCRIPT=~/.workbuddy/skills/jyotish-vedic-astrology/scripts/jyotish_engine.py
 $PYTHON $SCRIPT <子命令> [参数]
 ```
 
-**13大子命令** → **21大子命令**（v3.7 升级）：
+**13大子命令** → **22大子命令**（v3.7.1 升级）：
 
 | 子命令 | 功能 | 典型用法 |
 |--------|------|----------|
+| **`full-reading`** | **⭐ v3.7.1 全自动综合解盘（一条命令串起13个模块）** | `full-reading --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8` |
 | `chart` | 完整星盘计算（含Ayanamsa修正）+ `--validate` 附加R1-R10验证 | `chart --validate --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8` |
 | `dasha` | Vimshottari大运时间线+小运展开 | `dasha --moon-lon 326.5 --birthdate 1993-04-17 --today 2026-04-24` |
 | `yoga` | Yoga格局识别（5种Yoga） | `yoga --ascendant Leo --planets 'Sun:Aries:9,Moon:Aquarius:7,...'` |
@@ -216,32 +226,46 @@ $PYTHON $SCRIPT <子命令> [参数]
 | `celebrity` | 名人案例查询（SQLite + 15,807条CSV） | `celebrity --name Einstein` |
 | `db-stats` | 验证数据库统计（15,840条+10种技法） | `db-stats` |
 | `transit` | 行星过境查询（2026-2028） | `transit --year 2026 --month 7` |
-| `shadbala` | ⭐ 六重力量计算（Sthana/Dig/Kala/Chesta/Naisargika/Drik Bala） | `shadbala --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8` |
-| `ashtakavarga` | ⭐ 八分法计算（BPHS完整8×8矩阵，SAV=337） | `ashtakavarga --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8` |
-| `memory` | ⭐ Hermes记忆系统（store/search/context/stats） | `memory --action store --content "..." --tags "chart" --importance 8` |
-| `validate` | ⭐ R1-R10数学验证（SAV/BAV/延伸角/Rahu-Ketu/逆行/Dasha/完整性/度数/宫位） | `validate --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8` |
-| `audit` | ⭐ P1-P12行星审计管线（Identity/Health/Resource/SAV/Dignity/Shadbala/Aspects/Nakshatra/Yogas） | `audit --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8` |
-| `varga-full` | ⭐ v3.7 BPHS十六分盘精确计算（D2-D60全部16分盘，精确度数输出） | `varga-full --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8 --divisions D9,D60` |
-| `aspects` | ⭐ v3.7 度数精确相位系统（tight/moderate/loose + 入相位/出相位） | `aspects --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8` |
-| `jaimini` | ⭐ v3.7 Jaimini完整系统（Chara Karaka 7/8 + Chara Dasha + Karakamsha） | `jaimini --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8 --mode all` |
-| `nakshatra-adv` | ⭐ v3.7 高级Nakshatra（Tara Bala + Sub-Lord KP + 兼容性） | `nakshatra-adv --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8 --mode all` |
-| `argala` | ⭐ v3.7 Argala门闩系统（主/副Argala + Virodha反干预 + 净评分） | `argala --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8` |
-| `tajika` | ⭐ v3.7 Tajika年运盘（Muntha + YearLord + Mudda Dasha + Tri-Pataka） | `tajika --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8 --age 33` |
-| `synastry` | ⭐ v3.7 合盘分析（Ashta Koota 36分 + Mangal Dosha + Papasamya） | `synastry --moon1 310.89 --moon2 45.5 --mars1 90.43 --mars2 120.3` |
+| `shadbala` | 六重力量计算（Sthana/Dig/Kala/Chesta/Naisargika/Drik Bala） | `shadbala --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8` |
+| `ashtakavarga` | 八分法计算（BPHS完整8×8矩阵，SAV=337） | `ashtakavarga --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8` |
+| `memory` | Hermes记忆系统（store/search/context/stats） | `memory --action store --content "..." --tags "chart" --importance 8` |
+| `validate` | R1-R10数学验证（SAV/BAV/延伸角/Rahu-Ketu/逆行/Dasha/完整性/度数/宫位） | `validate --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8` |
+| `audit` | P1-P12行星审计管线（Identity/Health/Resource/SAV/Dignity/Shadbala/Aspects/Nakshatra/Yogas） | `audit --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8` |
+| `varga-full` | v3.7 BPHS十六分盘精确计算（D2-D60全部16分盘，精确度数输出） | `varga-full --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8 --divisions D9,D60` |
+| `aspects` | v3.7 度数精确相位系统（tight/moderate/loose + 入相位/出相位） | `aspects --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8` |
+| `jaimini` | v3.7 Jaimini完整系统（Chara Karaka 7/8 + Chara Dasha + Karakamsha） | `jaimini --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8 --mode all` |
+| `nakshatra-adv` | v3.7 高级Nakshatra（Tara Bala + Sub-Lord KP + 兼容性） | `nakshatra-adv --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8 --mode all` |
+| `argala` | v3.7 Argala门闩系统（主/副Argala + Virodha反干预 + 净评分） | `argala --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8` |
+| `tajika` | v3.7 Tajika年运盘（Muntha + YearLord + Mudda Dasha + Tri-Pataka） | `tajika --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8 --age 33` |
+| `synastry` | v3.7 合盘分析（Ashta Koota 36分 + Mangal Dosha + Papasamya） | `synastry --moon1 310.89 --moon2 45.5 --mars1 90.43 --mars2 120.3` |
+| `report` | MD→HTML报告生成（羊皮纸主题） | `report ./report_folder --name 一楠 --lagna Leo` |
 
 **外部数据源**（引擎自动读取）：
 - 验证数据库：`~/WorkBuddy/Claw/vedic_astrology_validation.db`（15,840条案例，10种技法准确率）
 - 名人CSV：`~/WorkBuddy/Claw/vedastro_data/PersonList-15k.csv`（15,807条AA级数据）
 - 过境配置：`~/WorkBuddy/Claw/月运过境配置-2026-2028.json`（36个月行星位置）
 
-**典型工作流**（v3.7 升级）：
-1. 用户给出生信息 → `chart` 计算星盘 → 获取行星位置、宫位、Nakshatra
-2. 从 chart 结果取月亮经度 → `dasha` 计算当前大运
-3. 从 chart 结果取行星配置 → `yoga` 识别格局
-4. `shadbala` 计算六重力量 → 量化行星强度排名 ⭐ v3.4
-5. `ashtakavarga` 计算八分法 → SAV评分+宫位吉凶 ⭐ v3.4
-6. `varga-full --divisions D9,D60` 计算精确分盘（含度数+尊严） ⭐ v3.7
-7. `aspects` 计算精确相位（度数级Drishti） ⭐ v3.7
+**典型工作流**（v3.7.1 升级）：
+
+### 🟢 路径A：精准出生信息（推荐，一条命令搞定）
+```bash
+# 一键全链路计算（13模块自动串行）
+$PYTHON $SCRIPT full-reading --year YYYY --month MM --day DD --hour HH --minute MM --lat XX.XX --lon XX.XX --tz X
+# 输出：chart + dasha + yoga + varga_full + aspects + jaimini + nakshatra_adv + argala + tajika + shadbala + ashtakavarga + validation + audit
+# 完成后直接进入阶段二（意图识别）
+```
+
+### 📄 路径B：PDF/文字星盘（用文档数据直接推算）
+1. 提取PDF/文字中的所有星象数据（行星落宫、度数、Dasha、Shadbala等）
+2. 数据完整性门 → Pass/Limited/Fail
+3. 如有出生时间+地点，额外调用 `full-reading` 补充计算v3.7新增模块
+4. 进入阶段二（意图识别）
+
+### 🔧 路径C：时间不明确（互动式矫正）
+1. 收集外表体质+生活事件（3-5轮互动）
+2. 多候选时间对比验证（Dasha吻合率+Transit吻合率）
+3. D9/D10精确校正
+4. 矫正完成后走路径A
 8. `jaimini --mode all` 计算Chara Karaka + Dasha + Karakamsha ⭐ v3.7
 9. `nakshatra-adv --mode all` 计算Tara Bala + Sub-Lord ⭐ v3.7
 10. `argala` 计算门闩干预分析 ⭐ v3.7
@@ -524,6 +548,6 @@ $PYTHON $SCRIPT <子命令> [参数]
 
 ---
 
-**版本**：3.7.0
+**版本**：3.7.1
 **创建日期**：2026-04-20
-**最后更新**：2026-04-25（v3.7.0 新增7大计算模块：BPHS十六分盘精确计算+度数精确相位+Jaimini完整系统+高级Nakshatra分析+Argala门闩+Tajika年运盘+合盘分析，引擎子命令14→21）
+**最后更新**：2026-04-25（v3.7.1 新增 full-reading 全自动综合解盘子命令 + 三条入口路径路由 + 工作流v3.0；v3.7.0 新增7大计算模块：BPHS十六分盘精确计算+度数精确相位+Jaimini完整系统+高级Nakshatra分析+Argala门闩+Tajika年运盘+合盘分析，引擎子命令21→22）
