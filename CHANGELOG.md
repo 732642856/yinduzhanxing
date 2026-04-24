@@ -1,5 +1,43 @@
 # 印度占星 Skill 更新日志
 
+## v3.7.3b（2026-04-25）— Python引擎P0 Bug修复 + 参考文档4处数据修正
+
+### Python计算引擎修复（scripts/）
+
+- **P0 #1**：`jyotish_engine.py` — Chara Karaka 计算收到 0-360 完整经度而非 0-30 星座内度数
+  - 新增 `planet_degs` dict（取 `degree_in_sign`），Karaka 计算用 0-30 度数，Navamsa/Chara Dasha 继续用完整经度
+  - 影响：所有 Karaka 排名在修复前都是错误的（按黄道位置排序而非星座内度数）
+- **P0 #2**：`jyotish_engine.py` — DK 提取路径 `ck7.get('DK', {}).get('planet', 'Moon')` 永远 fallback 到 Moon
+  - 改为 `ck7['karaka_table']['Darakaraka']['planet']` 直接从结构化数据提取
+  - 影响：Karakamsha 计算一直基于 Moon D9 而非 DK D9
+- **P1**：`jaimini.py` — Rahu 逆行边界 `(30 - deg) % 30` 当 deg=0 时得到 0 而非 30
+  - 改为 `30.0 - deg`（不取模，保留边界值用于排序）
+- **术语修正**：status 标签 "入庙(Exalted)" → "入旺(Exalted)"（入庙=Own Sign，入旺=Exalted）
+
+### 参考文档修正（references/）
+
+1. `vimshottari_dasha_guide.md`：15° Aries 星宿边界错误（Ashwini → Bharani），补边界说明
+2. `planetary-dignity-complete-reference.md`：水星逆行燃烧度数 12° → 8°（Parashari 标准）
+3. `marriage-timing-comprehensive-techniques.md`：UL 计算公式重写，从混淆的模运算改为清晰的星座索引推导
+4. `planets.md`：燃烧表补充逆行变体注释
+
+### 验证
+
+一楠星盘修复前后对比：
+
+| Karaka | 修复前 | 修复后 | PDF验证 |
+|--------|--------|--------|---------|
+| AK | Jupiter ❌ | Sun (27.6°) ✅ | Sun |
+| DK 7星 | Mars ❌ | Venus (7.7°) ✅ | Venus |
+| DK 8星 | Mars ❌ | Venus (7.7°) ✅ | Venus |
+
+### 其他更新
+
+- `darakaraka-complete-guide.md`：三系统DK判定更新
+- `marriage-timing-validation-methodology.md`：双轨验证数据更新
+
+---
+
 ## v3.7.3（2026-04-25）— 行星尊严与度数完整参考手册
 
 ### 新增参考文件（1个）
