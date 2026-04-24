@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-印度占星统一引擎 v3.6.0 (Jyotish Unified Engine)
+印度占星统一引擎 v3.7.0 (Jyotish Unified Engine)
 整合所有计算能力为单一CLI入口，供Skill调用
 
 子命令:
@@ -10,6 +10,13 @@
   yoga         Yoga格局识别
   predict      三层验证法事件预测（优先EventPredictionModel规则引擎）
   varga        分盘计算（D9/D10）
+  varga-full   BPHS十六分盘完整计算（D2-D60）（v3.7新增）
+  aspects      度数精确相位系统（v3.7新增）
+  jaimini      Jaimini系统（Chara Karaka/Chara Dasha/Karakamsha）（v3.7新增）
+  nakshatra-adv 高级Nakshatra分析（Tara Bala/Sub-Lord/兼容性）（v3.7新增）
+  argala       Argala门闩系统（v3.7新增）
+  tajika       Tajika/Varshaphala年运盘（v3.7新增）
+  synastry     合盘分析（Ashta Koota 36分制+Mangal Dosha）（v3.7新增）
   celebrity    名人案例查询（15,807条数据+SQLite验证库）
   db-stats     验证数据库统计
   transit      行星过境查询
@@ -1044,10 +1051,219 @@ def cmd_report(args):
 
 
 # ============================================================================
+# 15. BPHS十六分盘完整计算（v3.7新增）
+# ============================================================================
+def cmd_varga_full(args):
+    chart, asc_idx, jd, ayanamsa = compute_chart_data(
+        args.year, args.month, args.day, args.hour, args.minute,
+        args.lat, args.lon, args.tz)
+    if chart is None:
+        return {"error": "swisseph未安装"}
+    try:
+        sys.path.insert(0, SCRIPT_DIR)
+        from varga import calc_all_vargas
+    except ImportError as e:
+        return {"error": f"varga模块导入失败: {e}"}
+    planets = chart.get('planets', {})
+    planet_lons = {pn: pd['degree'] for pn, pd in planets.items() if isinstance(pd, dict) and 'degree' in pd}
+    asc_deg = chart.get('ascendant', {}).get('degree', 0)
+    divisions = [int(d.strip().replace('D','')) for d in args.divisions.split(',')] if args.divisions else None
+    return calc_all_vargas(planet_lons, asc_deg, divisions)
+
+
+# ============================================================================
+# 16. 度数精确相位系统（v3.7新增）
+# ============================================================================
+def cmd_aspects(args):
+    chart, asc_idx, jd, ayanamsa = compute_chart_data(
+        args.year, args.month, args.day, args.hour, args.minute,
+        args.lat, args.lon, args.tz)
+    if chart is None:
+        return {"error": "swisseph未安装"}
+    try:
+        sys.path.insert(0, SCRIPT_DIR)
+        from aspects import calc_all_aspects
+    except ImportError as e:
+        return {"error": f"aspects模块导入失败: {e}"}
+    planets = chart.get('planets', {})
+    planet_lons = {}
+    for pn, pd in planets.items():
+        if isinstance(pd, dict) and 'degree' in pd:
+            planet_lons[pn] = pd['degree']
+    asc_deg = chart.get('ascendant', {}).get('degree', 0)
+    return calc_all_aspects(planet_lons, asc_deg)
+
+
+# ============================================================================
+# 17. Jaimini系统（v3.7新增）
+# ============================================================================
+def cmd_jaimini(args):
+    chart, asc_idx, jd, ayanamsa = compute_chart_data(
+        args.year, args.month, args.day, args.hour, args.minute,
+        args.lat, args.lon, args.tz)
+    if chart is None:
+        return {"error": "swisseph未安装"}
+    try:
+        sys.path.insert(0, SCRIPT_DIR)
+        from jaimini import calc_chara_karaka_7, calc_chara_karaka_8, calc_chara_dasha, calc_karakamsha
+        from varga import calc_varga
+    except ImportError as e:
+        return {"error": f"jaimini模块导入失败: {e}"}
+    planets = chart.get('planets', {})
+    planet_lons = {}
+    for pn, pd in planets.items():
+        if isinstance(pd, dict) and 'degree' in pd:
+            planet_lons[pn] = pd['degree']
+    asc_deg = chart.get('ascendant', {}).get('degree', 0)
+
+    result = {}
+    # Chara Karaka
+    mode = args.mode or 'all'
+    if mode in ('all', 'karaka'):
+        result['chara_karaka_7'] = calc_chara_karaka_7(planet_lons)
+        result['chara_karaka_8'] = calc_chara_karaka_8(planet_lons)
+    if mode in ('all', 'dasha'):
+        result['chara_dasha'] = calc_chara_dasha(asc_idx, planet_lons, args.year, args.month)
+    if mode in ('all', 'karakamsha'):
+        # DK的D9位置
+        ck7 = calc_chara_karaka_7(planet_lons)
+        dk_name = ck7.get('DK', {}).get('planet', 'Moon')
+        dk_lon = planet_lons.get(dk_name, 0)
+        dk_d9 = calc_varga(dk_lon, 9)
+        result['karakamsha'] = calc_karakamsha(dk_d9.get('sign', 'Aries'), dk_d9.get('degree_in_sign', 0))
+    return result
+
+
+# ============================================================================
+# 18. 高级Nakshatra分析（v3.7新增）
+# ============================================================================
+def cmd_nakshatra_adv(args):
+    chart, asc_idx, jd, ayanamsa = compute_chart_data(
+        args.year, args.month, args.day, args.hour, args.minute,
+        args.lat, args.lon, args.tz)
+    if chart is None:
+        return {"error": "swisseph未安装"}
+    try:
+        sys.path.insert(0, SCRIPT_DIR)
+        from nakshatra_advanced import find_nakshatra, calc_all_tara_balas, calc_sub_lord, nakshatra_compatibility
+    except ImportError as e:
+        return {"error": f"nakshatra_advanced模块导入失败: {e}"}
+    planets = chart.get('planets', {})
+    planet_lons = {}
+    for pn, pd in planets.items():
+        if isinstance(pd, dict) and 'degree' in pd:
+            planet_lons[pn] = pd['degree']
+
+    result = {'planets': {}}
+    mode = args.mode or 'all'
+
+    if mode in ('all', 'detail'):
+        for pn, lon in planet_lons.items():
+            result['planets'][pn] = find_nakshatra(lon)
+
+    if mode in ('all', 'tara'):
+        moon_lon = planet_lons.get('Moon', 0)
+        moon_nak_idx = int(moon_lon / (360/27)) % 27
+        result['tara_bala'] = calc_all_tara_balas(moon_nak_idx, planet_lons)
+
+    if mode in ('all', 'sublord'):
+        result['sub_lords'] = {pn: calc_sub_lord(lon) for pn, lon in planet_lons.items()}
+
+    return result
+
+
+# ============================================================================
+# 19. Argala门闩系统（v3.7新增）
+# ============================================================================
+def cmd_argala(args):
+    chart, asc_idx, jd, ayanamsa = compute_chart_data(
+        args.year, args.month, args.day, args.hour, args.minute,
+        args.lat, args.lon, args.tz)
+    if chart is None:
+        return {"error": "swisseph未安装"}
+    try:
+        sys.path.insert(0, SCRIPT_DIR)
+        from argala import calc_argala
+    except ImportError as e:
+        return {"error": f"argala模块导入失败: {e}"}
+    planets = chart.get('planets', {})
+    # 构建宫位到行星的映射 - argala需要sign_indices
+    planet_sign_indices = {}
+    for pn, pd in planets.items():
+        if isinstance(pd, dict) and 'sign' in pd:
+            si = SIGNS.index(pd['sign']) if pd['sign'] in SIGNS else 0
+            planet_sign_indices[pn] = si
+    return calc_argala(planet_sign_indices, asc_idx)
+
+
+# ============================================================================
+# 20. Tajika/Varshaphala年运盘（v3.7新增）
+# ============================================================================
+def cmd_tajika(args):
+    chart, asc_idx, jd, ayanamsa = compute_chart_data(
+        args.year, args.month, args.day, args.hour, args.minute,
+        args.lat, args.lon, args.tz)
+    if chart is None:
+        return {"error": "swisseph未安装"}
+    try:
+        sys.path.insert(0, SCRIPT_DIR)
+        from tajika import calc_muntha, calc_year_lord, calc_mudda_dasha, calc_tri_pataka
+    except ImportError as e:
+        return {"error": f"tajika模块导入失败: {e}"}
+    planets = chart.get('planets', {})
+    planet_lons = {}
+    for pn, pd in planets.items():
+        if isinstance(pd, dict) and 'degree' in pd:
+            planet_lons[pn] = pd['degree']
+    asc_deg = chart.get('ascendant', {}).get('degree', 0)
+    asc_si = int(asc_deg / 30) % 12  # sign index
+    age = args.age
+    if age is None:
+        return {"error": "请提供 --age 参数（当前年龄）"}
+
+    result = {}
+    mode = args.mode or 'all'
+    if mode in ('all', 'muntha'):
+        result['muntha'] = calc_muntha(asc_si, age)
+    if mode in ('all', 'yearlord'):
+        result['year_lord'] = calc_year_lord(asc_si, age)
+    if mode in ('all', 'mudda'):
+        # 需要先获取 varsha_lord
+        yl = calc_year_lord(asc_si, age)
+        varsha_lord = yl.get('year_lord', 'Jupiter')
+        result['mudda_dasha'] = calc_mudda_dasha(asc_si, varsha_lord, args.month)
+    if mode in ('all', 'tripataka'):
+        yl = calc_year_lord(asc_si, age)
+        varsha_lord = yl.get('year_lord', 'Jupiter')
+        muntha_si = (asc_si + age) % 12
+        result['tri_pataka'] = calc_tri_pataka(planet_lons, varsha_lord, muntha_si)
+    return result
+
+
+# ============================================================================
+# 21. 合盘分析（v3.7新增）
+# ============================================================================
+def cmd_synastry(args):
+    try:
+        sys.path.insert(0, SCRIPT_DIR)
+        from synastry import calc_synastry
+    except ImportError as e:
+        return {"error": f"synastry模块导入失败: {e}"}
+    # 构建两人数据
+    p1 = {'moon_lon': args.moon1, 'gender': args.gender1 or 'M'}
+    p2 = {'moon_lon': args.moon2, 'gender': args.gender2 or 'F'}
+    if args.mars1 is not None: p1['mars_lon'] = args.mars1
+    if args.mars2 is not None: p2['mars_lon'] = args.mars2
+    if args.asc1 is not None: p1['asc_lon'] = args.asc1
+    if args.asc2 is not None: p2['asc_lon'] = args.asc2
+    return calc_synastry(p1, p2)
+
+
+# ============================================================================
 # CLI入口
 # ============================================================================
 def main():
-    parser = argparse.ArgumentParser(description='印度占星统一引擎 v3.6.0', formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser = argparse.ArgumentParser(description='印度占星统一引擎 v3.7.0', formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = parser.add_subparsers(dest='command', help='子命令')
 
     # 1. chart
@@ -1132,6 +1348,46 @@ def main():
     p.add_argument('--lang', default='cn', choices=['cn', 'en'], help='语言 (默认cn)')
     p.add_argument('--output', default=None, help='输出HTML路径')
 
+    # 15. varga-full (v3.7新增)
+    p = sub.add_parser('varga-full', help='BPHS十六分盘完整计算')
+    _add_chart_args(p)
+    p.add_argument('--divisions', default=None, help='指定分盘，逗号分隔(如 D2,D9,D60)，空=全部')
+
+    # 16. aspects (v3.7新增)
+    p = sub.add_parser('aspects', help='度数精确相位系统')
+    _add_chart_args(p)
+
+    # 17. jaimini (v3.7新增)
+    p = sub.add_parser('jaimini', help='Jaimini系统（Chara Karaka/Dasha/Karakamsha）')
+    _add_chart_args(p)
+    p.add_argument('--mode', default='all', choices=['all','karaka','dasha','karakamsha'], help='分析模式')
+
+    # 18. nakshatra-adv (v3.7新增)
+    p = sub.add_parser('nakshatra-adv', help='高级Nakshatra分析')
+    _add_chart_args(p)
+    p.add_argument('--mode', default='all', choices=['all','detail','tara','sublord'], help='分析模式')
+
+    # 19. argala (v3.7新增)
+    p = sub.add_parser('argala', help='Argala门闩系统')
+    _add_chart_args(p)
+
+    # 20. tajika (v3.7新增)
+    p = sub.add_parser('tajika', help='Tajika/Varshaphala年运盘')
+    _add_chart_args(p)
+    p.add_argument('--age', type=int, required=True, help='当前年龄')
+    p.add_argument('--mode', default='all', choices=['all','muntha','yearlord','mudda','tripataka'], help='分析模式')
+
+    # 21. synastry (v3.7新增)
+    p = sub.add_parser('synastry', help='合盘分析（Ashta Koota 36分制）')
+    p.add_argument('--moon1', type=float, required=True, help='Person1月亮黄经')
+    p.add_argument('--moon2', type=float, required=True, help='Person2月亮黄经')
+    p.add_argument('--mars1', type=float, default=None, help='Person1火星黄经')
+    p.add_argument('--mars2', type=float, default=None, help='Person2火星黄经')
+    p.add_argument('--asc1', type=float, default=None, help='Person1上升黄经')
+    p.add_argument('--asc2', type=float, default=None, help='Person2上升黄经')
+    p.add_argument('--gender1', default='M', help='Person1性别')
+    p.add_argument('--gender2', default='F', help='Person2性别')
+
     args = parser.parse_args()
     if not args.command:
         parser.print_help(); sys.exit(1)
@@ -1139,7 +1395,10 @@ def main():
     cmds = {'chart': cmd_chart, 'dasha': cmd_dasha, 'yoga': cmd_yoga, 'predict': cmd_predict,
             'varga': cmd_varga, 'celebrity': cmd_celebrity, 'db-stats': cmd_db_stats, 'transit': cmd_transit,
             'shadbala': cmd_shadbala, 'ashtakavarga': cmd_ashtakavarga, 'memory': cmd_memory,
-            'validate': cmd_validate, 'audit': cmd_audit, 'report': cmd_report}
+            'validate': cmd_validate, 'audit': cmd_audit, 'report': cmd_report,
+            'varga-full': cmd_varga_full, 'aspects': cmd_aspects, 'jaimini': cmd_jaimini,
+            'nakshatra-adv': cmd_nakshatra_adv, 'argala': cmd_argala, 'tajika': cmd_tajika,
+            'synastry': cmd_synastry}
     result = cmds[args.command](args)
     output_json(result)
 

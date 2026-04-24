@@ -1,7 +1,7 @@
 ---
 name: jyotish-vedic-astrology
-version: 3.6.0
-description: 印度占星（Jyotish）专业解盘与推运系统。核心能力：PDF星盘输入→严谨解盘→精确推运应期输出。覆盖行星配置、Yoga格局、Nakshatra解读、宫位分析、现代生活场景映射、现代措辞解读、案例对比分析、自动出生时间矫正、常见误判纠错、Dasha+Transit推运、精确预测、PDF星盘读取、Swiss Ephemeris计算引擎、星盘计算、分盘计算、名人案例查询、Shadbala六重力量、Ashtakavarga八分法（BPHS完整表SAV=337）、Hermes记忆系统、事件预测、R1-R10数学验证（含R2b BAV列→SAV列校验）、P1-P12行星审计（含P3仓库耦合+P8年龄状态+冲突仲裁3条规则）、验前事、MD→HTML报告生成（羊皮纸主题）。触发词：印度占星、吠陀占星、Jyotish、解盘、推运、星盘分析、Dasha、Transit、Nakshatra、Yoga、出生时间矫正、吠陀占星、印占、PDF星盘、读取PDF、分析PDF星盘、矫正出生时间、出生时间验证、生时矫正、现代解读、现代措辞、误判纠错、错题本、Varga分盘、全球占星师方法论、三合盘、综合分析、过境分析、Double Transit、Sade Sati、合盘、婚姻匹配、关系分析、Koota、Mangal Dosha、年运盘、Varshaphala、太阳返照、Tajika、星宿速查、综合解盘工作流、应期预测、推运应期、事件时机、什么时候结婚、什么时候升职、什么时候发财、Argala、门闩、行星干预、Dasa收敛、Yogini大运、Chara Dasha、AI解盘、算星盘、排盘、计算星盘、查名人、Shadbala、六重力量、Ashtakavarga、八分法、行星力量、记忆系统、事件预测、验证、校验、审计、验前事、R1-R10、P1-P12、仓库耦合、冲突仲裁、报告生成、HTML报告。
+version: 3.7.0
+description: 印度占星（Jyotish）专业解盘与推运系统。核心能力：PDF星盘输入→严谨解盘→精确推运应期输出。覆盖行星配置、Yoga格局、Nakshatra解读、宫位分析、现代生活场景映射、现代措辞解读、案例对比分析、自动出生时间矫正、常见误判纠错、Dasha+Transit推运、精确预测、PDF星盘读取、Swiss Ephemeris计算引擎、星盘计算、分盘计算、名人案例查询、Shadbala六重力量、Ashtakavarga八分法（BPHS完整表SAV=337）、Hermes记忆系统、事件预测、R1-R10数学验证（含R2b BAV列→SAV列校验）、P1-P12行星审计（含P3仓库耦合+P8年龄状态+冲突仲裁3条规则）、验前事、MD→HTML报告生成（羊皮纸主题）、BPHS十六分盘精确计算（D2-D60）、度数精确相位系统（Drishti）、Jaimini完整系统（Chara Karaka 7/8+Chara Dasha+Karakamsha）、高级Nakshatra分析（Tara Bala+Sub-Lord KP系统）、Argala门闩系统（Virodha反干预）、Tajika年运盘（Muntha+YearLord+Mudda Dasha+Tri-Pataka三旗）、合盘分析（Ashta Koota 36分制+Mangal Dosha+Papasamya+Dasha兼容性）。触发词：印度占星、吠陀占星、Jyotish、解盘、推运、星盘分析、Dasha、Transit、Nakshatra、Yoga、出生时间矫正、吠陀占星、印占、PDF星盘、读取PDF、分析PDF星盘、矫正出生时间、出生时间验证、生时矫正、现代解读、现代措辞、误判纠错、错题本、Varga分盘、全球占星师方法论、三合盘、综合分析、过境分析、Double Transit、Sade Sati、合盘、婚姻匹配、关系分析、Koota、Mangal Dosha、年运盘、Varshaphala、太阳返照、Tajika、星宿速查、综合解盘工作流、应期预测、推运应期、事件时机、什么时候结婚、什么时候升职、什么时候发财、Argala、门闩、行星干预、Dasa收敛、Yogini大运、Chara Dasha、AI解盘、算星盘、排盘、计算星盘、查名人、Shadbala、六重力量、Ashtakavarga、八分法、行星力量、记忆系统、事件预测、验证、校验、审计、验前事、R1-R10、P1-P12、仓库耦合、冲突仲裁、报告生成、HTML报告、精确相位、Drishti、Jaimini、Chara Karaka、Atmakaraka、Darakaraka、Karakamsha、Tara Bala、Sub-Lord、KP系统、Navamsa、D9、D60、Shashtyamsa、十六分盘、门闩分析、Muntha、年主星、三旗系统、合盘评分、Nadi Koota、Gana、Yoni、Papasamya、Dasha兼容。
 ---
 
 # 印度占星专业解盘与推运系统
@@ -193,7 +193,7 @@ description: 印度占星（Jyotish）专业解盘与推运系统。核心能力
 
 ### 13. 计算引擎集成（Swiss Ephemeris + 数据库）⭐ v3.4.0
 
-**统一引擎入口**：`scripts/jyotish_engine.py` v3.4.0（基于 Swiss Ephemeris 天文计算库）
+**统一引擎入口**：`scripts/jyotish_engine.py` v3.7.0（基于 Swiss Ephemeris 天文计算库）
 
 **调用方式**：AI 通过 `execute_command` 调用以下子命令（所有输出为 JSON）：
 
@@ -204,7 +204,7 @@ SCRIPT=~/.workbuddy/skills/jyotish-vedic-astrology/scripts/jyotish_engine.py
 $PYTHON $SCRIPT <子命令> [参数]
 ```
 
-**13大子命令**：
+**13大子命令** → **21大子命令**（v3.7 升级）：
 
 | 子命令 | 功能 | 典型用法 |
 |--------|------|----------|
@@ -221,23 +221,36 @@ $PYTHON $SCRIPT <子命令> [参数]
 | `memory` | ⭐ Hermes记忆系统（store/search/context/stats） | `memory --action store --content "..." --tags "chart" --importance 8` |
 | `validate` | ⭐ R1-R10数学验证（SAV/BAV/延伸角/Rahu-Ketu/逆行/Dasha/完整性/度数/宫位） | `validate --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8` |
 | `audit` | ⭐ P1-P12行星审计管线（Identity/Health/Resource/SAV/Dignity/Shadbala/Aspects/Nakshatra/Yogas） | `audit --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8` |
+| `varga-full` | ⭐ v3.7 BPHS十六分盘精确计算（D2-D60全部16分盘，精确度数输出） | `varga-full --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8 --divisions D9,D60` |
+| `aspects` | ⭐ v3.7 度数精确相位系统（tight/moderate/loose + 入相位/出相位） | `aspects --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8` |
+| `jaimini` | ⭐ v3.7 Jaimini完整系统（Chara Karaka 7/8 + Chara Dasha + Karakamsha） | `jaimini --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8 --mode all` |
+| `nakshatra-adv` | ⭐ v3.7 高级Nakshatra（Tara Bala + Sub-Lord KP + 兼容性） | `nakshatra-adv --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8 --mode all` |
+| `argala` | ⭐ v3.7 Argala门闩系统（主/副Argala + Virodha反干预 + 净评分） | `argala --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8` |
+| `tajika` | ⭐ v3.7 Tajika年运盘（Muntha + YearLord + Mudda Dasha + Tri-Pataka） | `tajika --year 1993 --month 4 --day 17 --hour 14 --minute 45 --lat 36.6 --lon 114.5 --tz 8 --age 33` |
+| `synastry` | ⭐ v3.7 合盘分析（Ashta Koota 36分 + Mangal Dosha + Papasamya） | `synastry --moon1 310.89 --moon2 45.5 --mars1 90.43 --mars2 120.3` |
 
 **外部数据源**（引擎自动读取）：
 - 验证数据库：`~/WorkBuddy/Claw/vedic_astrology_validation.db`（15,840条案例，10种技法准确率）
 - 名人CSV：`~/WorkBuddy/Claw/vedastro_data/PersonList-15k.csv`（15,807条AA级数据）
 - 过境配置：`~/WorkBuddy/Claw/月运过境配置-2026-2028.json`（36个月行星位置）
 
-**典型工作流**：
+**典型工作流**（v3.7 升级）：
 1. 用户给出生信息 → `chart` 计算星盘 → 获取行星位置、宫位、Nakshatra
 2. 从 chart 结果取月亮经度 → `dasha` 计算当前大运
 3. 从 chart 结果取行星配置 → `yoga` 识别格局
 4. `shadbala` 计算六重力量 → 量化行星强度排名 ⭐ v3.4
 5. `ashtakavarga` 计算八分法 → SAV评分+宫位吉凶 ⭐ v3.4
-6. `varga --d9` 计算 Navamsa 分盘验证
-7. `transit` 查询当月过境 → 配合 dasha 做推运分析
-8. `predict` 事件预测（EventPredictionModel规则引擎） ⭐ v3.4
-9. `celebrity` 查找相似案例做对比验证
-10. `memory --action store` 保存分析结论供后续引用 ⭐ v3.4
+6. `varga-full --divisions D9,D60` 计算精确分盘（含度数+尊严） ⭐ v3.7
+7. `aspects` 计算精确相位（度数级Drishti） ⭐ v3.7
+8. `jaimini --mode all` 计算Chara Karaka + Dasha + Karakamsha ⭐ v3.7
+9. `nakshatra-adv --mode all` 计算Tara Bala + Sub-Lord ⭐ v3.7
+10. `argala` 计算门闩干预分析 ⭐ v3.7
+11. `transit` 查询当月过境 → 配合 dasha 做推运分析
+12. `tajika --age 33` 计算年运盘（Muntha+Tri-Pataka） ⭐ v3.7
+13. `predict` 事件预测（EventPredictionModel规则引擎） ⭐ v3.4
+14. `celebrity` 查找相似案例做对比验证
+15. 合盘场景：`synastry --moon1 ... --moon2 ...` 计算Ashta Koota 36分制 ⭐ v3.7
+16. `memory --action store` 保存分析结论供后续引用 ⭐ v3.4
 
 ## 使用方法
 
@@ -376,7 +389,7 @@ $PYTHON $SCRIPT <子命令> [参数]
 
 ## 更新记录
 
-详见 `CHANGELOG.md`。当前版本：v3.3.0。
+详见 `CHANGELOG.md`。当前版本：v3.7.0。
 
 ## 参考资料
 
@@ -511,6 +524,6 @@ $PYTHON $SCRIPT <子命令> [参数]
 
 ---
 
-**版本**：3.3.0
+**版本**：3.7.0
 **创建日期**：2026-04-20
-**最后更新**：2026-04-24（v3.3.0 整合Kimi训练手册精华：排盘软件与Ayanamsa指南+Shodasavarga十六分盘体系+替代推运系统+条件Dasha系统+古典文献翻译指南+专业发展路径）
+**最后更新**：2026-04-25（v3.7.0 新增7大计算模块：BPHS十六分盘精确计算+度数精确相位+Jaimini完整系统+高级Nakshatra分析+Argala门闩+Tajika年运盘+合盘分析，引擎子命令14→21）

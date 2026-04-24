@@ -1,5 +1,72 @@
 # 印度占星 Skill 更新日志
 
+## v3.7.0（2026-04-25）— 7大新模块：BPHS十六分盘+精确相位+Jaimini+高级Nakshatra+Argala+Tajika+合盘
+
+### 新增模块（7个）
+
+- **`scripts/varga.py`**：BPHS Shodasavarga十六分盘完整计算
+  - 支持全部16个分盘：D2/D3/D4/D7/D9/D10/D12/D16/D20/D24/D27/D30/D40/D45/D60
+  - 每个分盘输出精确度数（非仅星座名）
+  - D30 Trimsamsa 特殊不等宽映射
+  - D9 含 Jaimini 分析（7宫/Venus/Jupiter/尊严状态）
+  - D60 含业力分析（角宫吉凶星分布）
+
+- **`scripts/aspects.py`**：度数精确相位系统（Drishti）
+  - 标准7宫对冲 + 火星4/7/8 + 木星5/7/9 + 土星3/7/10
+  - Orb分类：tight(≤3°) / moderate(≤6°) / loose(≤10°)
+  - 计算每个相位的入相位/出相位状态
+  - 合相精度分析
+
+- **`scripts/jaimini.py`**：Jaimini系统完整实现
+  - `calc_chara_karaka_7()`：7行星 Chara Karaka（AK→DK）
+  - `calc_chara_karaka_8()`：8行星 Chara Karaka（含Rahu逆行度数处理）
+  - `calc_chara_dasha()`：星座大运（基于上升奇偶性决定方向）
+  - `calc_karakamsha()`：灵魂方向分析（DK的D9位置解读）
+
+- **`scripts/nakshatra_advanced.py`**：高级Nakshatra分析
+  - 精确Nakshatra定位（名称/Pada/度数/Gana/元素）
+  - `calc_tara_bala()`：9循环Tara关系分析
+  - `calc_sub_lord()`：KP系统 Sub-Lord 计算
+  - `nakshatra_compatibility()`：Tara+元素+Gana综合兼容性
+
+- **`scripts/argala.py`**：Argala门闩系统
+  - 主Argala：2/4/11宫 → 财富/幸福/收益
+  - 副Argala：5/8宫 → 权力/转化
+  - Virodha（阻断）：12→2, 10→4, 3→11, 9→5, 2→8
+  - 净评分计算和吉凶判定
+
+- **`scripts/tajika.py`**：Tajika/Varshaphala年运盘
+  - `calc_muntha()`：年度上升进展
+  - `calc_year_lord()`：年度守护星 + 辅助星（2/5/9/11宫主）
+  - `calc_mudda_dasha()`：12个月比例大运
+  - `calc_tri_pataka()`：三旗系统评估
+
+- **`scripts/synastry.py`**：合盘分析系统
+  - Ashta Koota 36分制（8维度：Varna/Vashya/Tara/Yoni/Graha Maitri/Gana/Bhakuta/Nadi）
+  - Mangal Dosha 检查（火星在1/2/4/7/8/12宫）
+  - Papasamya 凶星抵消度评估
+  - Dasha时间线兼容性分析
+  - 自动生成化解建议
+
+### 引擎升级（jyotish_engine.py）
+
+- 版本 v3.6.0 → **v3.7.0**
+- 新增7个CLI子命令：`varga-full` / `aspects` / `jaimini` / `nakshatra-adv` / `argala` / `tajika` / `synastry`
+- 总子命令数：14 → **21**
+- 所有新模块通过一楠星盘验证（1993-04-17 14:45）
+
+### 验证结果
+
+| 模块 | 子命令 | 一楠星盘验证 | 关键输出 |
+|------|--------|-------------|---------|
+| varga | varga-full | ✅ | D9 Navamsa 精确度数+尊严 |
+| aspects | aspects | ✅ | 6个精确相位（Moon-Saturn合相等）|
+| jaimini | jaimini | ✅ | AK=Venus, DK=Mars, Chara Dasha序列 |
+| nakshatra | nakshatra-adv | ✅ | 9行星Tara Bala, Sub-Lord |
+| argala | argala | ✅ | 9行星门闩分析 |
+| tajika | tajika | ✅ | 33岁 Muntha=金牛座, YearLord=Venus |
+| synastry | synastry | ✅ | Ashta Koota 26/36 (72.2%) |
+
 ## v3.6.0（2026-04-24）— CNWU16二次借鉴：report_builder + R2b列校验 + P3/P8/冲突仲裁
 
 ### 新增文件
