@@ -1475,6 +1475,56 @@ def cmd_full_reading(args):
 
 
 # ============================================================================
+# 23. Prashna 问事占星 (v3.9新增)
+# ============================================================================
+def cmd_prashna(args):
+    """Prashna 问事占星：基于提问时刻的即时星盘分析"""
+    try:
+        from prashna import cast_prashna, calc_arudha, calc_sphutas, calc_life_sphutas, calc_sahams, analyze_lost_item, kunda_verify, calc_gulika_simple
+    except ImportError:
+        # 尝试从同目录导入
+        import importlib.util, os
+        spec = importlib.util.spec_from_file_location("prashna", os.path.join(os.path.dirname(__file__), "prashna.py"))
+        prashna_mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(prashna_mod)
+        cast_prashna = prashna_mod.cast_prashna
+        calc_arudha = prashna_mod.calc_arudha
+        calc_sphutas = prashna_mod.calc_sphutas
+        calc_life_sphutas = prashna_mod.calc_life_sphutas
+        calc_sahams = prashna_mod.calc_sahams
+        analyze_lost_item = prashna_mod.analyze_lost_item
+        kunda_verify = prashna_mod.kunda_verify
+        calc_gulika_simple = prashna_mod.calc_gulika_simple
+
+    if args.mode == 'chart':
+        return cast_prashna(args.datetime, args.lat, args.lon)
+
+    # 其他模式需要先铸盘获取行星位置
+    chart = cast_prashna(args.datetime, args.lat, args.lon)
+    if 'error' in chart:
+        return chart
+
+    asc_lon = chart['ascendant']['lon']
+    p_lons = {n: d['lon'] for n, d in chart['planets'].items()}
+
+    if args.mode == 'arudha':
+        return {'arudha_lagna': calc_arudha(asc_lon, p_lons),
+                'ascendant': chart['ascendant']}
+    elif args.mode == 'sphutas':
+        return calc_sphutas(p_lons, 0)
+    elif args.mode == 'sahams':
+        return calc_sahams(p_lons, asc_lon)
+    elif args.mode == 'lost-item':
+        return analyze_lost_item(p_lons, asc_lon)
+    elif args.mode == 'life':
+        return calc_life_sphutas(asc_lon, p_lons.get('Moon',0), p_lons.get('Sun',0), 0)
+    elif args.mode == 'kunda':
+        return kunda_verify(asc_lon)
+    else:
+        return cast_prashna(args.datetime, args.lat, args.lon)
+
+
+# ============================================================================
 # CLI入口
 # ============================================================================
 def main():
@@ -1608,6 +1658,13 @@ def main():
     _add_chart_args(p)
     p.add_argument('--age', type=int, default=None, help='当前年龄（不提供则自动计算）')
 
+    # 23. prashna (v3.9新增)
+    p = sub.add_parser('prashna', help='Prashna问事占星（提问时刻星盘+Arudha+Sphuta+Sahams）')
+    p.add_argument('--datetime', required=True, help='提问时间 YYYY-MM-DD HH:MM')
+    p.add_argument('--lat', type=float, required=True, help='纬度')
+    p.add_argument('--lon', type=float, required=True, help='经度')
+    p.add_argument('--mode', default='chart', choices=['chart','arudha','sphutas','sahams','lost-item','life','kunda'], help='分析模式')
+
     args = parser.parse_args()
     if not args.command:
         parser.print_help(); sys.exit(1)
@@ -1618,7 +1675,7 @@ def main():
             'validate': cmd_validate, 'audit': cmd_audit, 'report': cmd_report,
             'varga-full': cmd_varga_full, 'aspects': cmd_aspects, 'jaimini': cmd_jaimini,
             'nakshatra-adv': cmd_nakshatra_adv, 'argala': cmd_argala, 'tajika': cmd_tajika,
-            'synastry': cmd_synastry, 'full-reading': cmd_full_reading}
+            'synastry': cmd_synastry, 'full-reading': cmd_full_reading, 'prashna': cmd_prashna}
     result = cmds[args.command](args)
     output_json(result)
 
