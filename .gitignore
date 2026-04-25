@@ -8,3 +8,6 @@ hermes_memory.db/
 dist/
 build/
 .DS_Store
+brain/
+COVERAGE_AUDIT_REPORT.md
+*.tmp

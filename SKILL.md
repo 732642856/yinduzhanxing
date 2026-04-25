@@ -1,7 +1,7 @@
 ---
 name: jyotish-vedic-astrology
-version: 3.12.0
-description: 印度占星（Jyotish）专业解盘与推运系统。核心能力：PDF星盘输入→严谨解盘→精确推运应期输出。覆盖行星配置、Yoga格局、Nakshatra解读、宫位分析、现代生活场景映射、现代措辞解读、案例对比分析、自动出生时间矫正、常见误判纠错、Dasha+Transit推运、精确预测、PDF星盘读取、Swiss Ephemeris计算引擎、星盘计算、分盘计算、名人案例查询、Shadbala六重力量、Ashtakavarga八分法（BPHS完整表SAV=337）、Hermes记忆系统、事件预测、R1-R10数学验证（含R2b BAV列→SAV列校验）、P1-P12行星审计（含P3仓库耦合+P8年龄状态+冲突仲裁3条规则）、验前事、MD→HTML报告生成（羊皮纸主题）、BPHS十六分盘精确计算（D2-D60）、度数精确相位系统（Drishti）、Jaimini完整系统（Chara Karaka 7/8+Chara Dasha+Karakamsha）、高级Nakshatra分析（Tara Bala+Sub-Lord KP系统）、Argala门闩系统（Virodha反干预）、Tajika年运盘（Muntha+YearLord+Mudda Dasha+Tri-Pataka三旗）、合盘分析（Ashta Koota 36分制+Mangal Dosha+Papasamya+Dasha兼容性）、配偶多层综合分析（DK+7宫主+金星+木星+昼夜区分+Rahu辅助六层交叉确认）、行星度数精确旺衰判定（精确度数+渐变效应+Moolatrikona区间+行星生命阶段+Sandhi交界点）、燃烧阈值、落陷取消Neecha Bhanga、Sect昼夜区分法、Pushkara Navamsha、Vargottama、Yogi/Ava Yogi行星系统（财富业力+宝石激活+四大影响因子）、Tithi Lord关系模式（8行星×水龙头理论）、Rashi Tulya Navamsa根源冲动（7行星深层动机）、Bhrigu Pada Dasha婚姻推进法、婚姻计数法（7宫主D1→D9距离）、Pancha Pakshi五鸟择时术、Nakshatra三计数体系（Ashwinādi/Krittikādi/Ardrādi）、Savya/Apasavya顺逆星宿。触发词：印度占星、吠陀占星、Jyotish、解盘、推运、星盘分析、Dasha、Transit、Nakshatra、Yoga、出生时间矫正、吠陀占星、印占、PDF星盘、读取PDF、分析PDF星盘、矫正出生时间、出生时间验证、生时矫正、现代解读、现代措辞、误判纠错、错题本、Varga分盘、全球占星师方法论、三合盘、综合分析、过境分析、Double Transit、Sade Sati、合盘、婚姻匹配、关系分析、Koota、Mangal Dosha、年运盘、Varshaphala、太阳返照、Tajika、星宿速查、综合解盘工作流、应期预测、推运应期、事件时机、什么时候结婚、什么时候升职、什么时候发财、Argala、门闩、行星干预、Dasa收敛、Yogini大运、Chara Dasha、AI解盘、算星盘、排盘、计算星盘、查名人、Shadbala、六重力量、Ashtakavarga、八分法、行星力量、记忆系统、事件预测、验证、校验、审计、验前事、R1-R10、P1-P12、仓库耦合、冲突仲裁、报告生成、HTML报告、精确相位、Drishti、Jaimini、Chara Karaka、Atmakaraka、Darakaraka、Karakamsha、Tara Bala、Sub-Lord、KP系统、Navamsa、D9、D60、Shashtyamsa、十六分盘、门闩分析、Muntha、年主星、三旗系统、合盘评分、Nadi Koota、Gana、Yoni、Papasamya、Dasha兼容、配偶分析、配偶星、配偶征象、婚姻分析、配偶画像、DK配偶星、多层配偶、昼夜区分、旺衰度数、行星燃烧、落陷取消、Neecha Bhanga、Sect昼夜、Pushkara、Vargottama、行星尊严、Moolatrikona、行星生命阶段、Avastha、深度解盘、全面分析、星盘深度阅读、频率分析、收敛验证、婚姻深层分析、配偶画像、综合深度分析、Prashna问事占星、问事占星、时卦、卜卦占星、问卜、Horary、问事、提问占星、Arudha Lagna、映像上升、Trisphuta、三重合点、Sphuta、Gulika、古利卡、Saham、敏感点、失物查询、寻物、Chor Graha、盗贼星、Kunda验证、Prasna Marga、十步断卦、BCP、Bhrigu Chakra Paddhati、自然周期、小限法、高地位配偶、Upachaya、DK画像、DK财富、Yogi、Ava Yogi、Tithi Lord、月亮历日、关系模式、水龙头、根源冲动、Root Impulse、Rashi Tulya Navamsa、Bhrigu Pada Dasha、婚姻计数、婚姻数量、Pancha Pakshi、五鸟择时、Nakshatra计数体系、Ashwinadi、Krittikadi、Ardradi、Savya、Apasavya、行星推进法、Badhaka、障碍星、Badhakesh、宫位判断、Raman、Yogakaraka、每上升吉凶星、Shasti Hayani、60年周期、Marc Boney、婚姻六步法、三视角、V.P. Goel、10种Dasha、Mandook、Narayan、Maraka、死亡指示、生命宫、跨系统验证、多系统整合。
+version: 3.13.1
+description: 印度占星（Jyotish）专业解盘与推运系统。核心能力：PDF星盘输入→严谨解盘→精确推运应期输出。覆盖行星配置、Yoga格局、Nakshatra解读、宫位分析、现代生活场景映射、现代措辞解读、案例对比分析、自动出生时间矫正、常见误判纠错、Dasha+Transit推运、精确预测、PDF星盘读取、Swiss Ephemeris计算引擎、星盘计算、分盘计算、名人案例查询、Shadbala六重力量、Ashtakavarga八分法（BPHS完整表SAV=337）、Hermes记忆系统、事件预测、R1-R10数学验证（含R2b BAV列→SAV列校验）、P1-P12行星审计（含P3仓库耦合+P8年龄状态+冲突仲裁3条规则）、验前事、MD→HTML报告生成（羊皮纸主题）、BPHS十六分盘精确计算（D2-D60）、度数精确相位系统（Drishti）、Jaimini完整系统（Chara Karaka 7/8+Chara Dasha+Karakamsha）、高级Nakshatra分析（Tara Bala+Sub-Lord KP系统）、Argala门闩系统（Virodha反干预）、Tajika年运盘（Muntha+YearLord+Mudda Dasha+Tri-Pataka三旗）、合盘分析（Ashta Koota 36分制+Mangal Dosha+Papasamya+Dasha兼容性）、配偶多层综合分析（DK+7宫主+金星+木星+昼夜区分+Rahu辅助六层交叉确认）、行星度数精确旺衰判定（精确度数+渐变效应+Moolatrikona区间+行星生命阶段+Sandhi交界点）、燃烧阈值、落陷取消Neecha Bhanga、Sect昼夜区分法、Pushkara Navamsha、Vargottama、Yogi/Ava Yogi行星系统（财富业力+宝石激活+四大影响因子）、Tithi Lord关系模式（8行星×水龙头理论）、Rashi Tulya Navamsa根源冲动（7行星深层动机）、Bhrigu Pada Dasha婚姻推进法、婚姻计数法（7宫主D1→D9距离）、Pancha Pakshi五鸟择时术、Nakshatra三计数体系（Ashwinādi/Krittikādi/Ardrādi）、Savya/Apasavya顺逆星宿、精准解盘方法论（PACDARES框架+九层复合方法+L3矛盾检查+验证驱动分析+三级置信度）、Badhaka障碍星系统、B.V. Raman宫位判断方法论、Marc Boney婚姻六步法、V.P. Goel Jaimini Dasha系统十种、Shasti Hayani条件Dasha。触发词：印度占星、吠陀占星、Jyotish、解盘、推运、星盘分析、Dasha、Transit、Nakshatra、Yoga、出生时间矫正、PDF星盘、读取PDF、分析PDF星盘、矫正出生时间、生时矫正、现代解读、现代措辞、误判纠错、错题本、Varga分盘、综合分析、过境分析、Double Transit、Sade Sati、合盘、婚姻匹配、关系分析、Koota、Mangal Dosha、年运盘、Varshaphala、太阳返照、Tajika、星宿速查、综合解盘工作流、应期预测、推运应期、事件时机、什么时候结婚、什么时候升职、Argala、门闩、行星干预、Dasa收敛、Yogini大运、Chara Dasha、AI解盘、算星盘、排盘、计算星盘、查名人、Shadbala、六重力量、Ashtakavarga、八分法、行星力量、记忆系统、事件预测、验证、校验、审计、验前事、R1-R10、P1-P12、仓库耦合、冲突仲裁、报告生成、HTML报告、精确相位、Drishti、Jaimini、Chara Karaka、Atmakaraka、Darakaraka、Karakamsha、Tara Bala、Sub-Lord、KP系统、Navamsa、D9、D60、十六分盘、门闩分析、Muntha、年主星、三旗系统、合盘评分、Nadi Koota、Gana、Yoni、Papasamya、配偶分析、配偶星、配偶征象、婚姻分析、配偶画像、DK配偶星、多层配偶、旺衰度数、行星燃烧、落陷取消、Neecha Bhanga、Pushkara、Vargottama、行星尊严、Moolatrikona、Avastha、深度解盘、全面分析、星盘深度阅读、频率分析、收敛验证、婚姻深层分析、综合深度分析、Prashna问事占星、问事占星、时卦、卜卦占星、问卜、Horary、提问占星、Arudha Lagna、映像上升、Trisphuta、三重合点、Sphuta、Gulika、古利卡、Saham、敏感点、失物查询、寻物、Chor Graha、盗贼星、Kunda验证、十步断卦、BCP、Bhrigu Chakra Paddhati、自然周期、小限法、高地位配偶、Upachaya、DK画像、DK财富、Yogi、Ava Yogi、Tithi Lord、月亮历日、关系模式、水龙头、根源冲动、Root Impulse、Rashi Tulya Navamsa、Bhrigu Pada Dasha、婚姻计数、婚姻数量、Pancha Pakshi、五鸟择时、Nakshatra计数体系、行星推进法、Badhaka、障碍星、Badhakesh、宫位判断、Raman、Yogakaraka、每上升吉凶星、Shasti Hayani、60年周期 Marc Boney、婚姻六步法、三视角、V.P. Goel、10种Dasha、Mandook、Narayan、Maraka、死亡指示、生命宫、跨系统验证、多系统整合、精准解盘、验证驱动、PACDARES、倒推验证、复合方法、教条纠错、案例验证、置信度分级、矛盾检查、先验后推、单事件问事、一楠星盘、单事件查询。
 ---
 
 # 印度占星专业解盘与推运系统
@@ -251,9 +251,13 @@ python3 scripts/jyotish_engine.py prashna --datetime "2026-04-25 14:30" --lat 39
 # --mode: chart|arudha|sphutas|sahams|lost-item|life|kunda
 ```
 
-**参考资料：** `references/prashna-complete-guide.md`（完整方法论）+ `references/kp-astrology-complete-system.md`（KP 1-249法）+ `references/tajika-yoga-complete-guide.md`（Tajika Yoga）
+**⭐ 单事件问事协议（v3.13.0 新增）：** 当用户提出一个具体问题（不提供出生数据）时，使用 `single-event-inquiry-protocol.md` 执行Prashna标准化流程——十步断卦模板+问题类型路由表+征象星力量对比+Tajika Yoga检查+Sphuta组合+阻碍排查+时间判断→综合结论。
 
-**适用场景：** 是非判断、时机选择、失物寻人、婚姻结果、事业方向、健康预后、旅行安全、诉讼胜负、财务投资
+**⭐ 婚姻应期技法交叉验证体系（v3.13.0 新增）：** 当分析婚姻/感情应期时，使用 `marriage-timing-validation-methodology.md` 执行四技法交叉验证（Double Transit + DK木星激活 + UL激活 + Dasha支持）——基于10个名人案例的双轨统计（7星系统命中率≥2/4=100%，8星系统≥2/4=90%）。推荐配合 `marriage-timing-comprehensive-techniques.md` 的KP/Rao/Dasha三层确认法。
+
+**参考资料：** `references/prashna-complete-guide.md`（完整方法论）+ `references/single-event-inquiry-protocol.md`（⭐单事件问事协议模板）+ `references/kp-astrology-complete-system.md`（KP 1-249法）+ `references/tajika-yoga-complete-guide.md`（Tajika Yoga）+ `references/marriage-timing-comprehensive-techniques.md`（婚姻应期综合技法）+ `references/marriage-timing-validation-methodology.md`（⭐婚姻四技法验证方法论）+ `references/shatabhisha-complete.md`（一楠Shatabhisha星宿深度剖析）
+
+**适用场景：** 是非判断、时机选择、失物寻人、婚姻结果、事业方向、健康预后、旅行安全、诉讼胜负、财务投资、单个具体问题快判
 
 ### 15. BCP自然周期法 ⭐ v3.10.0
 
@@ -625,6 +629,42 @@ $PYTHON $SCRIPT full-reading --year YYYY --month MM --day DD --hour HH --minute 
 
 **详细规范**：见 `references/retrograde-combustion-war-guide.md`
 
+### ⚠️ 精准解盘方法论（v3.12.1 注册）⭐⭐⭐⭐⭐
+
+**核心理念**：顶级占星师的共识——不是记忆更多规则，而是知道何时用哪条规则、如何避免教条误用。
+
+**六大共识原则**：
+1. **功能吉凶因盘而异**（V.K. Choudhry）——不存在"天然吉/凶星"，每颗星的功能性质由宫主关系决定
+2. **单一技法不做结论**（Marc Boney/Rao）——至少3个独立维度信号才做判断
+3. **规则前提先查**（Marc Boney）——应用技法前先确认前提条件是否满足
+4. **案例验证 > 经典引述**（K.N. Rao）——30-50案例验证才采纳规则
+5. **先整体后细节**（Hart de Fouw/Rao）——先建盘的核心叙事，再用细节验证
+6. **先验证过去，再预测未来**（Rao核心方法论）——倒推3-5件已知事件做校准
+
+**PACDARES本命盘分析框架**（K.N. Rao）：
+- P=位置 → A=相位 → C=合相 → D=财富瑜伽 → A=灾厄瑜伽 → R=皇家瑜伽 → E=互换 → S=特殊特征
+- ⚠️ 这是所有分析的地基——不能跳过PAC直接跳到Dasha/Transit
+
+**九层复合方法**（L1-L9）：
+- L1 PACDARES → L2 分盘 → **L3 矛盾检查（最关键）** → L4 Vimshottari → L5 AV+Transit → L6 条件Dasha → L7 Jaimini → L8 其他Jaimini → L9 Tajika
+- **做到L6，平均85%预测成功率**（Rao）
+
+**L3矛盾检查协议**：
+- D1 vs D9矛盾、吉Yoga vs 凶相位、DK vs 7宫主、静态 vs 推运
+- 矛盾不回避，必须解释并标注置信度降低
+
+**验证驱动分析**：
+1. 收集已知事件 → 2. 事件→Dasha映射 → 3. 评估匹配度 → 4. 校准偏差
+- 匹配度<60%必须停止预测，先解决校准问题
+
+**三级置信度**：
+- ✅ [A] 已验证（倒推命中） / ⭐ [B] 强推断（3+独立维度） / ⚡ [C] 假设（单一维度）
+- **每条关键结论必须标注置信度**
+
+→ 详见 `references/precision-reading-methodology.md` ⭐⭐⭐⭐⭐ v3.12.1 新增
+
+---
+
 ### 预测清单
 - [ ] 静态星盘分析（行星配置、Yoga格局、Nakshatra、宫位）
 - [ ] Argala检查（⚠️ 目标宫的2/4/5/8/11宫干预+Virodha对冲）⭐ v3.2 新增
@@ -674,17 +714,19 @@ $PYTHON $SCRIPT full-reading --year YYYY --month MM --day DD --hour HH --minute 
 - ✅ 综合解盘工作流（三级深度+10领域路由+质量检查清单）
 - ✅ **AI解盘工作流Prompt工程**（7阶段完整执行引擎：PDF提取→意图路由→静态10步→动态7步→应期→补救→现代措辞包装）⭐ v3.2 新增
 - ✅ **古典文献体系+专业发展路径**（BPHS翻译版本对比+当代诠释者+6大认证体系+文献引用置信度评级）⭐ v3.3 新增
+- ✅ **精准解盘方法论**（PACDARES框架+九层复合方法+L3矛盾检查+验证驱动分析+三级置信度标注+教条纠错10条+文献审慎使用）⭐ v3.12.1 新增
 
 ## 更新记录
 
-详见 `CHANGELOG.md`。当前版本：v3.12.0。
+详见 `CHANGELOG.md`。当前版本：v3.12.1。
 
 ## 参考资料
 
-本Skill包含以下参考资料（存储在references/目录），共95个文件：
+本Skill包含以下参考资料（存储在references/目录），共100个文件：
 
-### AI解盘工作流（1个）⭐ v3.2 新增
+### AI解盘工作流（2个）⭐ v3.2 新增
 0. **ai-reading-workflow-prompt.md**：AI解盘工作流Prompt工程（7阶段完整执行引擎：PDF提取→意图路由→静态分析10步→动态推运7步→应期输出→补救→现代措辞包装）⭐⭐⭐⭐⭐
+0b. **quick-reference-guide.md**：⭐实用速查指南（v3.13.1新增）10大场景快速路由+引擎命令速查表+执行模板，可CTRL+F快速定位对应分析路径）【实用入口·推荐优先阅读】
 
 ### 核心方法论（9个）
 1. **common-misconceptions.md**：印度占星常见误判与冲突问题集（错题本）⭐⭐⭐⭐⭐
@@ -778,11 +820,11 @@ $PYTHON $SCRIPT full-reading --year YYYY --month MM --day DD --hour HH --minute 
 69. **verified-celebrity-cases-part3-summary.md**：验证案例Part3总结
 70. **verified-celebrity-cases-part4-leonardo-dicaprio.md**：验证案例：莱昂纳多·迪卡普里奥
 
-### 高级技法与全球方法论（4个）
+### 高级技法与全球方法论（5个）
 71. **advanced-techniques.md**：高级技法合集（综合进阶技法）
 72. **global-astrologer-practical-methodology.md**：全球占星师实战方法论（顶级占星师经验汇总）⭐⭐⭐⭐⭐
 73. **global-astrologer-reflections.md**：全球占星师反思笔记（方法论迭代记录）
-74. **qin_ruisheng_system.md**：秦瑞生占星体系（华人占星师方法论）
+74. **qin_ruisheng_system.md**：秦瑞生印度占星体系完整指南（754行：恒星黄道vs回归黄道+27星宿深度解读+12宫位体系+Kendra-Trikona系统+9大星曜详解+5类核心Yoga（Raja/Dhana/Neechabhanga/Gaja Kesari/Mangal Dosha/Kaal Sarpa）+Vimshottari Dasha四层结构+四维一体预测法+Gochara流年+8个快速判断技巧+婚姻/事业时机判断+12种Kaal Sarpa变体+秦瑞生金句12条）⭐⭐⭐⭐⭐ v3.13.1 补描述
 
 ### 古典文献与专业发展（2个）⭐ v3.3 新增
 75. **classical-texts-translation-guide.md**：古典梵语文献与翻译版本指南（核心文献层级+BPHS翻译版本对比+当代8位诠释者+数字资源路径+文献引用置信度评级）⭐⭐⭐⭐ v3.3 新增
@@ -795,27 +837,33 @@ $PYTHON $SCRIPT full-reading --year YYYY --month MM --day DD --hour HH --minute 
 80. **divisional-chart-deep-reading.md**：分盘深度阅读工作流（19分盘系统化分析法：三级方法论+行星频率分析核心技法+Vargottama检测矩阵+分盘组合阅读模式+Swiss Ephemeris交叉验证）⭐⭐⭐⭐⭐ v3.8.0 新增
 81. **deep-analysis-complete-workflow.md**：综合深度分析完整工作流（12模块系统化方法：D1基础→特殊Lagna→Jaimini Karaka→Shadbala→Avastha→Bhava Bala→Vimsopaka→19分盘→Ashtakavarga→多Dasha收敛→Navamsa婚姻→综合结论+PDF提取最佳实践+引擎调用流程+报告生成+质量检查清单）⭐⭐⭐⭐⭐ v3.8.0 新增
 82. **prashna-complete-guide.md**：Prashna问事占星完整指南（十大核心计算：Arudha Lagna+Trisphuta/Catusphuta/Pancasphuta+Gulika+Prana/Deha/Mrityu Sphuta+35 Sahams+Kunda验证+Chor Graha失物+Mrityu Chakra死亡轮+十步断卦框架+8类问题专题）⭐⭐⭐⭐⭐ v3.9.0 新增
+83. **single-event-inquiry-protocol.md**：Prashna单事件问事协议模板（十步断卦执行模板+问题类型路由表+征象星力量对比+Tajika Yoga+Sphuta组合+阻碍排查+综合结论格式）⭐⭐⭐⭐ v3.13.0 新增注册【Prashna问事·单问题快判】
+84. **marriage-timing-validation-methodology.md**：婚姻应期四技法验证方法论（Double Transit+DK木星激活+UL+Dasha四法交叉验证+7星/8星双轨统计+10案例验证+修正经验4条）⭐⭐⭐⭐ v3.13.0 新增注册【婚姻应期·技法验证】
+85. **marriage-timing-comprehensive-techniques.md**：婚姻应期技法综合手册（KN Rao Double Transit精确规则+VP Goel功能征象星+Jaimini DK木星过境激活法+Upapada Lagna完整体系+Ketu期感情特征+木星入庙Cancer 2026影响）⭐⭐⭐⭐⭐ v3.13.0 补注册【婚姻应期·综合技法】
 
 ### BCP自然周期法（1个）⭐ v3.10.0 新增
-83. **bhrigu-chakra-paddhati.md**：Bhrigu Chakra Paddhati自然周期法完整指南（9大自然周期+月亮起始+Nadi体系+双轨激活法A/B轨+三要素解读法+宫位-宫主星-Karaka联动+年度运势速判+实战注意事项+快查表）⭐⭐⭐⭐⭐ v3.10.0 新增
+86. **bhrigu-chakra-paddhati.md**：Bhrigu Chakra Paddhati自然周期法完整指南（9大自然周期+月亮起始+Nadi体系+双轨激活法A/B轨+三要素解读法+宫位-宫主星-Karaka联动+年度运势速判+实战注意事项+快查表）⭐⭐⭐⭐⭐ v3.10.0 新增
 
 ### 关系占星补充（2个）⭐ v3.10.0 新增/注册
-84. **high-status-spouse-yoga.md**：高地位配偶Yoga判定规则（3条核心规则：7宫+7主>上升+升主/7主D9有Rajyoga/7宫起算Upachaya有占据+D1/D9双盘验证+宫位vs宫主星区分+男性凶星更有效Upachaya原则+Sonya Gandhi案例验证+与spouse-multi-layer-methodology整合映射）⭐⭐⭐⭐⭐ v3.10.0 新增
-85. **darakaraka-complete-guide.md**：Darakaraka完整指南 v1.1（DK计算+7/8星双轨+12宫DK含义+⭐8行星DK深度画像：Sun/Moon/Mars/Mercury/Jupiter/Venus/Saturn/Rahu各5维度+⭐DK与财富5种模式+12宫DK财富速查表+逆行DK财富挑战+专家来源）⭐⭐⭐⭐⭐ v3.10.0 注册（文件已存在v1.0，本次扩展至v1.1+注册入SKILL.md）
+87. **high-status-spouse-yoga.md**：高地位配偶Yoga判定规则（3条核心规则：7宫+7主>上升+升主/7主D9有Rajyoga/7宫起算Upachaya有占据+D1/D9双盘验证+宫位vs宫主星区分+男性凶星更有效Upachaya原则+Sonya Gandhi案例验证+与spouse-multi-layer-methodology整合映射）⭐⭐⭐⭐⭐ v3.10.0 新增
+88. **darakaraka-complete-guide.md**：Darakaraka完整指南 v1.1（DK计算+7/8星双轨+12宫DK含义+8行星DK深度画像：Sun/Moon/Mars/Mercury/Jupiter/Venus/Saturn/Rahu各5维度+DK与财富5种模式+12宫DK财富速查表+逆行DK财富挑战+专家来源）⭐⭐⭐⭐⭐ v3.10.0 注册
 
 ### 多元技法系统（5个）⭐ v3.11.0 新增
-86. **yogi-avayogi-system.md**：Yogi/Ava Yogi/Duplicate Yogi行星系统完整指南（计算方法+四大影响因子：财富领域/灵性距离/社交圈/支持者+特殊判定规则+Dasha/Transit激活机制+宝石激活疗法+Trump/查尔斯案例+整合映射表+解盘检查清单）⭐⭐⭐⭐⭐ v3.11.0 新增
-87. **tithi-lord-relationship-system.md**：Tithi Lord关系影响系统完整指南（30 Tithi分配表+8行星关系模式+Sanjay Rath"水龙头"理论+与Yogi/Dasha/Navamsa/Arudha Lagna整合+计算步骤+解盘检查清单）⭐⭐⭐⭐⭐ v3.11.0 新增
-88. **rashi-tulya-navamsa-root-impulse.md**：Rashi Tulya Navamsa与Navamsa根源冲动系统（D1→D9投射技法+7行星根源冲动完整表：太阳→自尊激励/月亮→快乐来源/火星→愤怒触发/水星→学习动机/木星→智慧方向/金星→欲望模式/土星→恐惧责任+Navamsa行星分类规则（火象/水象/土象）+经典组合解读+解盘检查清单）⭐⭐⭐⭐⭐ v3.11.0 新增
-89. **bhrigu-pada-dasha-marriage-counting.md**：Bhrigu Pada Dasha与婚姻计数法（行星推进法+与BCP/Vimshottari对比+D9应用+Narayana Dasha变体+婚姻计数法完整步骤+Parivartana特殊处理+婚姻定义+计数结果解读+整合应用+解盘检查清单）⭐⭐⭐⭐⭐ v3.11.0 新增
-90. **pancha-pakshi-nakshatra-systems.md**：Pancha Pakshi五鸟择时术+Nakshatra三体系+Savya/Apasavya（五鸟五行属性+高/低振动频率+一日五时段+Ashwinādi创造/Krittikādi维持/Ardrādi毁灭三计数体系+27 Nakshatra顺行/逆行分组+Vishnu三步法则+三系统协同使用+解盘检查清单）⭐⭐⭐⭐⭐ v3.11.0 新增
+89. **yogi-avayogi-system.md**：Yogi/Ava Yogi/Duplicate Yogi行星系统完整指南（计算方法+四大影响因子：财富领域/灵性距离/社交圈/支持者+特殊判定规则+Dasha/Transit激活机制+宝石激活疗法+Trump/查尔斯案例+整合映射表+解盘检查清单）⭐⭐⭐⭐⭐ v3.11.0 新增
+90. **tithi-lord-relationship-system.md**：Tithi Lord关系影响系统完整指南（30 Tithi分配表+8行星关系模式+Sanjay Rath"水龙头"理论+与Yogi/Dasha/Navamsa/Arudha Lagna整合+计算步骤+解盘检查清单）⭐⭐⭐⭐⭐ v3.11.0 新增
+91. **rashi-tulya-navamsa-root-impulse.md**：Rashi Tulya Navamsa与Navamsa根源冲动系统（D1→D9投射技法+7行星根源冲动完整表：太阳→自尊激励/月亮→快乐来源/火星→愤怒触发/水星→学习动机/木星→智慧方向/金星→欲望模式/土星→恐惧责任+Navamsa行星分类规则+经典组合解读+解盘检查清单）⭐⭐⭐⭐⭐ v3.11.0 新增
+92. **bhrigu-pada-dasha-marriage-counting.md**：Bhrigu Pada Dasha与婚姻计数法（行星推进法+与BCP/Vimshottari对比+D9应用+Narayana Dasha变体+婚姻计数法完整步骤+Parivartana特殊处理+婚姻定义+计数结果解读+整合应用+解盘检查清单）⭐⭐⭐⭐⭐ v3.11.0 新增
+93. **pancha-pakshi-nakshatra-systems.md**：Pancha Pakshi五鸟择时术+Nakshatra三体系+Savya/Apasavya（五鸟五行属性+高/低振动频率+一日五时段+Ashwinādi创造/Krittikādi维持/Ardrādi毁灭三计数体系+27 Nakshatra顺行/逆行分组+Vishnu三步法则+三系统协同使用+解盘检查清单）⭐⭐⭐⭐⭐ v3.11.0 新增
 
 ### 10本PDF书籍集成（5个）⭐ v3.12.0 新增
-91. **badhaka-obstacle-planet-guide.md**：Badhaka障碍星系统完整指南（12上升Badhaka Sthana+Badhakesh对照表+三种上升类型规则+Leo上升Badhakesh=Mars分析+五步分析协议+补救措施）⭐⭐⭐⭐⭐ v3.12.0 新增 【古典·BPHS】
-92. **raman-house-judgment-methodology.md**：B.V. Raman宫位判断方法论（12上升完整Benefic/Malefic/Yogakaraka表+六步宫位判断法+第七宫婚姻分析六维度+Maraka死亡指示系统+Mangal Dosha完整规则）⭐⭐⭐⭐⭐ v3.12.0 新增 【古典·B.V. Raman】
+94. **badhaka-obstacle-planet-guide.md**：Badhaka障碍星系统完整指南（12上升Badhaka Sthana+Badhakesh对照表+三种上升类型规则+Leo上升Badhakesh=Mars分析+五步分析协议+补救措施）⭐⭐⭐⭐⭐ v3.12.0 新增 【古典·BPHS】
+95. **raman-house-judgment-methodology.md**：B.V. Raman宫位判断方法论（12上升完整Benefic/Malefic/Yogakaraka表+六步宫位判断法+第七宫婚姻分析六维度+Maraka死亡指示系统+Mangal Dosha完整规则）⭐⭐⭐⭐⭐ v3.12.0 新增 【古典·B.V. Raman】
 93. **shasti-hayani-dasha-guide.md**：Shasti Hayani条件Dasha指南（60年周期+太阳1宫条件+8行星固定顺序Jupiter→Rahu+三级Antar结构+与其他条件Dasha对比）⭐⭐⭐⭐ v3.12.0 新增
 94. **marc-boney-marriage-six-step.md**：Marc Boney婚姻六步法（三视角7宫评估法+同居vs正式婚姻区分+Dasha/DK/Double Transit整合+K.N. Rao学派跨系统验证立场+V.P. Goel+K.N. Rao书证支持多系统整合）⭐⭐⭐⭐⭐ v3.12.0 新增 【现代创新·K.N. Rao学派】
 95. **vp-goel-jaimini-dasha-systems.md**：V.P. Goel Jaimini Dasha系统概览（10种Jaimini Dasha：Chara/Mandook/Sthira/Narayan/Navamsha/NSD/Trikon/Atmanadi等+实现优先级P0-P3+Argala四分之一度阻碍规则完整表+Jaimini星座相位规则）⭐⭐⭐⭐ v3.12.0 新增 【现代·V.P. Goel研究】
+
+### 精准解盘方法论（1个）⭐ v3.12.1 新增
+96. **precision-reading-methodology.md**：精准解盘与推运方法论（六大共识原则+PACDARES本命盘分析框架+九层复合方法L1-L9+L3矛盾检查协议+验证驱动分析流程+三级置信度系统+10条常见教条失误纠正+经典文献审慎使用BPHS考证+实战五步法）⭐⭐⭐⭐⭐ v3.12.1 新增 【核心方法论·多师共识：K.N. Rao+V.K. Choudhry+Marc Boney+Hart de Fouw+Sanjay Rath+Shyamasundara Dasa】
 
 ## 模板文件
 
@@ -844,6 +892,6 @@ $PYTHON $SCRIPT full-reading --year YYYY --month MM --day DD --hour HH --minute 
 
 ---
 
-**版本**：3.12.0
+**版本**：3.13.1
 **创建日期**：2026-04-20
-**最后更新**：2026-04-25（v3.12.0 10本PDF书籍知识集成：Badhaka障碍星系统+B.V. Raman宫位判断方法论+Shasti Hayani条件Dasha+Marc Boney婚姻六步法+V.P. Goel Jaimini Dasha系统+Kimi审计报告7项批评逐条验证+Argala四分之一度阻碍规则；v3.11.0 多元技法5篇；v3.10.0 BCP+高地位配偶+DK v1.1；v3.9.0 Prashna问事占星；v3.8.0 深度分析方法论5篇；v3.7.4 Ayanamsa修复；v3.7.0 7大新模块）
+**最后更新**：2026-04-26（v3.13.1 用户体验优化：qin_ruisheng_system.md条目补描述（754行完整内容摘要）+ 实用速查指南quick-reference-guide.md（10场景路由+引擎命令速查表）+ engine脚本版本对齐v3.7.1；v3.13.0 文件注册清理；v3.12.1 精准解盘方法论集成；v3.12.0 10本PDF书籍知识集成；v3.11.0 多元技法5篇；v3.10.0 BCP+高地位配偶+DK v1.1；v3.9.0 Prashna问事占星；v3.8.0 深度分析方法论5篇；v3.7.4 Ayanamsa修复；v3.7.0 7大新模块）

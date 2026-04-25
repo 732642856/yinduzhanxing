@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-印度占星统一引擎 v3.7.0 (Jyotish Unified Engine)
+印度占星统一引擎 v3.7.1 (Jyotish Unified Engine)
 整合所有计算能力为单一CLI入口，供Skill调用
 
 子命令:

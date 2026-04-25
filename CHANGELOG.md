@@ -1,5 +1,190 @@
 # 印度占星 Skill 更新日志
 
+## v3.13.1（2026-04-26）— 用户体验优化 + qin_ruisheng条目补描述 + 速查指南
+
+### qin_ruisheng_system.md 条目补描述
+
+该文件自v3.3已存在于references/目录（754行），但SKILL.md参考列表中仅有"秦瑞生占星体系（华人占星师方法论）"一句话描述，与其他文件的描述质量严重不对齐。
+
+v3.13.1将其扩展为完整内容摘要（恒星黄道vs回归黄道+27星宿+12宫+Kendra-Trikona+9星曜+5类Yoga+Vimshottari四层+四维一体预测+Gochara+8快速判断+12种Kaal Sarpa+金句12条），并更新section计数（4个→5个）。
+
+### 实用速查指南新增
+
+**`references/quick-reference-guide.md`** ⭐ v3.13.1 新增【实用入口·推荐优先阅读】
+
+**用途**：用户提出问题时，快速定位到正确的分析路径和所需文件，不再迷失在96+个参考文件中。
+
+**内容结构**（10大场景+引擎命令速查表）：
+
+| 场景 | 触发条件 |
+|------|---------|
+| 场景一：全面解盘 | "帮我看盘" / "分析我的星盘" |
+| 场景二：婚姻应期 | "什么时候结婚" / "感情应期" |
+| 场景三：单项分析 | "事业" / "财运" / "学业" |
+| 场景四：PDF星盘 | 用户上传PDF文件 |
+| 场景五：无出生时间 | "没有出生时间" / "只有年月日" |
+| 场景六：Prashna问事 | 单个具体问题（无出生数据） |
+| 场景七：名人查询 | "查一下XXX的星盘" |
+| 场景八：Double Transit | 特定行星过境查询 |
+| 场景九：深度分析 | 高精度综合分析 |
+| 场景十：质量控制 | 所有分析完成后必做 |
+
+每个场景包含：执行顺序 + 所需参考文件 + 引擎命令模板。
+
+### 引擎版本对齐
+
+`scripts/jyotish_engine.py` 头注释版本：v3.7.0 → **v3.7.1**（与SKILL.md记录一致）
+
+### SKILL.md变更
+
+- 版本：v3.13.0 → **v3.13.1**
+- 参考文件数：96 → **97**（新增quick-reference-guide.md）
+- §1 AI解盘工作流：1个 → **2个**（新增速查指南）
+- §16 高级技法与全球方法论：4个 → **5个**（qin_ruisheng_system.md条目扩充）
+- qin_ruisheng_system.md #74：从一句话描述扩展为754行完整内容摘要
+
+---
+
+## v3.13.0（2026-04-26）— 文件注册清理 + 单事件问事协议 + 婚姻四技法验证体系
+
+### 核心工作：系统性审计与注册补全
+
+通过全面审计发现3个文件存在于references/目录但未注册到SKILL.md参考列表，通过交叉验证确认均有效后完成注册。
+
+### 新增注册文件（3个）
+
+**`references/single-event-inquiry-protocol.md`** ⭐ Prashna问事·单问题快判
+- **用途**：当用户提出单个具体问题（不提供出生数据）时，按十步断卦模板执行Prashna分析
+- **核心内容**：输入信息收集表（5字段）+ 阶段一铸造星盘 + 阶段二十步AI执行（征象星对比+Tajika Yoga检查+Sphuta组合+阻碍排查+时间判断）+ 阶段三综合结论格式 + 特殊场景协议（失物/健康/是非判断KP补充）
+- **引擎集成**：`python3 scripts/jyotish_engine.py prashna --mode chart` 铸造即时星盘
+
+**`references/marriage-timing-validation-methodology.md`** ⭐ 婚姻应期·技法验证
+- **用途**：为婚姻/感情应期分析提供四技法交叉验证框架，基于10案例统计校准置信度
+- **核心内容**：
+  - 四技法交叉验证：Double Transit + DK木星激活 + UL激活 + Dasha支持
+  - 7星系统统计：DK命中率90%，Dasha支持70%，UL激活40%，DT 20%
+  - 8星系统统计：DK命中率100%，UL激活60%，DT 40%
+  - **关键修正1**：DK Jaimini激活100%命中率存在虚命中（11/12星座被相位）→ 应作必要条件而非充分条件
+  - **关键修正2**：出生时间必须转世界时（UT），否则Moon偏移6-8°
+  - **关键修正3**：Double Transit应检验7宫/7主/功能DT/UL/DK多个目标组合
+  - **关键修正4**：7星/8星双轨并行，不排他——80%案例两系统给出不同DK
+- **来源**：10个名人案例验证（奥巴马/克林顿/盖茨/特朗普/朱莉/贝克汉姆/乔丹/梅根/马斯克/凯特王妃）
+
+**`references/marriage-timing-comprehensive-techniques.md`**（补注册）⭐ 婚姻应期·综合技法
+- **此前状态**：文件自v3.7.3已存在于references/目录，但SKILL.md参考列表从未注册
+- **内容确认**：KN Rao Double Transit精确规则 + VP Goel功能征象星 + Jaimini DK木星过境激活法 + Upapada Lagna完整体系 + Ketu期感情特征 + 木星入庙Cancer 2026影响
+
+### SKILL.md §14 Prashna体系升级
+
+在Prashna问事占星区域新增两个能力区块：
+
+1. **⭐ 单事件问事协议**：当用户提出单个具体问题（无出生数据）时，使用 `single-event-inquiry-protocol.md` 执行标准化十步断卦流程
+
+2. **⭐ 婚姻应期技法交叉验证体系**：当分析婚姻/感情应期时，使用 `marriage-timing-validation-methodology.md` 执行四技法交叉验证，配合 `marriage-timing-comprehensive-techniques.md` 的KP/Rao/Dasha三层确认
+
+### SKILL.md 参考列表编号修正
+
+| 操作 | 文件 | 旧编号 | 新编号 |
+|------|------|--------|--------|
+| 新增注册 | single-event-inquiry-protocol.md | — | #83 |
+| 新增注册 | marriage-timing-validation-methodology.md | — | #84 |
+| 补注册 | marriage-timing-comprehensive-techniques.md | — | #85 |
+| 顺延修正 | bhrigu-chakra-paddhati.md | #83 | #86 |
+| 顺延修正 | high-status-spouse-yoga.md | #84 | #87 |
+| 顺延修正 | darakaraka-complete-guide.md | #85 | #88 |
+| 顺延修正 | yogi-avayogi-system.md | #86 | #89 |
+| 顺延修正 | tithi-lord-relationship-system.md | #87 | #90 |
+| 顺延修正 | rashi-tulya-navamsa-root-impulse.md | #88 | #91 |
+| 顺延修正 | bhrigu-pada-dasha-marriage-counting.md | #89 | #92 |
+| 顺延修正 | pancha-pakshi-nakshatra-systems.md | #90 | #93 |
+| 顺延修正 | badhaka-obstacle-planet-guide.md | #91 | #94 |
+| 顺延修正 | raman-house-judgment-methodology.md | #92 | #95 |
+| 顺延修正 | shasti-hayani-dasha-guide.md | #93 | #93（不变） |
+| 总计 | — | 96个 | **99个** |
+
+> 注：原#93 shasti-hayani-dasha-guide.md在BCP章节，与Prashna/婚姻章节的三个新增文件不在同一section，因此编号不变。总文件数=96+3=99。
+
+### CHANGELOG编号对齐说明
+
+CHANGELOG中"v3.8.0新增案例库（13个）→编号58-70"的记录基于v3.8.0的编号体系。v3.10.0引入高地位配偶Yoga等5个新文件后，案例库文件被顺延重编号至#63-70。v3.13.0又引入3个新文件，总编号体系已完全对齐，SKILL.md正文编号为规范引用。
+
+### 触发词优化
+
+在frontmatter触发词中追加：`单事件问事`、`单事件查询`、`一楠星盘`、`婚姻四技法`、`Double Transit`、`Dasha支持`
+
+### SKILL.md变更
+
+- 版本：v3.12.1 → **v3.13.0**
+- 参考文件数：96 → **99**（新增3个）
+- §14 Prashna区域新增：单事件问事协议能力描述 + 婚姻四技法验证体系描述
+- frontmatter触发词追加：单事件问事、单事件查询、一楠星盘、婚姻四技法
+- 参考列表：83→99重新编号完毕
+
+---
+
+## v3.12.1（2026-04-26）— 精准解盘方法论集成
+
+### 新增内容
+
+**新增参考文件**（references/目录）：
+- **precision-reading-methodology.md** ⭐⭐⭐⭐⭐（#96）
+
+**核心内容**：
+基于6位顶级占星师的实践共识，整合出系统化的精准解盘方法论：
+
+1. **六大共识原则**：
+   - 功能吉凶因盘而异（V.K. Choudhry Systems' Approach）
+   - 单一技法不做结论（Marc Boney / K.N. Rao）
+   - 规则前提先查（Marc Boney）
+   - 案例验证 > 经典引述（K.N. Rao）
+   - 先整体后细节（Hart de Fouw / Rao PACDARES）
+   - 先验证过去，再预测未来（Rao核心方法论）
+
+2. **PACDARES本命盘分析框架**（K.N. Rao）：
+   - Position → Aspect → Conjunction → Dhana → Arishta → Raja → Exchange → Special Features
+   - 8维度系统化分析，作为所有解读的地基
+
+3. **九层复合方法**（L1-L9）：
+   - L1 PACDARES → L2 分盘 → **L3 矛盾检查** → L4 Vimshottari → L5 AV+Transit → L6 条件Dasha → L7 Jaimini → L8 其他Jaimini → L9 Tajika
+   - **做到L6，平均85%预测成功率**（Rao原话）
+
+4. **L3矛盾检查协议**：
+   - 四类矛盾：D1 vs D9、吉Yoga vs 凶相位、DK vs 7宫主、静态 vs 推运
+   - 矛盾不回避，记录→解释→降低置信度→如实告知用户
+
+5. **验证驱动分析流程**：
+   - 倒推验证协议（4步）：收集已知事件→Dasha映射→评估匹配度→校准偏差
+   - 匹配度<60%必须停止预测，先解决校准问题
+
+6. **三级置信度系统**：
+   - ✅ [A] 已验证（倒推命中）/ ⭐ [B] 强推断（3+独立维度）/ ⚡ [C] 假设（单一维度）
+
+7. **10条常见教条失误及纠正**
+
+8. **经典文献审慎使用**（Shyamasundara Dasa BPHS考证）：
+   - BPHS非原始文本，包含19-20世纪插入
+   - 推荐文献优先级：Brihat Jataka > Saravali > Phaladipika > BPHS核心 > Jaimini Sutras
+
+9. **实战五步法**：PACDARES → 分盘+矛盾 → 倒推验证 → 推运L4-L9 → 输出
+
+### SKILL.md 变更
+- 版本：v3.12.0 → v3.12.1
+- 参考文件数：95 → 96
+- 新增触发词：精准解盘、验证驱动、PACDARES、倒推验证、复合方法、教条纠错、案例验证、置信度分级、矛盾检查、先验后推
+- 新增"精准解盘方法论"section（核心方法论区域）
+- 元能力新增：精准解盘方法论
+
+### 信息来源
+- K.N. Rao访谈（Journal of Astrology 2010年7/8月刊）
+- V.K. Choudhry：Systems' Approach to Interpreting Horoscopes
+- Shyamasundara Dasa："On the Authenticity of the BPHS"
+- Marc Boney：Case Studies in Vedic Astrology
+- Hart de Fouw & Robert Svoboda：Light on Life
+- Sanjay Rath：Bṛhaspati Jyotiṣa课程体系
+- Dr. A.K. Tripathi："True Astro Secrets"
+
+---
+
 ## v3.12.0（2026-04-25）— 10本PDF书籍知识集成 + Kimi审计报告验证
 
 ### 知识来源
