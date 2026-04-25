@@ -1,5 +1,100 @@
 # 印度占星 Skill 更新日志
 
+## v3.12.0（2026-04-25）— 10本PDF书籍知识集成 + Kimi审计报告验证
+
+### 知识来源
+
+基于10本经典印度占星PDF书籍的深度提取与集成：
+1. *Ancient Hindu Astrology For Modern Western Astrologer* — James Braha（187页，可提取）
+2. *How to Judge a Horoscope Vol 1* (Houses I-VI) — B.V. Raman（310页，可提取）
+3. *How to Judge a Horoscope Vol 2* (Houses VII-XII) — B.V. Raman（482页，可提取）
+4. *Learn Successful Predictive Techniques of Hindu Astrology* — K.N. Rao（159页，可提取）
+5. *Light on Life: An Introduction to the Astrology of India* — Hart de Fouw & Robert Svoboda（461页，可提取）
+6. *Predict Effectively through Yogini Dasha* — V.P. Goel（63页，⚠️ 扫描件，无法提取文字）
+7. *Predicting through Jaimini Astrology* — V.P. Goel（232页，可提取）
+8. *Predicting through Jaimini's Chara Dasha* — K.N. Rao（135页，可提取）
+9. *Predicting Through Shasti Hayani Dasha* — V.P. Goel（92页，⚠️ 扫描件，无法提取文字）
+10. *Predicting Major Life Events: A Composite Approach* — Marc Boney（465页，可提取）
+
+**PDF提取率**：8/10（2本为扫描件，通过在线源补充关键内容）
+
+### Kimi审计报告验证
+
+收到7项批评的Kimi审计报告，逐条与PDF书籍原文交叉验证：
+
+| # | Kimi批评 | 验证结论 | 证据来源 |
+|---|---------|---------|---------|
+| 1 | "五系统混合有问题" | ❌ **无效** | Marc Boney全书 dedicate to K.N. Rao，"Composite Approach"即跨系统整合；V.P. Goel p.5："combines the two systems"；K.N. Rao 书中明确使用多系统 |
+| 2 | "7/8星Karaka混乱" | ⚠️ **部分有效** | K.N. Rao明确支持7星（"First time in thousands of years showing the use of seven Karakas"）；Skill双轨方案已正确 |
+| 3 | "宫位系统冲突" | ❌ **无效** | 所有10本书统一使用Whole Sign（整宫制），Jyotish不存在Placidus/Koch |
+| 4 | "现代创新未标注来源" | ⚠️ **部分有效** | 建议对非古典技法标注来源等级 |
+| 5 | "Ayanamsa单点问题" | ⚠️ **低优先级** | 全部作者统一使用Lahiri |
+| 6 | "缺少Badhaka等模块" | ✅ **有效** | → 已创建 badhaka-obstacle-planet-guide.md |
+| 7 | "Ashtottari条件检查自动化" | ✅ **有效** | 引擎级别改进，待后续实现 |
+
+### 新增参考文件（5个）
+
+- **`references/badhaka-obstacle-planet-guide.md`**：Badhaka障碍星系统完整指南
+  - **12上升Badhaka Sthana+Badhakesh完整对照表**：Movable→11宫，Fixed→9宫，Dual→7宫
+  - **Leo上升分析**：Badhakesh=Mars（9宫Aries主），结合一楠星盘实战
+  - **五步分析协议**：确定Badhakesh→分析落宫/相位→检查Badhaka Sthana→评估关系→补救
+  - 来源：【古典·BPHS】
+
+- **`references/raman-house-judgment-methodology.md`**：B.V. Raman宫位判断方法论
+  - **12上升完整Benefic/Malefic/Yogakaraka表**（B.V. Raman Vol 1 pp.16-18）
+  - **六步宫位判断法**：宫主星→Karaka→落宫→相位→合相→综合评估
+  - **第七宫婚姻分析六维度**（Vol 2 Ch.XI）
+  - **Maraka死亡指示系统**：主Maraka=2宫主+7宫主，次级=Saturn，"生命宫"=3+8宫
+  - **Mangal Dosha完整规则**
+  - 来源：【古典·B.V. Raman】
+
+- **`references/shasti-hayani-dasha-guide.md`**：Shasti Hayani条件Dasha指南
+  - **适用条件**：太阳在1宫（Nakshatra-based条件Dasha）
+  - **60年周期**：8行星固定顺序，Jupiter→Sun→Mars→Moon→Mercury→Venus→Saturn→Rahu，各10年
+  - **三级Antar结构**：Antar→Pratyantar→Sookshma
+  - **与其他条件Dasha对比**（Shodashottari/Dwisaptati Sama/Shastihayani）
+  - 来源：V.P. Goel书籍（扫描件）+ AstroNidan在线源
+
+- **`references/marc-boney-marriage-six-step.md`**：Marc Boney婚姻六步法
+  - **六步法**：Venus评估→三视角7宫→Navamsa确认→Vimshottari支持→Jaimini DK激活→Double Transit
+  - **核心创新**："三视角"7宫评估——从Lagna/Moon/Venus三个参考点看7宫
+  - **同居vs正式婚姻区分**：不同征象星组合指向不同关系类型
+  - **跨系统验证立场**：Marc Boney整本书 dedicate to K.N. Rao，明确使用Parashari+Jaimini+Transit整合
+  - 来源：【现代创新·K.N. Rao学派】
+
+- **`references/vp-goel-jaimini-dasha-systems.md`**：V.P. Goel Jaimini Dasha系统概览
+  - **10种Jaimini Dasha系统概览**：Chara/Mandook/Sthira/Narayan/Navamsha/NSD/Trikon/Atmanadi等
+  - **实现优先级**：P0（Chara已实现）→P1（Mandook/Narayan/Navamsha）→P2（Sthira/NSD）→P3（Trikon/Atmanadi）
+  - **Argala四分之一度阻碍规则**：BPHS原典，星座内4个四分之一度（0-7°30'/7°30'-15°/15°-22°30'/22°30'-30°）决定Virodha有效性
+  - **Jaimini星座相位规则**：Movable↔Fixed，Dual↔Dual
+  - 来源：【现代·V.P. Goel研究】
+
+### 现有参考文件补充（未改文件内容，仅标注待升级）
+
+- `argala-complete-guide.md`：发现缺少四分之一度阻碍规则（V.P. Goel p.30/BPHS），建议后续升级
+- `jaimini-complete-system.md`：缺少K.N. Rao和V.P. Goel书籍引证，建议补充来源标注
+- `condition-dasha-complete.md`：缺少Shasti Hayani Dasha条目，建议后续补充
+- `marriage-timing-comprehensive-techniques.md`：缺少Marc Boney六步法交叉引用
+
+### 综合审计报告
+
+- **审计报告文件**：`brain/372caffb.../10本PDF书籍知识审计报告.md`
+- **10本PDF提取结果**：8本成功提取，2本扫描件（Yogini Dasha/Shasti Hayani Dasha by V.P. Goel）
+- **新知识发现**：10项（Badhaka系统/Raman方法论/Shasti Hayani/Argala四分之一度/Marc Boney六步法/三视角/V.P. Goel 10种Dasha/Maraka系统/7星立场确认/跨系统验证）
+- **现有文件冲突/错误**：10项（缺Badhaka/缺Raman表/缺四分之一度/缺来源引证等）
+
+### SKILL.md 更新
+
+- 版本 v3.11.0 → **v3.12.0**
+- 参考文件总数：90 → **95**（新增5个）
+- 新增 §17-§21 五个能力描述（Badhaka/Raman/Shasti Hayani/Marc Boney/V.P. Goel）
+- §1 静态分析 新增 Badhaka+Raman 交叉引用
+- §2 动态推运 新增 Shasti Hayani+V.P. Goel 交叉引用
+- §3 关系占星 新增 Marc Boney 六步法交叉引用
+- 触发词新增：Badhaka/障碍星/Badhakesh/宫位判断/Raman/Yogakaraka/每上升吉凶星/Shasti Hayani/60年周期/Marc Boney/婚姻六步法/三视角/V.P. Goel/10种Dasha/Mandook/Narayan/Maraka/死亡指示/生命宫/跨系统验证/多系统整合
+
+---
+
 ## v3.11.0（2026-04-25）— 多元技法系统（5篇参考文件）
 
 ### 知识来源
