@@ -1,5 +1,89 @@
 # 印度占星 Skill 更新日志
 
+## v3.10.0（2026-04-25）— BCP自然周期法 + 高地位配偶规则 + DK深度画像扩展
+
+### 知识来源
+
+基于3篇外部公众号文章（非用户原创）的学习与集成：
+1. Tajika占星术 + Bhrigu Chakra Paddhati (BCP) 自然周期法（~23,000字）
+2. 印度占星Jaimini系统的Darakaraka理解和说明（~19,500字）
+3. 高地位配偶与婚后命运积极转变的占星规则与组合（~4,400字）
+
+### 新增参考文件（2个）
+
+- **`references/bhrigu-chakra-paddhati.md`**（~260行）：BCP自然周期法完整指南
+  - **9大自然周期**：Moon(0-12)→Mercury(13-24)→Venus(25-36)→Sun(37-48)→Mars(49-60)→Jupiter(61-72)→Saturn(73-84)→Rahu(85-96)→Ketu(97-108)
+  - **双轨激活法**：A轨（从上升起算对应宫位）+ B轨（从周期统治星位置起算），双轨交汇=最强激活点
+  - **三要素解读法**：宫位→领域 + 宫主星→表现方式 + Karaka→天然征象，三者联动缩窄事件范围
+  - **快查表**：年龄→宫位映射、周期主题速查
+  - **与Dasha系统的关系**：BCP是自然周期（固定），Dasha是业力周期（因人而异），两者互补
+
+- **`references/high-status-spouse-yoga.md`**（~180行）：高地位配偶Yoga判定规则
+  - **3条核心规则**：
+    1. 7宫+7宫主力量 > 上升+上升主力量（D1和D9双盘验证）
+    2. 7宫主在D9形成Rajyoga
+    3. 从7宫起算的Upachaya宫（3/6/10/11）在D1/D9有行星占据
+  - **关键区分**：宫位=环境/背景，宫主星=人的实际能力
+  - **Upachaya创新视角**：从7宫而非1宫起算Upachaya，男性凶星比吉星更有效（Rajas/Tamas原则）
+  - **Sonya Gandhi案例验证**：D1 Cancer Lagna + D9 Aquarius Lagna
+  - **整合映射**：与 spouse-multi-layer-methodology.md 的6层分析衔接
+
+### 扩展参考文件（1个）
+
+- **`references/darakaraka-complete-guide.md`** v1.0 → **v1.1**（332→~500行）
+  - **⭐ §七 8颗行星DK深度画像**：Sun/Moon/Mars/Mercury/Jupiter/Venus/Saturn/Rahu，每颗5维度（性格特质/关系动态/生活方式/挑战与修行/特殊备注+吉凶相位）
+  - **⭐ §八 DK与财富的关系**：5种财富模式（配偶财富支持/共享财务目标/财富来源与增长/伴侣财务态度/逆行DK财富挑战）+ 12宫DK财富速查表
+
+### 配置审计修复
+
+- **SKILL.md版本不一致修复**：frontmatter=3.9.0但body两处仍写3.8.0 → 统一为3.10.0
+- **参考文件计数修复**：声明82个实际更多 → 更新为85个（82+2新增+1补注册）
+- **darakaraka-complete-guide.md补注册**：该文件自v1.0起存在但从未注册到SKILL.md参考列表
+
+### SKILL.md 更新
+
+- 版本 v3.9.0 → **v3.10.0**
+- 新增 §15 BCP自然周期法能力描述（9大周期+双轨激活+三要素解读）
+- §3 关系占星 新增：高地位配偶Yoga判定 + darakaraka-complete-guide.md引用
+- 参考文件总数：82 → **85**（新增bhrigu-chakra-paddhati.md #83 + high-status-spouse-yoga.md #84 + darakaraka-complete-guide.md #85补注册）
+- 触发词新增：BCP、Bhrigu Chakra Paddhati、自然周期、小限法、高地位配偶、Upachaya、DK画像、DK财富
+- 版本不一致修复：更新记录行 + 底部版本号统一为v3.10.0
+
+### 知识盲区修复
+
+1. ❌ 不了解BCP系统 → ✅ 9大自然周期+双轨激活+三要素解读完整覆盖
+2. ❌ 缺少高地位配偶判定规则 → ✅ 3条核心规则+D1/D9验证+Upachaya创新视角
+3. ❌ DK分析停留在12宫位含义 → ✅ 8行星5维度深度画像+DK财富5种模式
+4. ❌ darakaraka-complete-guide.md未注册 → ✅ 补注册并扩展至v1.1
+
+### 未修复的已知问题
+
+- `cmd_dasha()` 不使用 `_add_chart_args()`，需手动传 `--moon-lon`（已知设计问题，记录但未改动代码）
+- `--birthdate` 仅日期精度，无时/分（full-reading 已有内部绕过，独立 dasha 命令暂未改）
+- `--nakshatra` 模式使用近似进度（0.125步长）
+
+---
+
+## v3.9.0（2026-04-25）— Prashna问事占星完整系统
+
+### 新增参考文件（1个）
+
+- **`references/prashna-complete-guide.md`**：Prashna问事占星完整指南（十大核心计算：Arudha Lagna+Trisphuta/Catusphuta/Pancasphuta+Gulika+Prana/Deha/Mrityu Sphuta+35 Sahams+Kunda验证+Chor Graha失物+Mrityu Chakra死亡轮+十步断卦框架+8类问题专题）⭐⭐⭐⭐⭐
+
+### 引擎集成
+
+- 新增 `scripts/prashna.py` 计算引擎
+- `jyotish_engine.py` 新增 `prashna` 子命令（支持 chart/arudha/sphutas/sahams/lost-item/life/kunda 模式）
+- SKILL.md §14 Prashna 问事占星系统（十步断卦框架+十大核心计算模块+适用场景）
+
+### SKILL.md 更新
+
+- 版本 v3.8.0 → **v3.9.0**
+- 参考文件总数：81 → **82**（新增 prashna-complete-guide.md）
+- 触发词新增：Prashna问事占星、问事占星、时卦、卜卦占星、问卜、Horary、问事、提问占星、Arudha Lagna、映像上升、Trisphuta、三重合点、Sphuta、Gulika、古利卡、Saham、敏感点、失物查询、寻物、Chor Graha、盗贼星、Kunda验证、Prasna Marga、十步断卦
+
+---
+
 ## v3.8.0（2026-04-25）— 深度分析方法论体系：5篇实战经验总结
 
 ### 核心升级
