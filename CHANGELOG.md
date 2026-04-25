@@ -1,5 +1,61 @@
 # 印度占星 Skill 更新日志
 
+## v3.11.0（2026-04-25）— 多元技法系统（5篇参考文件）
+
+### 知识来源
+
+基于4篇外部公众号文章（非用户原创）的学习与集成：
+1. 「1印度占星」（~30,400字）：Tithi Lord 30历日关系系统 + Yogi/Ava Yogi入门 + 婚姻计数法 + Arudha Lagna关系分析 + Sanyasi组合
+2. 「2印度占星」（~17,700字）：Pancha Pakshi五鸟择时术 + Navamsa根源冲动 + Yogi/Ava Yogi Dasha/Transit应用 + 宝石激活
+3. 「3印度占星」（~28,800字）：Rashi Tulya Navamsa + Yogi/Ava Yogi综合分析（四因子）+ Nakshatra三计数体系 + Savya/Apasavya
+4. 「4印度占星」（~19,600字）：Bhrigu Pada Dasha + Narayana Dasha D9变体
+
+### 新增参考文件（5个）
+
+- **`references/yogi-avayogi-system.md`**：Yogi/Ava Yogi/Duplicate Yogi行星系统完整指南
+  - **计算方法**：Yogi点（上升+93°20'）→ Nakshatra主星 → 三行星指派
+  - **四大影响因子**：财富领域 / 灵性距离 / 社交圈类型 / 支持者类型
+  - **特殊判定**：上升与Yogi同Nakshatra=天生富裕业力；Dasha/Transit激活机制
+  - **宝石疗法**：Yogi宝石→推荐；Ava Yogi宝石→严禁
+  - **Trump/查尔斯案例** + 与Tithi Lord/Dasha/Navamsa/Argala/AV整合
+
+- **`references/tithi-lord-relationship-system.md`**：Tithi Lord关系影响系统
+  - **30 Tithi分配表**（8行星循环，Ketu排除）
+  - **8种关系模式**：Sun=家庭支配型 / Moon=善变型 / Mars=热情独居矛盾型 / Mercury=青春智力型 / Jupiter=道德家庭型 / Venus=欲望美感型 / Saturn=延迟成熟型 / Rahu=非传统型
+  - **Sanjay Rath"水龙头"理论**：Tithi Lord控制Jala（水元素）=情感流动模式
+  - **整合**：Yogi交叉 / Dasha配合 / Navamsa配合 / Arudha Lagna内外分析
+
+- **`references/rashi-tulya-navamsa-root-impulse.md`**：Rashi Tulya Navamsa与根源冲动系统
+  - **Rashi Tulya Navamsa**：D1位置投射到D9坐标系，保持星座位置不变
+  - **7行星根源冲动完整表**：太阳→自尊激励 / 月亮→快乐来源 / 火星→愤怒触发 / 水星→学习动机 / 木星→智慧方向 / 金星→欲望模式 / 土星→恐惧责任
+  - **经典组合**：金星在火星Navamsa=无法满足的性欲 / 金星在土星Navamsa=孤独/同性倾向
+  - **Navamsa分类规则**：火象→教育/孩子/名声；水象→不利健康/财富/名声
+
+- **`references/bhrigu-pada-dasha-marriage-counting.md`**：Bhrigu Pada Dasha与婚姻计数法
+  - **Bhrigu Pada Dasha**：行星推进法（Progression），不同于BCP固定周期，专用于婚姻时机
+  - **Narayana Dasha D9变体**：在D9上应用Narayana Dasha得到婚姻专用时间线
+  - **婚姻计数法**（Sanjay Rath秘传）：7宫主在D1的星座(A)→D9的星座(B)，从A数到B=关系数量
+  - **Parivartana特殊处理**：行星交换需重新计算
+  - **"婚姻"定义**：持续一年以上的认真关系
+
+- **`references/pancha-pakshi-nakshatra-systems.md`**：Pancha Pakshi五鸟择时术+Nakshatra三体系+Savya/Apasavya
+  - **Pancha Pakshi**：泰米尔传统择时术（Sri K N Rao推荐），5种鸟×5时段×高/低振动频率
+  - **Nakshatra三计数体系**：Ashwinādi（创造/Srishti）/ Krittikādi（维持/Sthiti，Vimshottari）/ Ardrādi（毁灭/Samhāra）
+  - **Savya/Apasavya**：27 Nakshatra每3个一组交替顺行/逆行（Vishnu三步法则）
+  - **三系统协同**：日常择时/婚姻/创业/疾病场景的应用映射
+
+### SKILL.md 更新
+- 版本号：3.10.0 → 3.11.0（frontmatter + 更新记录 + 底部版本三处同步）
+- 参考文件计数：85 → 90
+- 新增 §16 多元技法系统（5个子节：Yogi系统 / Tithi Lord / RTN根源冲动 / Bhrigu Pada Dasha / Pancha Pakshi）
+- 触发词扩展：Yogi / Ava Yogi / Tithi Lord / 根源冲动 / Rashi Tulya Navamsa / Bhrigu Pada Dasha / 婚姻计数 / Pancha Pakshi / 五鸟择时 / Nakshatra计数体系 / Savya/Apasavya 等
+- 能力描述扩展：追加 Yogi/Ava Yogi行星系统 / Tithi Lord关系模式 / RTN根源冲动 / Bhrigu Pada Dasha婚姻推进法 / Pancha Pakshi五鸟择时术 / Nakshatra三计数体系 / Savya/Apasavya顺逆星宿
+
+### 知识审计发现
+- **P0 全新知识（7项）**：Yogi/Ava Yogi行星系统、Pancha Pakshi五鸟择时术、Rashi Tulya Navamsa、Navamsa Root Impulse根源冲动、Bhrigu Pada Dasha、婚姻计数法、Nakshatra三计数体系
+- **P1 需系统化（2项）**：Tithi Lord关系影响、Savya/Apasavya星宿分组
+- **P2 已覆盖（1项）**：Sahams敏感点（v3.9.0 prashna-complete-guide.md 已覆盖）→ 无需新增
+
 ## v3.10.0（2026-04-25）— BCP自然周期法 + 高地位配偶规则 + DK深度画像扩展
 
 ### 知识来源
